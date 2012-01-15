@@ -51,10 +51,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Collections\EnumerableExtensions.cs" />
+    <Compile Include="IGuidGenerator.cs" />
     <Compile Include="IO\FileSystem.cs" />
     <Compile Include="IO\IDirectory.cs" />
     <Compile Include="IO\IFile.cs" />
     <Compile Include="IO\IFileSystem.cs" />
+    <Compile Include="Parser\ProjectInfo.cs" />
+    <Compile Include="Parser\ProjectParser.cs" />
     <Compile Include="Parser\ProjectReference.cs" />
     <Compile Include="Parser\ProjectReferenceCollection.cs" />
     <Compile Include="Parser\ReferenceParser.cs" />
