@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
+using NoSln.Model;
 
 namespace NoSln.Parser
 {
@@ -11,17 +12,14 @@ namespace NoSln.Parser
 
         public ProjectReferenceCollection Parse(string file)
         {
-            return Parse(file.Split(new [] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries));
+            return Parse(file.GetLines());
         }
 
         public ProjectReferenceCollection Parse(IEnumerable<string> lines)
         {
-            return new ProjectReferenceCollection(lines
-                                                      .Where(x => !string.IsNullOrWhiteSpace(x))
-                                                      .Select(x => x.Trim())
-                                                      .Where(x => !x.StartsWith("#"))
-                                                      .Select(x => ReferenceLineExpression.Match(x))
-                                                      .Select(CreateReference));
+            return new ProjectReferenceCollection(lines.SkipEmptyOrCommentedLines()
+                                                       .Select(x => ReferenceLineExpression.Match(x))
+                                                       .Select(CreateReference));
         }
 
         static ProjectReference CreateReference(Match match)

@@ -2,11 +2,21 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
+using Machine.Specifications.Annotations;
+using NoSln.Model;
 
 namespace NoSln.Parser
 {
     public class ProjectParser
     {
+        readonly IGuidGenerator guidGenerator;
+
+        public ProjectParser([NotNull] IGuidGenerator guidGenerator)
+        {
+            if (guidGenerator == null) throw new ArgumentNullException("guidGenerator");
+            this.guidGenerator = guidGenerator;
+        }
+
         static readonly Regex ProjectRegex = new Regex(@"([a-z]+):\s*(.+)", RegexOptions.IgnoreCase);
         public ProjectInfo Parse(string projectFile)
         {
@@ -16,15 +26,15 @@ namespace NoSln.Parser
                 .ToDictionary(x => x.Name, x => x.Value, StringComparer.InvariantCultureIgnoreCase);
 
             return new ProjectInfo(GetValue(values, "Name"),
-                                   GetValue(values, "OutputType"),
+                                   GetValue(values, "OutputType", ifNull: "Library"),
                                    GetValue(values, "Namespace"),
-                                   Guid.Parse(GetValue(values, "ProjectGuid")));
+                                   Guid.Parse(GetValue(values, "ProjectGuid", ifNull: guidGenerator.Generate().ToString())));
         }
 
         private static string GetValue(IDictionary<string, string> values, string key, bool required = true, string ifNull = null)
         {
             string value;
-            if (!values.TryGetValue(key, out value) && required)
+            if (!values.TryGetValue(key, out value) && required && ifNull == null)
             {
                 throw new KeyNotFoundException(string.Format("Cannot find {0} in the project file, this field is required", key));
             }

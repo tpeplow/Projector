@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using NoSln.Collections;
 
-namespace NoSln.Parser
+namespace NoSln.Model
 {
     public class ProjectReferenceCollection : IEnumerable<ProjectReference>
     {

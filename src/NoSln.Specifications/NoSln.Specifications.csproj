@@ -52,8 +52,7 @@
     <Compile Include="IO\when_reading_from_the_file_system.cs" />
     <Compile Include="IO\TestDirectory.cs" />
     <Compile Include="IO\TestFile.cs" />
-    <Compile Include="Parser\ProjectInfo.cs" />
-    <Compile Include="Parser\ProjectParser.cs" />
+    <Compile Include="Parser\IgnoreFileParserSpecifications.cs" />
     <Compile Include="Parser\ProjectParserSpecification.cs" />
     <Compile Include="Parser\ReferenceParserSpecifications.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

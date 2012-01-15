@@ -1,6 +1,8 @@
 ﻿using System;
 using Auto.Moq;
 using Machine.Specifications;
+using NoSln.Model;
+using NoSln.Parser;
 
 namespace NoSln.Specifications.Parser
 {

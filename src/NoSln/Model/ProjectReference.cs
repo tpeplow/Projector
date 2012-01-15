@@ -1,7 +1,7 @@
 using System;
 using Machine.Specifications.Annotations;
 
-namespace NoSln.Parser
+namespace NoSln.Model
 {
     public class ProjectReference
     {
