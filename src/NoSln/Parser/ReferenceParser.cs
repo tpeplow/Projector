@@ -6,7 +6,7 @@ using NoSln.Model;
 
 namespace NoSln.Parser
 {
-    public class ReferenceParser
+    public class ReferenceParser : IFileParser
     {
         private static readonly Regex ReferenceLineExpression = new Regex(@"([a-z\._]+)(?: ([a-z\.\\ ]+)){0,1}", RegexOptions.IgnoreCase);
 
@@ -15,7 +15,7 @@ namespace NoSln.Parser
             return Parse(file.GetLines());
         }
 
-        public ProjectReferenceCollection Parse(IEnumerable<string> lines)
+        ProjectReferenceCollection Parse(IEnumerable<string> lines)
         {
             return new ProjectReferenceCollection(lines.SkipEmptyOrCommentedLines()
                                                        .Select(x => ReferenceLineExpression.Match(x))
@@ -25,6 +25,11 @@ namespace NoSln.Parser
         static ProjectReference CreateReference(Match match)
         {
             return new ProjectReference(match.Groups[1].Value, match.Groups[2].Value);
+        }
+
+        void IFileParser.Parse(string file, CodeFolder codeFolder)
+        {
+            codeFolder.References = Parse(file);
         }
     }
 }

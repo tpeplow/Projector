@@ -38,9 +38,6 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Machine.Specifications">
-      <HintPath>..\..\lib\Machine.Specifications.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -51,14 +48,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Collections\EnumerableExtensions.cs" />
+    <Compile Include="Model\Solution.cs" />
+    <Compile Include="Parser\IFileParser.cs" />
     <Compile Include="IGuidGenerator.cs" />
     <Compile Include="IO\FileSystem.cs" />
     <Compile Include="IO\IDirectory.cs" />
     <Compile Include="IO\IFile.cs" />
     <Compile Include="IO\IFileSystem.cs" />
+    <Compile Include="Model\CodeFolder.cs" />
     <Compile Include="Model\FileInclusionPolicy.cs" />
     <Compile Include="Model\ProjectInfo.cs" />
     <Compile Include="Parser\IgnoreFileParser.cs" />
+    <Compile Include="Parser\ParserRegistry.cs" />
     <Compile Include="Parser\ProjectParser.cs" />
     <Compile Include="Model\ProjectReference.cs" />
     <Compile Include="Model\ProjectReferenceCollection.cs" />

@@ -2,16 +2,15 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
-using Machine.Specifications.Annotations;
 using NoSln.Model;
 
 namespace NoSln.Parser
 {
-    public class ProjectParser
+    public class ProjectParser : IFileParser
     {
         readonly IGuidGenerator guidGenerator;
 
-        public ProjectParser([NotNull] IGuidGenerator guidGenerator)
+        public ProjectParser(IGuidGenerator guidGenerator)
         {
             if (guidGenerator == null) throw new ArgumentNullException("guidGenerator");
             this.guidGenerator = guidGenerator;
@@ -39,6 +38,11 @@ namespace NoSln.Parser
                 throw new KeyNotFoundException(string.Format("Cannot find {0} in the project file, this field is required", key));
             }
             return value ?? ifNull;
+        }
+
+        void IFileParser.Parse(string file, CodeFolder codeFolder)
+        {
+            codeFolder.Project = Parse(file);
         }
     }
 }

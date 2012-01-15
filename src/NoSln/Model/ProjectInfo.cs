@@ -1,11 +1,9 @@
 using System;
-using Machine.Specifications.Annotations;
-
 namespace NoSln.Model
 {
     public class ProjectInfo
     {
-        public ProjectInfo([NotNull] string name, [NotNull] string outputType, [NotNull] string @namespace, Guid guid)
+        public ProjectInfo(string name, string outputType, string @namespace, Guid guid)
         {
             if (name == null) throw new ArgumentNullException("name");
             if (outputType == null) throw new ArgumentNullException("outputType");

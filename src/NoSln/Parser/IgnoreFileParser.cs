@@ -3,14 +3,14 @@ using NoSln.Model;
 
 namespace NoSln.Parser
 {
-    public class IgnoreFileParser
+    public class IgnoreFileParser : IFileParser
     {
         public FileInclusionPolicy Parse(string ignoreFile)
         {
             return Parse(ignoreFile.GetLines());
         }
 
-        public FileInclusionPolicy Parse(IEnumerable<string> lines)
+        FileInclusionPolicy Parse(IEnumerable<string> lines)
         {
             var fileInclusionPolicy = new FileInclusionPolicy();
             foreach (var line in lines.SkipEmptyOrCommentedLines())
@@ -22,6 +22,11 @@ namespace NoSln.Parser
             }
 
             return fileInclusionPolicy;
+        }
+
+        void IFileParser.Parse(string file, CodeFolder codeFolder)
+        {
+            codeFolder.FileInclusionPolicy = Parse(file);
         }
     }
 }
