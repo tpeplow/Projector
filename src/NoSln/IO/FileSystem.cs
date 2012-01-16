@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 
 namespace NoSln.IO
@@ -16,6 +17,11 @@ namespace NoSln.IO
             return System.IO.Directory.GetDirectories(path).Select(x => new Directory(x));
         }
 
+        public IDirectory GetDirectory(string path)
+        {
+            return new Directory(path);
+        }
+
         private class Directory : IDirectory
         {
             public Directory(string path)
@@ -24,6 +30,11 @@ namespace NoSln.IO
             }
 
             public string Path { get; private set; }
+
+            public string Name
+            {
+                get { return System.IO.Path.GetFileName(Path); }
+            }
 
             public IEnumerable<IFile> Files
             {
@@ -45,6 +56,11 @@ namespace NoSln.IO
             }
 
             public string FilePath { get; private set; }
+
+            public string FileName
+            {
+                get { return Path.GetFileName(FilePath); }
+            } 
 
             public string Contents
             {

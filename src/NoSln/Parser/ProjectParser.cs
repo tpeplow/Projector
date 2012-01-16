@@ -40,9 +40,9 @@ namespace NoSln.Parser
             return value ?? ifNull;
         }
 
-        void IFileParser.Parse(string file, CodeFolder codeFolder)
+        void IFileParser.Parse(string file, CodeDirectory codeDirectory)
         {
-            codeFolder.Project = Parse(file);
+            codeDirectory.Project = Parse(file);
         }
     }
 }

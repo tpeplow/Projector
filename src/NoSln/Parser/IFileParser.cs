@@ -4,6 +4,6 @@ namespace NoSln.Parser
 {
     public interface IFileParser
     {
-        void Parse(string file, CodeFolder codeFolder);
+        void Parse(string file, CodeDirectory codeDirectory);
     }
 }

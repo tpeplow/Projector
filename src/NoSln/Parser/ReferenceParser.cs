@@ -27,9 +27,9 @@ namespace NoSln.Parser
             return new ProjectReference(match.Groups[1].Value, match.Groups[2].Value);
         }
 
-        void IFileParser.Parse(string file, CodeFolder codeFolder)
+        void IFileParser.Parse(string file, CodeDirectory codeDirectory)
         {
-            codeFolder.References = Parse(file);
+            codeDirectory.References = Parse(file);
         }
     }
 }

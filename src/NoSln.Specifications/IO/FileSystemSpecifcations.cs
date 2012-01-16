@@ -13,7 +13,7 @@ namespace NoSln.Specifications.IO
 
         Establish context = () =>
                                         {
-                                            fileSystem = new NoSln.IO.FileSystem();
+                                            fileSystem = new FileSystem();
                                             Directory.CreateDirectory("temp");
                                             File.WriteAllText("temp/hello.txt", "hello world");
                                             Directory.CreateDirectory("temp/child");
@@ -24,9 +24,13 @@ namespace NoSln.Specifications.IO
 
         It should_list_all_directories = () => result.ShouldNotBeNull();
 
+        It should_list_directory_names = () => result.Name.ShouldEqual("temp");
+
         It should_list_sub_directories = () => result.Directories.First().Path.EndsWith("child").ShouldBeTrue();
 
         It should_list_files = () => result.Files.First().FilePath.EndsWith("hello.txt");
+
+        It should_list_file_names = () => result.Files.First().FileName.Equals("hello.txt");
 
         It should_read_file_contents = () => result.Files.First().Contents.ShouldEqual("hello world");
 

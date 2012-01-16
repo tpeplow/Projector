@@ -3,7 +3,12 @@ using System.Collections.Generic;
 
 namespace NoSln.Parser
 {
-    public class ParserRegistry
+    public interface IParserRegistry
+    {
+        IFileParser GetParserForFile(string fileName);
+    }
+
+    public class ParserRegistry : IParserRegistry
     {
         static readonly Dictionary<string, IFileParser> Parsers = new Dictionary<string, IFileParser>(StringComparer.InvariantCultureIgnoreCase)
                                                                       {

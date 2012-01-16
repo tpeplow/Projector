@@ -24,9 +24,9 @@ namespace NoSln.Parser
             return fileInclusionPolicy;
         }
 
-        void IFileParser.Parse(string file, CodeFolder codeFolder)
+        void IFileParser.Parse(string file, CodeDirectory codeDirectory)
         {
-            codeFolder.FileInclusionPolicy = Parse(file);
+            codeDirectory.FileInclusionPolicy = Parse(file);
         }
     }
 }

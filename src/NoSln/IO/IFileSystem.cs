@@ -6,5 +6,6 @@ namespace NoSln.IO
     {
         IEnumerable<IFile> GetFilesInFolder(string path);
         IEnumerable<IDirectory> GetDirectories(string path);
+        IDirectory GetDirectory(string path);
     }
 }
