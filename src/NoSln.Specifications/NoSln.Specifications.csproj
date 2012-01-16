@@ -52,11 +52,12 @@
     <Compile Include="IO\FileSystemSpecifcations.cs" />
     <Compile Include="IO\TestDirectory.cs" />
     <Compile Include="IO\TestFile.cs" />
+    <Compile Include="IO\WildcardMatchingSpecifications.cs" />
     <Compile Include="Parser\IgnoreFileParserSpecifications.cs" />
     <Compile Include="Parser\ParserRegistrySpecifications.cs" />
     <Compile Include="Parser\ProjectParserSpecification.cs" />
     <Compile Include="Parser\ReferenceParserSpecifications.cs" />
-    <Compile Include="Parser\SolutionParserSpecifications.cs" />
+    <Compile Include="Parser\SolutionBuilderSpecifications.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
