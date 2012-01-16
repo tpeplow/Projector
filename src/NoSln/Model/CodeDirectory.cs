@@ -22,7 +22,7 @@ namespace NoSln.Model
         }
 
         public ProjectInfo Project { get; set; }
-        public ProjectReferenceCollection References { get; set; }
+        public ReferenceCollection References { get; set; }
         public FileInclusionPolicy FileInclusionPolicy { get; set; }
         public IEnumerable<IFile> Files { get; private set; }
         public IEnumerable<CodeDirectory> Directories { get; private set; }

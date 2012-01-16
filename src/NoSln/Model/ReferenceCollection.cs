@@ -4,18 +4,18 @@ using NoSln.Collections;
 
 namespace NoSln.Model
 {
-    public class ProjectReferenceCollection : IEnumerable<ProjectReference>
+    public class ReferenceCollection : IEnumerable<AssemblyReference>
     {
-        readonly IDictionary<string, ProjectReference> references = new Dictionary<string, ProjectReference>();
+        readonly IDictionary<string, AssemblyReference> references = new Dictionary<string, AssemblyReference>();
 
-        public ProjectReferenceCollection(IEnumerable<ProjectReference> references)
+        public ReferenceCollection(IEnumerable<AssemblyReference> references)
         {
             references.Each(Add);
         }
 
-        public void Add(ProjectReference projectReference)
+        public void Add(AssemblyReference assemblyReference)
         {
-            references.Add(projectReference.Name, projectReference);
+            references.Add(assemblyReference.Name, assemblyReference);
         }
 
         public bool Contains(string referenceName)
@@ -23,12 +23,12 @@ namespace NoSln.Model
             return references.ContainsKey(referenceName);
         }
 
-        public ProjectReference this[string referenceName]
+        public AssemblyReference this[string referenceName]
         {
             get { return references[referenceName]; }
         }
 
-        public IEnumerator<ProjectReference> GetEnumerator()
+        public IEnumerator<AssemblyReference> GetEnumerator()
         {
             return references.Values.GetEnumerator();
         }

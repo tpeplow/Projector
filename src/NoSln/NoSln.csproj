@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Collections\EnumerableExtensions.cs" />
+    <Compile Include="Model\WildcardMatcher.cs" />
     <Compile Include="Parser\IFileParser.cs" />
     <Compile Include="IGuidGenerator.cs" />
     <Compile Include="IO\FileSystem.cs" />
@@ -60,8 +61,8 @@
     <Compile Include="Parser\IgnoreFileParser.cs" />
     <Compile Include="Parser\ParserRegistry.cs" />
     <Compile Include="Parser\ProjectParser.cs" />
-    <Compile Include="Model\ProjectReference.cs" />
-    <Compile Include="Model\ProjectReferenceCollection.cs" />
+    <Compile Include="Model\AssemblyReference.cs" />
+    <Compile Include="Model\ReferenceCollection.cs" />
     <Compile Include="Parser\ReferenceParser.cs" />
     <Compile Include="Parser\SolutionBuilder.cs" />
     <Compile Include="Program.cs" />
@@ -71,6 +72,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Model\MSBuild\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

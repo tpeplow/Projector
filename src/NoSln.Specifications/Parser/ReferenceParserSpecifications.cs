@@ -10,7 +10,7 @@ namespace NoSln.Specifications.Parser
     public class when_parsing_references
     {
         static ReferenceParser referenceParser;
-        static ProjectReferenceCollection referenceCollection;
+        static ReferenceCollection referenceCollection;
         static int expectedReferences = 4;
 
         Establish context = () => 
