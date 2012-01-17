@@ -4,7 +4,7 @@ using NoSln.Model.Output;
 
 namespace NoSln.OutputPipeline
 {
-    public class SolutionStructureContributor : IOutputPipelineContributor
+    public class SolutionStructureStep : IOutputPipelineStep
     {
         public void Execute(Solution solution, CodeDirectory codeDirectory)
         {

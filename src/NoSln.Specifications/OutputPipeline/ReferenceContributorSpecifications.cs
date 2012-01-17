@@ -7,10 +7,10 @@ using NoSln.Specifications.Model;
 
 namespace NoSln.Specifications.OutputPipeline
 {
-    [Subject(typeof(ReferenceContributor))]
+    [Subject(typeof(ReferenceStep))]
     public class when_building_references
     {
-        static ReferenceContributor referenceContributor;
+        static ReferenceStep referenceStep;
         static CodeDirectory codeDirectory;
         static Solution solution;
 
@@ -24,10 +24,10 @@ namespace NoSln.Specifications.OutputPipeline
                                     codeDirectory.AddProject("ProjectA", "External");
                                     codeDirectory.AddProject("ProjectB", "ProjectA");
 
-                                    referenceContributor = new ReferenceContributor();
+                                    referenceStep = new ReferenceStep();
                                 };
 
-        Because of = () => referenceContributor.Execute(solution, codeDirectory);
+        Because of = () => referenceStep.Execute(solution, codeDirectory);
 
         It should_add_assembly_reference_to_external_dependencies = ()
             => solution.GetProject("ProjectA").AssemblyReferences.Select(x => x.Name).ShouldContain("External");

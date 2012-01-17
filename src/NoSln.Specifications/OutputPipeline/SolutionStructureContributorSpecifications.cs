@@ -8,24 +8,24 @@ using NoSln.Specifications.Model;
 
 namespace NoSln.Specifications.OutputPipeline
 {
-    [Subject(typeof(SolutionStructureContributor))]
+    [Subject(typeof(SolutionStructureStep))]
     public class when_building_solution_structure_from_code_directory
     {
         static Solution solution;
         static Project mappedProject;
         static CodeDirectory codeDirectory;
-        static SolutionStructureContributor solutionStructureContributor;
+        static SolutionStructureStep solutionStructureStep;
 
         Establish context = () => 
                                 {
                                     codeDirectory = CreateDirectoryStructure();
                                     solution = new Solution();
-                                    solutionStructureContributor = new SolutionStructureContributor();
+                                    solutionStructureStep = new SolutionStructureStep();
                                 };
 
         Because of = () =>
                          {
-                             solutionStructureContributor.Execute(solution, codeDirectory);
+                             solutionStructureStep.Execute(solution, codeDirectory);
                              mappedProject = solution.Projects.First();
                          };
 

@@ -3,7 +3,7 @@ using NoSln.Model.Output;
 
 namespace NoSln.OutputPipeline
 {
-    public interface IOutputPipelineContributor
+    public interface IOutputPipelineStep
     {
         void Execute(Solution solution, CodeDirectory codeDirectory);
     }

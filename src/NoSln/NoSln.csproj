@@ -54,9 +54,9 @@
     <Compile Include="Model\Output\ProjectReference.cs" />
     <Compile Include="Model\Output\Solution.cs" />
     <Compile Include="Model\WildcardMatcher.cs" />
-    <Compile Include="OutputPipeline\IOutputPipelineContributor.cs" />
-    <Compile Include="OutputPipeline\ReferenceContributor.cs" />
-    <Compile Include="OutputPipeline\SolutionStructureContributor.cs" />
+    <Compile Include="OutputPipeline\IOutputPipelineStep.cs" />
+    <Compile Include="OutputPipeline\ReferenceStep.cs" />
+    <Compile Include="OutputPipeline\SolutionStructureStep.cs" />
     <Compile Include="Parser\IFileParser.cs" />
     <Compile Include="IGuidGenerator.cs" />
     <Compile Include="IO\FileSystem.cs" />
