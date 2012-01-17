@@ -8,6 +8,10 @@ namespace NoSln.Model
     {
         readonly IDictionary<string, AssemblyReference> references = new Dictionary<string, AssemblyReference>();
 
+        public ReferenceCollection()
+        {
+        }
+
         public ReferenceCollection(IEnumerable<AssemblyReference> references)
         {
             references.Each(Add);

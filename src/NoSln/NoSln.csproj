@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Collections\EnumerableExtensions.cs" />
+    <Compile Include="Model\ICodeDirectoryVisitor.cs" />
     <Compile Include="Model\WildcardMatcher.cs" />
     <Compile Include="Parser\IFileParser.cs" />
     <Compile Include="IGuidGenerator.cs" />
