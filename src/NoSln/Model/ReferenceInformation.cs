@@ -2,9 +2,9 @@ using System;
 
 namespace NoSln.Model
 {
-    public class AssemblyReference
+    public class ReferenceInformation
     {
-        public AssemblyReference(string name, string hintPath = null)
+        public ReferenceInformation(string name, string hintPath = null)
         {
             if (string.IsNullOrWhiteSpace(name)) throw new ArgumentNullException("name");
             Name = name;

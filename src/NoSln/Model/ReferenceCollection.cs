@@ -1,25 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
-using NoSln.Collections;
 
 namespace NoSln.Model
 {
-    public class ReferenceCollection : IEnumerable<AssemblyReference>
+    public class ReferenceCollection : IEnumerable<ReferenceInformation>
     {
-        readonly IDictionary<string, AssemblyReference> references = new Dictionary<string, AssemblyReference>();
+        readonly IDictionary<string, ReferenceInformation> references = new Dictionary<string, ReferenceInformation>();
 
-        public ReferenceCollection()
+        public void Add(ReferenceInformation referenceInformation)
         {
-        }
-
-        public ReferenceCollection(IEnumerable<AssemblyReference> references)
-        {
-            references.Each(Add);
-        }
-
-        public void Add(AssemblyReference assemblyReference)
-        {
-            references.Add(assemblyReference.Name, assemblyReference);
+            references.Add(referenceInformation.Name, referenceInformation);
         }
 
         public bool Contains(string referenceName)
@@ -27,12 +17,12 @@ namespace NoSln.Model
             return references.ContainsKey(referenceName);
         }
 
-        public AssemblyReference this[string referenceName]
+        public ReferenceInformation this[string referenceName]
         {
             get { return references[referenceName]; }
         }
 
-        public IEnumerator<AssemblyReference> GetEnumerator()
+        public IEnumerator<ReferenceInformation> GetEnumerator()
         {
             return references.Values.GetEnumerator();
         }

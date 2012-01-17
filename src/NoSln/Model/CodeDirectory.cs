@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using NoSln.Collections;
 using NoSln.IO;
 
 namespace NoSln.Model
@@ -41,14 +40,6 @@ namespace NoSln.Model
         {
             if (codeDirectory == null) throw new ArgumentNullException("codeDirectory");
             directories.Add(codeDirectory);
-        }
-
-        public void AcceptVisitor(ICodeDirectoryVisitor visitor)
-        {
-            if (Project != null) visitor.Visit(Project);
-            References.Each(visitor.Visit);
-            Files.Each(visitor.Visit);
-            Directories.Each(x => x.AcceptVisitor(visitor));
         }
     }
 }

@@ -52,8 +52,10 @@
     <Compile Include="IO\FileSystemSpecifcations.cs" />
     <Compile Include="IO\TestDirectory.cs" />
     <Compile Include="IO\TestFile.cs" />
-    <Compile Include="Model\CodeDirectorySpecifications.cs" />
+    <Compile Include="Model\EntityFactory.cs" />
     <Compile Include="Model\WildcardMatchingSpecifications.cs" />
+    <Compile Include="OutputPipeline\ReferenceContributorSpecifications.cs" />
+    <Compile Include="OutputPipeline\SolutionStructureContributorSpecifications.cs" />
     <Compile Include="Parser\IgnoreFileParserSpecifications.cs" />
     <Compile Include="Parser\ParserRegistrySpecifications.cs" />
     <Compile Include="Parser\ProjectParserSpecification.cs" />
@@ -67,6 +69,7 @@
       <Name>NoSln</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

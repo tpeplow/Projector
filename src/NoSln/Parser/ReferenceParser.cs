@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
+using NoSln.Collections;
 using NoSln.Model;
 
 namespace NoSln.Parser
@@ -10,26 +11,27 @@ namespace NoSln.Parser
     {
         private static readonly Regex ReferenceLineExpression = new Regex(@"([a-z\._]+)(?: ([a-z\.\\ ]+)){0,1}", RegexOptions.IgnoreCase);
 
-        public ReferenceCollection Parse(string file)
+        public void Parse(string file, CodeDirectory codeDirectory)
+        {
+            var references = Parse(file);
+            references.Each(codeDirectory.References.Add);
+        }
+
+        IEnumerable<ReferenceInformation> Parse(string file)
         {
             return Parse(file.GetLines());
         }
 
-        ReferenceCollection Parse(IEnumerable<string> lines)
+        IEnumerable<ReferenceInformation> Parse(IEnumerable<string> lines)
         {
-            return new ReferenceCollection(lines.SkipEmptyOrCommentedLines()
-                                                       .Select(x => ReferenceLineExpression.Match(x))
-                                                       .Select(CreateReference));
+            return lines.SkipEmptyOrCommentedLines()
+                .Select(x => ReferenceLineExpression.Match(x))
+                .Select(CreateReference);
         }
 
-        static AssemblyReference CreateReference(Match match)
+        static ReferenceInformation CreateReference(Match match)
         {
-            return new AssemblyReference(match.Groups[1].Value, match.Groups[2].Value);
-        }
-
-        void IFileParser.Parse(string file, CodeDirectory codeDirectory)
-        {
-            codeDirectory.References = Parse(file);
+            return new ReferenceInformation(match.Groups[1].Value, match.Groups[2].Value);
         }
     }
 }

@@ -11,6 +11,7 @@ namespace NoSln.Specifications.Parser
     {
         static ReferenceParser referenceParser;
         static ReferenceCollection referenceCollection;
+        static CodeDirectory codeDirectory;
         static int expectedReferences = 4;
 
         Establish context = () => 
@@ -18,13 +19,18 @@ namespace NoSln.Specifications.Parser
                                     referenceParser = new ReferenceParser();
                                 };
 
-        Because of = () => referenceCollection = referenceParser.Parse(
-            "System" + Environment.NewLine 
-            + "    " + Environment.NewLine              // ignored
-            + "System.IO" + Environment.NewLine 
-            + " # Ignored"  + Environment.NewLine       // ignored
-            + " ShouldBeTrimmed " + Environment.NewLine
-            + "AReference ..\\Libs\\Some framework\\AReference.dll");
+        Because of = () =>
+                         {
+                             codeDirectory = new CodeDirectory("test", "test");
+                             referenceParser.Parse(
+                                 "System" + Environment.NewLine
+                                 + "    " + Environment.NewLine // ignored
+                                 + "System.IO" + Environment.NewLine
+                                 + " # Ignored" + Environment.NewLine // ignored
+                                 + " ShouldBeTrimmed " + Environment.NewLine
+                                 + "AReference ..\\Libs\\Some framework\\AReference.dll", codeDirectory);
+                             referenceCollection = codeDirectory.References;
+                         };
 
         It should_add_simple_references_such_as_system = () => referenceCollection.Contains("System").ShouldBeTrue();
 

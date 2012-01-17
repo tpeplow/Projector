@@ -24,10 +24,12 @@ namespace NoSln.Parser
                 .Select(x => new {Name = x.Groups[1].Value, Value = x.Groups[2].Value.Trim()})
                 .ToDictionary(x => x.Name, x => x.Value, StringComparer.InvariantCultureIgnoreCase);
 
-            return new ProjectInfo(GetValue(values, "Name"),
+            var projectName = GetValue(values, "Name");
+            return new ProjectInfo(projectName,
                                    GetValue(values, "OutputType", ifNull: "Library"),
                                    GetValue(values, "Namespace"),
-                                   Guid.Parse(GetValue(values, "ProjectGuid", ifNull: guidGenerator.Generate().ToString())));
+                                   Guid.Parse(GetValue(values, "ProjectGuid", ifNull: guidGenerator.Generate().ToString())),
+                                   GetValue(values, "AssemblyName", ifNull: projectName));
         }
 
         private static string GetValue(IDictionary<string, string> values, string key, bool required = true, string ifNull = null)
