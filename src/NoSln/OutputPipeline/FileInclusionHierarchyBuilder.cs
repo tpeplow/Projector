@@ -6,9 +6,16 @@ namespace NoSln.OutputPipeline
 {
     public class FileInclusionHierarchyBuilder
     {
+        readonly IWildcardMatcher wildcardMatcher;
+
+        public FileInclusionHierarchyBuilder(IWildcardMatcher wildcardMatcher)
+        {
+            this.wildcardMatcher = wildcardMatcher;
+        }
+
         public IFileInclusionHierarchy Create(FileInclusionPolicy initalPolicy)
         {
-            return new FileInclusionHierarchy(initalPolicy);
+            return new FileInclusionHierarchy(wildcardMatcher, initalPolicy);
         }
         public IFileInclusionHierarchy Combine(IFileInclusionHierarchy hierarchy, FileInclusionPolicy secondPolicy)
         {
@@ -19,7 +26,7 @@ namespace NoSln.OutputPipeline
             AddFrom(hierarchy.Policy, newPolicy);
             AddFrom(secondPolicy, newPolicy);
 
-            return new FileInclusionHierarchy(newPolicy);
+            return new FileInclusionHierarchy(wildcardMatcher, newPolicy);
         }
 
         static void AddFrom(FileInclusionPolicy from, FileInclusionPolicy to)

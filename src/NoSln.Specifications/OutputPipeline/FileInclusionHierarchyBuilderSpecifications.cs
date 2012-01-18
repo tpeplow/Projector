@@ -1,4 +1,5 @@
-﻿using Machine.Specifications;
+﻿using Auto.Moq;
+using Machine.Specifications;
 using NoSln.Model;
 using NoSln.OutputPipeline;
 using NoSln.Specifications.Model;
@@ -11,16 +12,16 @@ namespace NoSln.Specifications.OutputPipeline
         static IFileInclusionHierarchy initialHierarchy;
         static FileInclusionPolicy policyToCombine;
         static IFileInclusionHierarchy resultantHierarchy;
-        static FileInclusionHierarchyBuilder fileInclusionHierarchyBuilder;
+        static AutoMoq<FileInclusionHierarchyBuilder> fileInclusionHierarchyBuilder;
 
         Establish context = () =>
                                 {
-                                    fileInclusionHierarchyBuilder = new FileInclusionHierarchyBuilder();
-                                    initialHierarchy = fileInclusionHierarchyBuilder.Create(EntityFactory.CreateInclusionPolicy(new[] { "*.dll" }, new [] { "*.cs" }));
+                                    fileInclusionHierarchyBuilder = new AutoMoq<FileInclusionHierarchyBuilder>();
+                                    initialHierarchy = fileInclusionHierarchyBuilder.Object.Create(EntityFactory.CreateInclusionPolicy(new[] { "*.dll" }, new [] { "*.cs" }));
                                     policyToCombine = EntityFactory.CreateInclusionPolicy(new[] { "*.txt" }, new [] { "*.spark" });
                                 };
 
-        Because of = () => { resultantHierarchy = fileInclusionHierarchyBuilder.Combine(initialHierarchy, policyToCombine); };
+        Because of = () => { resultantHierarchy = fileInclusionHierarchyBuilder.Object.Combine(initialHierarchy, policyToCombine); };
 
         It should_combine_excludes_with_parent = () => resultantHierarchy.Policy.ExcludeFilters.ShouldContainOnly("*.dll", "*.txt");
 

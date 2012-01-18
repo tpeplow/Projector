@@ -21,5 +21,7 @@ namespace NoSln.Specifications.OutputPipeline
         It should_match_if_any_file_matches_wildcard_that_uses_an_asterix = () => wildcardMatcher.IsMatch("c:\\somefolder\\dave.dll", "*.dll").ShouldBeTrue();
 
         It should_match_if_a_question_mark_is_used_to_denote_any_character = () => wildcardMatcher.IsMatch("c:\\afile.txt", "a?ile.txt").ShouldBeTrue();
+
+        It should_not_match_end_of_path_asterix_wildcard_with_same_text_path = () => wildcardMatcher.IsMatch("c:\\dlls\abc123.txt", "*.dll").ShouldBeFalse();
     }
 }
