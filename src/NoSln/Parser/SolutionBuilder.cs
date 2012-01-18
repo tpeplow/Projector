@@ -5,7 +5,12 @@ using NoSln.Model;
 
 namespace NoSln.Parser
 {
-    public class SolutionBuilder
+    public interface ISolutionBuilder
+    {
+        CodeDirectory BuildFromPath(string filePath);
+    }
+
+    public class SolutionBuilder : ISolutionBuilder
     {
         readonly IFileSystem fileSystem;
         readonly IParserRegistry parserRegistry;

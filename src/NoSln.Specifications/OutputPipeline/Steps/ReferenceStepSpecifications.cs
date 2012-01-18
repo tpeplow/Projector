@@ -2,10 +2,10 @@
 using Machine.Specifications;
 using NoSln.Model;
 using NoSln.Model.Output;
-using NoSln.OutputPipeline;
+using NoSln.OutputPipeline.Steps;
 using NoSln.Specifications.Model;
 
-namespace NoSln.Specifications.OutputPipeline
+namespace NoSln.Specifications.OutputPipeline.Steps
 {
     [Subject(typeof(ReferenceStep))]
     public class when_building_references

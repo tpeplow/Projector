@@ -8,6 +8,7 @@ namespace NoSln.Parser
 {
     public class ProjectParser : IFileParser
     {
+        static readonly Regex ProjectRegex = new Regex(@"([a-z]+):\s*(.+)", RegexOptions.IgnoreCase);
         readonly IGuidGenerator guidGenerator;
 
         public ProjectParser(IGuidGenerator guidGenerator)
@@ -16,7 +17,6 @@ namespace NoSln.Parser
             this.guidGenerator = guidGenerator;
         }
 
-        static readonly Regex ProjectRegex = new Regex(@"([a-z]+):\s*(.+)", RegexOptions.IgnoreCase);
         public ProjectInfo Parse(string projectFile)
         {
             var values = ProjectRegex.Matches(projectFile)
@@ -25,11 +25,14 @@ namespace NoSln.Parser
                 .ToDictionary(x => x.Name, x => x.Value, StringComparer.InvariantCultureIgnoreCase);
 
             var projectName = GetValue(values, "Name");
-            return new ProjectInfo(projectName,
-                                   GetValue(values, "OutputType", ifNull: "Library"),
-                                   GetValue(values, "Namespace"),
-                                   Guid.Parse(GetValue(values, "ProjectGuid", ifNull: guidGenerator.Generate().ToString())),
-                                   GetValue(values, "AssemblyName", ifNull: projectName));
+            return new ProjectInfo
+                       {
+                           Name = projectName,
+                           OutputType = GetValue(values, "OutputType", ifNull: "Library"),
+                           Namespace = GetValue(values, "Namespace"),
+                           Guid = Guid.Parse(GetValue(values, "ProjectGuid", ifNull: guidGenerator.Generate().ToString())),
+                           AssemblyName = GetValue(values, "AssemblyName", ifNull: projectName)
+                       };
         }
 
         private static string GetValue(IDictionary<string, string> values, string key, bool required = true, string ifNull = null)

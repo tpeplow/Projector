@@ -5,12 +5,12 @@ using Moq;
 using NoSln.Model;
 using NoSln.Model.Output;
 using NoSln.OutputPipeline;
+using NoSln.OutputPipeline.Steps;
 using NoSln.Specifications.IO;
 using NoSln.Specifications.Model;
-using Arg = Moq.It;
 using It = Machine.Specifications.It;
 
-namespace NoSln.Specifications.OutputPipeline
+namespace NoSln.Specifications.OutputPipeline.Steps
 {
     [Subject(typeof(AddFilesPiplineStep))]
     public class when_adding_a_file
@@ -42,7 +42,7 @@ namespace NoSln.Specifications.OutputPipeline
             
             addFilesPiplineStep = new AutoMoq<AddFilesPiplineStep>();
             addFilesPiplineStep.GetMock<IRelativePathGenerator>()
-                               .Setup(x => x.GeneratePath(Arg.IsAny<string>(), Arg.IsAny<string>()))
+                               .Setup(x => x.GeneratePath(Moq.It.IsAny<string>(), Moq.It.IsAny<string>()))
                                .Returns<string, string>((relativeTo, fullPath) => fullPath);
             
             var fileInclusionHierarchy = new Mock<IFileInclusionHierarchy>();

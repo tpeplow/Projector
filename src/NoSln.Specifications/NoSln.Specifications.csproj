@@ -53,12 +53,13 @@
     <Compile Include="IO\TestDirectory.cs" />
     <Compile Include="IO\TestFile.cs" />
     <Compile Include="Model\EntityFactory.cs" />
-    <Compile Include="OutputPipeline\AddFilesPiplineStepSpecifications.cs" />
+    <Compile Include="OutputPipeline\RelativePathGeneratorSpecifications.cs" />
+    <Compile Include="OutputPipeline\Steps\AddFilesPiplineStepSpecifications.cs" />
     <Compile Include="OutputPipeline\FileInclusionHierarchyBuilderSpecifications.cs" />
     <Compile Include="OutputPipeline\FileInclusionHierarchySpecifications.cs" />
     <Compile Include="OutputPipeline\WildcardMatchingSpecifications.cs" />
-    <Compile Include="OutputPipeline\ReferenceStepSpecifications.cs" />
-    <Compile Include="OutputPipeline\SolutionStructureStepSpecifications.cs" />
+    <Compile Include="OutputPipeline\Steps\ReferenceStepSpecifications.cs" />
+    <Compile Include="OutputPipeline\Steps\SolutionStructureStepSpecifications.cs" />
     <Compile Include="Parser\IgnoreFileParserSpecifications.cs" />
     <Compile Include="Parser\ParserRegistrySpecifications.cs" />
     <Compile Include="Parser\ProjectParserSpecification.cs" />

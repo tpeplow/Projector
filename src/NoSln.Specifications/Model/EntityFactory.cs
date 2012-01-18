@@ -16,7 +16,14 @@ namespace NoSln.Specifications.Model
         {
             var projectDirectory = new CodeDirectory(projectName, projectName + "\\path")
                                        {
-                                           Project = new ProjectInfo(projectName, "exe", projectName + ".namespace", Guid.NewGuid(), projectName)
+                                           Project = new ProjectInfo
+                                                         {
+                                                             Name = projectName,
+                                                             OutputType = "exe",
+                                                             Namespace = projectName + ".namespace",
+                                                             Guid = Guid.NewGuid(),
+                                                             AssemblyName = projectName
+                                                         }
                                        };
             foreach (var reference in references)
             {

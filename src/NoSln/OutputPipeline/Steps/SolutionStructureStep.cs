@@ -2,7 +2,7 @@
 using NoSln.Model;
 using NoSln.Model.Output;
 
-namespace NoSln.OutputPipeline
+namespace NoSln.OutputPipeline.Steps
 {
     public class SolutionStructureStep : IOutputPipelineStep
     {
