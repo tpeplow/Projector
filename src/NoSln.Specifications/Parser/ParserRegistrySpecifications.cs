@@ -19,5 +19,7 @@ namespace NoSln.Specifications.Parser
         It should_select_a_reference_parser_for_references_dot_nosln_files = () => parserRegistry.GetParserForFile("references.nosln").ShouldBeOfType<ReferenceParser>();
 
         It should_select_a_ignore_file_parser_for_ignore_dot_nosln_files = () => parserRegistry.GetParserForFile("ignore.nosln").ShouldBeOfType<IgnoreFileParser>();
+
+        It should_select_the_project_template_parser_for_project_templates = () => parserRegistry.GetParserForFile("template.nosln").ShouldBeOfType<ProjectTemplateParser>();
     }
 }

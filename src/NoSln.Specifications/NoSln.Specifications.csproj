@@ -63,6 +63,7 @@
     <Compile Include="Parser\IgnoreFileParserSpecifications.cs" />
     <Compile Include="Parser\ParserRegistrySpecifications.cs" />
     <Compile Include="Parser\ProjectParserSpecification.cs" />
+    <Compile Include="Parser\ProjectTemplateParserSpecifications.cs" />
     <Compile Include="Parser\ReferenceParserSpecifications.cs" />
     <Compile Include="Parser\SolutionBuilderSpecifications.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

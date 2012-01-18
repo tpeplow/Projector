@@ -54,6 +54,7 @@
     <Compile Include="Model\Output\ProjectFile.cs" />
     <Compile Include="Model\Output\ProjectReference.cs" />
     <Compile Include="Model\Output\Solution.cs" />
+    <Compile Include="Model\ProjectTemplate.cs" />
     <Compile Include="OutputPipeline\IOutputPipeline.cs" />
     <Compile Include="OutputPipeline\Steps\AddFilesPiplineStep.cs" />
     <Compile Include="OutputPipeline\FileInclusionHierarchy.cs" />
@@ -78,6 +79,7 @@
     <Compile Include="Parser\ProjectParser.cs" />
     <Compile Include="Model\ReferenceInformation.cs" />
     <Compile Include="Model\ReferenceCollection.cs" />
+    <Compile Include="Parser\ProjectTemplateParser.cs" />
     <Compile Include="Parser\ReferenceParser.cs" />
     <Compile Include="Parser\SolutionBuilder.cs" />
     <Compile Include="Program.cs" />
