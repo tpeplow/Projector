@@ -51,11 +51,14 @@
     <Compile Include="Model\CodeFileCollection.cs" />
     <Compile Include="Model\Output\AssemblyReference.cs" />
     <Compile Include="Model\Output\Project.cs" />
+    <Compile Include="Model\Output\ProjectFile.cs" />
     <Compile Include="Model\Output\ProjectReference.cs" />
     <Compile Include="Model\Output\Solution.cs" />
+    <Compile Include="OutputPipeline\AddFilesPiplineStep.cs" />
     <Compile Include="OutputPipeline\FileInclusionHierarchy.cs" />
     <Compile Include="OutputPipeline\FileInclusionHierarchyBuilder.cs" />
     <Compile Include="OutputPipeline\IFileInclusionHierarchy.cs" />
+    <Compile Include="OutputPipeline\IRelativePathGenerator.cs" />
     <Compile Include="OutputPipeline\WildcardMatcher.cs" />
     <Compile Include="OutputPipeline\IOutputPipelineStep.cs" />
     <Compile Include="OutputPipeline\ReferenceStep.cs" />

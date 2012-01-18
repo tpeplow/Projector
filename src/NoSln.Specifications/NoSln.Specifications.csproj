@@ -53,6 +53,7 @@
     <Compile Include="IO\TestDirectory.cs" />
     <Compile Include="IO\TestFile.cs" />
     <Compile Include="Model\EntityFactory.cs" />
+    <Compile Include="OutputPipeline\AddFilesPiplineStepSpecifications.cs" />
     <Compile Include="OutputPipeline\FileInclusionHierarchyBuilderSpecifications.cs" />
     <Compile Include="OutputPipeline\FileInclusionHierarchySpecifications.cs" />
     <Compile Include="OutputPipeline\WildcardMatchingSpecifications.cs" />

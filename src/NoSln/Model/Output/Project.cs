@@ -7,10 +7,13 @@ namespace NoSln.Model.Output
     {
         readonly List<AssemblyReference> assemblyReferences = new List<AssemblyReference>(); 
         readonly List<ProjectReference> projectReferences = new List<ProjectReference>(); 
+        readonly List<ProjectFile> projectFiles = new List<ProjectFile>(); 
+
         public Project()
         {
             AssemblyReferences = assemblyReferences;
             ProjectReferences = projectReferences;
+            Files = projectFiles;
         }
 
         public string Name { get; set; }
@@ -29,6 +32,8 @@ namespace NoSln.Model.Output
 
         public IEnumerable<ProjectReference> ProjectReferences { get; private set; }
 
+        public IEnumerable<ProjectFile> Files { get; private set; }
+
         public void AddReference(AssemblyReference assemblyReference)
         {
             if (assemblyReference == null) throw new ArgumentNullException("assemblyReference");
@@ -39,6 +44,12 @@ namespace NoSln.Model.Output
         {
             if (projectReference == null) throw new ArgumentNullException("projectReference");
             projectReferences.Add(projectReference);
+        }
+
+        public void AddFile(ProjectFile projectFile)
+        {
+            if (projectFile == null) throw new ArgumentNullException("projectFile");
+            projectFiles.Add(projectFile);
         }
     }
 }

@@ -4,7 +4,13 @@ using NoSln.Model;
 
 namespace NoSln.OutputPipeline
 {
-    public class FileInclusionHierarchyBuilder
+    public interface IFileInclusionHierarchyBuilder
+    {
+        IFileInclusionHierarchy Create(FileInclusionPolicy initalPolicy);
+        IFileInclusionHierarchy Combine(IFileInclusionHierarchy hierarchy, FileInclusionPolicy secondPolicy);
+    }
+
+    public class FileInclusionHierarchyBuilder : IFileInclusionHierarchyBuilder
     {
         readonly IWildcardMatcher wildcardMatcher;
 
