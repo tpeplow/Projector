@@ -6,7 +6,7 @@ namespace NoSln.Parser
     {
         public void Parse(string file, CodeDirectory codeDirectory)
         {
-            codeDirectory.ProjectTemplate = new ProjectTemplate {Contents = file};
+            codeDirectory.ProjectTemplate = file;
         }
     }
 }

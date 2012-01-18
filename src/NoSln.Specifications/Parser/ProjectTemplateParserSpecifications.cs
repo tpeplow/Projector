@@ -21,6 +21,6 @@ namespace NoSln.Specifications.Parser
 
         It should_add_the_template_to_the_code_directory = () => codeDirectory.ProjectTemplate.ShouldNotBeNull();
 
-        It should_set_the_project_template_contents = () => codeDirectory.ProjectTemplate.Contents.ShouldEqual("file contents");
+        It should_set_the_project_template_contents = () => codeDirectory.ProjectTemplate.ShouldEqual("file contents");
     }
 }

@@ -34,6 +34,8 @@ namespace NoSln.Model.Output
 
         public IEnumerable<ProjectFile> Files { get; private set; }
 
+        public ProjectTemplate ProjectTemplate { get; set; }
+
         public void AddReference(AssemblyReference assemblyReference)
         {
             if (assemblyReference == null) throw new ArgumentNullException("assemblyReference");

@@ -44,7 +44,7 @@ namespace NoSln.Specifications.OutputPipeline.Steps
         It should_map_assembly_name = () => mappedProject.AssemblyName.ShouldEqual("ProjectA");
 
         It should_map_guid = () => mappedProject.Guid.ShouldNotEqual(Guid.Empty);
-
+        
         static CodeDirectory CreateDirectoryStructure()
         {
             var codeDirectory = new CodeDirectory("test", ".");

@@ -30,7 +30,7 @@ namespace NoSln.Model
         public string Name { get; private set; }
         public string Path { get; private set; }
 
-        public ProjectTemplate ProjectTemplate { get; set; }
+        public string ProjectTemplate { get; set; }
 
         public void AddFile(IFile file)
         {
