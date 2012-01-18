@@ -1,8 +1,13 @@
 using System.Text.RegularExpressions;
 
-namespace NoSln.Model
+namespace NoSln.OutputPipeline
 {
-    public class WildcardMatcher
+    public interface IWildcardMatcher
+    {
+        bool IsMatch(string filePath, string wildcard);
+    }
+
+    public class WildcardMatcher : IWildcardMatcher
     {
         public bool IsMatch(string filePath, string wildcard)
         {
