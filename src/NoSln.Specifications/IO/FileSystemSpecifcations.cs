@@ -38,4 +38,22 @@ namespace NoSln.Specifications.IO
 
         Cleanup remove_files = () => Directory.Delete("temp", true);
     }
+
+    [Subject(typeof(FileSystem))]
+    public class when_writing_a_file_to_the_file_system
+    {
+        static FileSystem fileSystem;
+        Establish context = () =>
+                                {
+                                    Directory.CreateDirectory("temp");
+                                    fileSystem = new FileSystem();
+                                };
+
+        Because of = () => fileSystem.WriteFile("temp/some file.txt", "hello world");
+
+        It should_write_the_file_to_the_correct_path =
+            () => File.ReadAllText("temp/some file.txt").ShouldEqual("hello world");
+
+        Cleanup remove_files = () => Directory.Delete("temp", true);
+    }
 }
