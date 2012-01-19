@@ -13,7 +13,7 @@ namespace NoSln.Specifications.Parser
 
         Establish context = () =>
                                 {
-                                    codeDirectory = EntityFactory.CreateCodeDirectory("test");
+                                    codeDirectory = TestEntityFactory.CreateCodeDirectory("test");
                                     projectTemplateParser = new ProjectTemplateParser();
                                 };
 

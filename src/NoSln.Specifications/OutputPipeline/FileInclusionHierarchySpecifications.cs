@@ -12,7 +12,7 @@ namespace NoSln.Specifications.OutputPipeline
         Establish context = () => 
                                 {
                                     fileInclusionHierarchy = new AutoMoq<FileInclusionHierarchy>(
-                                        EntityFactory.CreateInclusionPolicy(new[] { "*.dll" , "abc"}, new [] { "*.cs", "abc"}));
+                                        TestEntityFactory.CreateInclusionPolicy(new[] { "*.dll" , "abc"}, new [] { "*.cs", "abc"}));
                                     fileInclusionHierarchy.GetMock<IWildcardMatcher>().Setup(x => x.IsMatch("file1.dll", "*.dll")).Returns(true);
                                     fileInclusionHierarchy.GetMock<IWildcardMatcher>().Setup(x => x.IsMatch("file2.cs", "*.cs")).Returns(false);
                                     fileInclusionHierarchy.GetMock<IWildcardMatcher>().Setup(x => x.IsMatch("file3", "abc")).Returns(true);

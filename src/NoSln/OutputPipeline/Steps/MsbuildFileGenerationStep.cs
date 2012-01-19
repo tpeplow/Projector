@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.IO;
+using System.Text;
 using NoSln.IO;
 using NoSln.Model;
 using NoSln.Model.Output;
@@ -22,18 +23,20 @@ namespace NoSln.OutputPipeline.Steps
             foreach (var project in solution.Projects)
             {
                 var stringBuilder = new StringBuilder();
-                stringBuilder.AppendLine(project.ProjectTemplate.Header);
+                stringBuilder.Append(project.ProjectTemplate.Header);
                 WriteOutputForPart(project, stringBuilder);
                 WriteOutputForPart(project.AssemblyReferences, stringBuilder);
                 WriteOutputForPart(project.ProjectReferences, stringBuilder);
                 WriteOutputForPart(project.Files, stringBuilder);
-                stringBuilder.AppendLine(project.ProjectTemplate.Footer);
+                stringBuilder.Append(project.ProjectTemplate.Footer);
+
+                fileSystem.WriteFile(Path.Combine(project.Path, project.Name + project.Extension), stringBuilder.ToString());
             }
         }
 
         void WriteOutputForPart<TPart>(TPart part, StringBuilder stringBuilder)
         {
-            outputWriterResolver.Resolve<TPart>().Generate(part, stringBuilder);
+            outputWriterResolver.Resolve<TPart>().Write(part, stringBuilder);
         }
     }
 }

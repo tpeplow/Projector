@@ -20,7 +20,7 @@ namespace NoSln.Specifications.OutputPipeline.Steps
                                     solution.AddProject(new Project { AssemblyName = "ProjectA" });
                                     solution.AddProject(new Project { AssemblyName = "ProjectB" });
 
-                                    codeDirectory = EntityFactory.CreateCodeDirectory("Test");
+                                    codeDirectory = TestEntityFactory.CreateCodeDirectory("Test");
                                     codeDirectory.AddProject("ProjectA", "External");
                                     codeDirectory.AddProject("ProjectB", "ProjectA");
 

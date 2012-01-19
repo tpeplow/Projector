@@ -26,7 +26,7 @@ namespace NoSln.Specifications.OutputPipeline.Steps
             solutionProject = new Project { AssemblyName = "A project" };
             solution.AddProject(solutionProject);
 
-            codeDirectory = EntityFactory.CreateCodeDirectory("test");
+            codeDirectory = TestEntityFactory.CreateCodeDirectory("test");
             var rootInclusionPolicy = new FileInclusionPolicy();
             codeDirectory.FileInclusionPolicy = rootInclusionPolicy;
             codeDirectory.AddFile(new TestFile { FilePath = "not in a project" });
@@ -35,7 +35,7 @@ namespace NoSln.Specifications.OutputPipeline.Steps
             project.AddFile(new TestFile { FilePath = "file in project"});
             project.AddFile(new TestFile { FilePath = "ignored file"});
             project.FileInclusionPolicy = new FileInclusionPolicy();
-            var subDirectory = EntityFactory.CreateCodeDirectory("sub dir");
+            var subDirectory = TestEntityFactory.CreateCodeDirectory("sub dir");
             subDirectory.AddFile(new TestFile { FilePath = "file in sub dir"});
             project.AddCodeDirectory(subDirectory);
 

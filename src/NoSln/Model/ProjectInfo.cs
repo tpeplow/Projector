@@ -12,5 +12,7 @@ namespace NoSln.Model
         public Guid Guid { get; set; }
 
         public string AssemblyName { get; set; }
+
+        public string Extenstion { get; set; }
     }
 }

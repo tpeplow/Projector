@@ -17,7 +17,8 @@ namespace NoSln.OutputPipeline.Steps
                     Guid = codeDirectory.Project.Guid,
                     Namespace = codeDirectory.Project.Namespace,
                     OutputType = codeDirectory.Project.OutputType,
-                    AssemblyName = codeDirectory.Project.AssemblyName
+                    AssemblyName = codeDirectory.Project.AssemblyName,
+                    Extension = codeDirectory.Project.Extenstion
                 });
             }
 

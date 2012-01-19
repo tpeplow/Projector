@@ -31,7 +31,8 @@ namespace NoSln.Parser
                            OutputType = GetValue(values, "OutputType", ifNull: "Library"),
                            Namespace = GetValue(values, "Namespace"),
                            Guid = Guid.Parse(GetValue(values, "ProjectGuid", ifNull: guidGenerator.Generate().ToString())),
-                           AssemblyName = GetValue(values, "AssemblyName", ifNull: projectName)
+                           AssemblyName = GetValue(values, "AssemblyName", ifNull: projectName),
+                           Extenstion = GetValue(values, "Extension", ifNull: ".csproj")
                        };
         }
 

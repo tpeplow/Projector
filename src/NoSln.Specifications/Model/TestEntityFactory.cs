@@ -5,7 +5,7 @@ using NoSln.Model;
 
 namespace NoSln.Specifications.Model
 {
-    public static class EntityFactory
+    public static class TestEntityFactory
     {
         public static CodeDirectory CreateCodeDirectory(string name)
         {
@@ -22,7 +22,8 @@ namespace NoSln.Specifications.Model
                                                              OutputType = "exe",
                                                              Namespace = projectName + ".namespace",
                                                              Guid = Guid.NewGuid(),
-                                                             AssemblyName = projectName
+                                                             AssemblyName = projectName,
+                                                             Extenstion = ".csproj"
                                                          }
                                        };
             foreach (var reference in references)

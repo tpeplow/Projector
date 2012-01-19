@@ -36,6 +36,8 @@ namespace NoSln.Model.Output
 
         public ProjectTemplate ProjectTemplate { get; set; }
 
+        public string Extension { get; set; }
+
         public void AddReference(AssemblyReference assemblyReference)
         {
             if (assemblyReference == null) throw new ArgumentNullException("assemblyReference");

@@ -22,6 +22,11 @@ namespace NoSln.IO
             return new Directory(path);
         }
 
+        public void WriteFile(string path, string contents)
+        {
+            System.IO.File.WriteAllText(path, contents);
+        }
+
         private class Directory : IDirectory
         {
             public Directory(string path)

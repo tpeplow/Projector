@@ -17,8 +17,8 @@ namespace NoSln.Specifications.OutputPipeline
         Establish context = () =>
                                 {
                                     fileInclusionHierarchyBuilder = new AutoMoq<FileInclusionHierarchyBuilder>();
-                                    initialHierarchy = fileInclusionHierarchyBuilder.Object.Create(EntityFactory.CreateInclusionPolicy(new[] { "*.dll" }, new [] { "*.cs" }));
-                                    policyToCombine = EntityFactory.CreateInclusionPolicy(new[] { "*.txt" }, new [] { "*.spark" });
+                                    initialHierarchy = fileInclusionHierarchyBuilder.Object.Create(TestEntityFactory.CreateInclusionPolicy(new[] { "*.dll" }, new [] { "*.cs" }));
+                                    policyToCombine = TestEntityFactory.CreateInclusionPolicy(new[] { "*.txt" }, new [] { "*.spark" });
                                 };
 
         Because of = () => { resultantHierarchy = fileInclusionHierarchyBuilder.Object.Combine(initialHierarchy, policyToCombine); };
