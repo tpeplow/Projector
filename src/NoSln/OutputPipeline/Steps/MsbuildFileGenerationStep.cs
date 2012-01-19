@@ -1,5 +1,6 @@
 ﻿using System.IO;
 using System.Text;
+using System.Xml.Linq;
 using NoSln.IO;
 using NoSln.Model;
 using NoSln.Model.Output;
@@ -22,21 +23,19 @@ namespace NoSln.OutputPipeline.Steps
         {
             foreach (var project in solution.Projects)
             {
-                var stringBuilder = new StringBuilder();
-                stringBuilder.Append(project.ProjectTemplate.Header);
-                WriteOutputForPart(project, stringBuilder);
-                WriteOutputForPart(project.AssemblyReferences, stringBuilder);
-                WriteOutputForPart(project.ProjectReferences, stringBuilder);
-                WriteOutputForPart(project.Files, stringBuilder);
-                stringBuilder.Append(project.ProjectTemplate.Footer);
+                var document = new XDocument(project.ProjectTemplate.Xml);
+                WriteOutputForPart(project, document);
+                WriteOutputForPart(project.AssemblyReferences, document);
+                WriteOutputForPart(project.ProjectReferences, document);
+                WriteOutputForPart(project.Files, document);
 
-                fileSystem.WriteFile(Path.Combine(project.Path, project.Name + project.Extension), stringBuilder.ToString());
+                fileSystem.WriteFile(Path.Combine(project.Path, project.Name + project.Extension), document.ToString());
             }
         }
 
-        void WriteOutputForPart<TPart>(TPart part, StringBuilder stringBuilder)
+        void WriteOutputForPart<TPart>(TPart part, XDocument xmlXDocument)
         {
-            outputWriterResolver.Resolve<TPart>().Write(part, stringBuilder);
+            outputWriterResolver.Resolve<TPart>().Write(part, xmlXDocument);
         }
     }
 }

@@ -56,7 +56,7 @@
     <Compile Include="Model\Output\ProjectTemplate.cs" />
     <Compile Include="Model\Output\Solution.cs" />
     <Compile Include="OutputPipeline\OutputPipeline.cs" />
-    <Compile Include="OutputPipeline\OutputGenerator\IOutputWriter.cs" />
+    <Compile Include="OutputPipeline\OutputGenerator\IOutputXmlWriter.cs" />
     <Compile Include="OutputPipeline\OutputGenerator\IOutputWriterResolver.cs" />
     <Compile Include="OutputPipeline\Steps\AddFilesPiplineStep.cs" />
     <Compile Include="OutputPipeline\FileInclusionHierarchy.cs" />

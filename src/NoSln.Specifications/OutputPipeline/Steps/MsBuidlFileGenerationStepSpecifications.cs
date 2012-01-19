@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Xml.Linq;
 using Auto.Moq;
 using Machine.Specifications;
 using Moq;
@@ -34,14 +36,13 @@ namespace NoSln.Specifications.OutputPipeline.Steps
                 AssemblyName = "ass",
                 Path = "c:\\project",
                 Extension = ".ext",
-                ProjectTemplate = new ProjectTemplate {Header = "1"}
+                ProjectTemplate = new ProjectTemplate {Xml = XDocument.Parse("<root />")}
             };
             solution.AddProject(project);
-            StubWriter<Project>("2");
-            StubWriter<IEnumerable<AssemblyReference>>("3");
-            StubWriter<IEnumerable<ProjectReference>>("4");
-            StubWriter<IEnumerable<ProjectFile>>("5");
-            project.ProjectTemplate.Footer = "6";
+            StubWriter<Project>("<n_1 />");
+            StubWriter<IEnumerable<AssemblyReference>>("<n_2 />");
+            StubWriter<IEnumerable<ProjectReference>>("<n_3 />");
+            StubWriter<IEnumerable<ProjectFile>>("<n_4 />");
 
             msbuildFileGenerationStep
                 .GetMock<IFileSystem>()
@@ -55,16 +56,17 @@ namespace NoSln.Specifications.OutputPipeline.Steps
 
         Because of = () => msbuildFileGenerationStep.Object.Execute(solution, codeDirectory);
 
-        It should_write_the_parts_in_order = () => writtenProjectFile.ShouldEqual("123456");
+        It should_write_the_parts_in_order = () =>
+            XDocument.Parse(writtenProjectFile).Root.Elements().Select(x => x.Name.LocalName).ToArray().ShouldBeEquivalentTo(new [] { "n_1", "n_2", "n_3", "n_4" });
 
         It should_write_the_project_file_to_the_project_folder = () => writtenProjectFilePath.ShouldEqual("c:\\project\\proj.ext");
 
         static void StubWriter<TPart>(string content)
         {
-            var writer = new Mock<IOutputWriter<TPart>>();
+            var writer = new Mock<IOutputXmlWriter<TPart>>();
             writer
-                .Setup(x => x.Write(Arg.IsAny<object>(), Arg.IsAny<StringBuilder>()))
-                .Callback<object, StringBuilder>((p, s) => s.Append(content));
+                .Setup(x => x.Write(Arg.IsAny<object>(), Arg.IsAny<XDocument>()))
+                .Callback<object, XDocument>((p, d) => d.Root.Add(XDocument.Parse(content).FirstNode));
             msbuildFileGenerationStep.GetMock<IOutputWriterResolver>().Setup(x => x.Resolve<TPart>()).Returns(() => writer.Object);
         }
     }

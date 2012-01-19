@@ -69,6 +69,7 @@
     <Compile Include="Parser\ReferenceParserSpecifications.cs" />
     <Compile Include="Parser\SolutionBuilderSpecifications.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ShouldExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\NoSln\NoSln.csproj">

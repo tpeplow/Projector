@@ -21,16 +21,7 @@ namespace NoSln.OutputPipeline.Steps
 
         ProjectTemplate CreateTemplate(string projectTemplate)
         {
-            var endTagPos = projectTemplate.IndexOf("</Project>", System.StringComparison.InvariantCultureIgnoreCase);
-            if (endTagPos < 0)
-            {
-                throw new Exception("Project file looks invalid...");
-            }
-            return new ProjectTemplate
-                       {
-                           Header = projectTemplate.Substring(0, endTagPos),
-                           Footer = "</Project>"
-                       };
+            return new ProjectTemplate {Xml = XDocument.Parse(projectTemplate)};
         }
     }
 }

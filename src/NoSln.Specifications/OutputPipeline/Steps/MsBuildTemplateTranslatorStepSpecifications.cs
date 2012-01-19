@@ -41,9 +41,5 @@ namespace NoSln.Specifications.OutputPipeline.Steps
         };
 
         Because of = () => msBuildTemplateTranslatorStep.Execute(solution, codeDirectory);
-
-        It should_end_the_header_before_last_element = () => project.ProjectTemplate.Header.ShouldEqual(header);
-
-        It should_set_the_footer_to_the_last_element = () => project.ProjectTemplate.Footer.ShouldEqual(footer);
     }
 }
