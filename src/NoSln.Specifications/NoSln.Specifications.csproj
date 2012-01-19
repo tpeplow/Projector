@@ -58,6 +58,7 @@
     <Compile Include="OutputPipeline\FileInclusionHierarchyBuilderSpecifications.cs" />
     <Compile Include="OutputPipeline\FileInclusionHierarchySpecifications.cs" />
     <Compile Include="OutputPipeline\Steps\MsBuidlFileGenerationStepSpecifications.cs" />
+    <Compile Include="OutputPipeline\Steps\MsBuildTemplateTranslatorStepSpecifications.cs" />
     <Compile Include="OutputPipeline\WildcardMatchingSpecifications.cs" />
     <Compile Include="OutputPipeline\Steps\ReferenceStepSpecifications.cs" />
     <Compile Include="OutputPipeline\Steps\SolutionStructureStepSpecifications.cs" />

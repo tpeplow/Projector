@@ -19,6 +19,7 @@ namespace NoSln.OutputPipeline
             steps.Add(new SolutionStructureStep());
             steps.Add(new ReferenceStep());
             steps.Add(new AddFilesPiplineStep(new FileInclusionHierarchyBuilder(new WildcardMatcher()), new RelativePathGenerator()));
+            steps.Add(new MsBuildTemplateTranslatorStep());
         }
 
         public void Execute(CodeDirectory solutionCodeDirectory)

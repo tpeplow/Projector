@@ -31,6 +31,8 @@ namespace NoSln
                                              Value = match.Groups[2].Value.Replace("\r", string.Empty).Trim()
                                          }).ToDictionary(x => x.Name);
 
+            genedProjFile.Append(Stuff.DebugReleaseInfo);
+
             genedProjFile.AppendFormat("<PropertyGroup>" +
             "<Configuration Condition=\" '$(Configuration)' == '' \">Debug</Configuration>" +
             "<Platform Condition=\" '$(Platform)' == '' \">x86</Platform>" +
@@ -46,7 +48,6 @@ namespace NoSln
             "<FileAlignment>512</FileAlignment>" +
             "</PropertyGroup>",  parameters["ProjectGuid"].Value, parameters["OutputType"].Value, parameters["Namespace"].Value, parameters["Name"].Value);
 
-            genedProjFile.Append(Stuff.DebugReleaseInfo);
 
             AddReferences(referencesPath, genedProjFile);
 
