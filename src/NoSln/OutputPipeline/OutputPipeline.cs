@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
 using NoSln.Collections;
+using NoSln.IO;
 using NoSln.Model;
 using NoSln.Model.Output;
+using NoSln.OutputPipeline.OutputWriters;
 using NoSln.OutputPipeline.Steps;
 
 namespace NoSln.OutputPipeline
@@ -20,6 +22,7 @@ namespace NoSln.OutputPipeline
             steps.Add(new ReferenceStep(new RelativePathGenerator()));
             steps.Add(new AddFilesPiplineStep(new FileInclusionHierarchyBuilder(new WildcardMatcher()), new RelativePathGenerator()));
             steps.Add(new MsBuildTemplateTranslatorStep());
+            steps.Add(new MsBuildFileGenerationStep(new OutputWriterResolver(), new FileSystem()));
         }
 
         public void Execute(CodeDirectory solutionCodeDirectory)

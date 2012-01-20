@@ -29,12 +29,12 @@ namespace NoSln.Specifications.OutputPipeline.OutputWriters
             };
         };
 
-        It should_write_the_project_reference_element = () => element.Element("ProjectReference").ShouldNotBeNull();
+        It should_write_the_project_reference_element = () => element.MsbuildElement("ProjectReference").ShouldNotBeNull();
 
-        It should_write_the_include_attribute_pointing_to_the_relative_path_of_the_project = () => element.Element("ProjectReference").Attribute("Include").Value.ShouldEqual("..\\aproj.csproj");
+        It should_write_the_include_attribute_pointing_to_the_relative_path_of_the_project = () => element.MsbuildElement("ProjectReference").Attribute("Include").Value.ShouldEqual("..\\aproj.csproj");
 
-        It should_write_the_project_element_which_is_the_guid_of_the_referenced_project = () => element.Element("ProjectReference").Element("Project").Value.ShouldEqual(projectGuid.ToString("B"));
+        It should_write_the_project_element_which_is_the_guid_of_the_referenced_project = () => element.MsbuildElement("ProjectReference").MsbuildElement("Project").Value.ShouldEqual(projectGuid.ToString("B"));
 
-        It should_write_the_name_of_the_project = () => element.Element("ProjectReference").Element("Name").Value.ShouldEqual("AssemblyName");
+        It should_write_the_name_of_the_project = () => element.MsbuildElement("ProjectReference").MsbuildElement("Name").Value.ShouldEqual("AssemblyName");
     }
 }

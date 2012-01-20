@@ -10,10 +10,10 @@ namespace NoSln.OutputPipeline.OutputWriters
         protected override IEnumerable<XElement> GetItems(IEnumerable<ProjectReference> part)
         {
             return part.Select(x => 
-                new XElement("ProjectReference", 
+                CreateElement("ProjectReference", 
                             new XAttribute("Include", x.RelativePathToProject),
-                            new XElement("Project", new XText(x.Project.Guid.ToString("B"))),
-                            new XElement("Name", new XText(x.Project.AssemblyName))));
+                            CreateElement("Project", new XText(x.Project.Guid.ToString("B"))),
+                            CreateElement("Name", new XText(x.Project.AssemblyName))));
         }
     }
 }

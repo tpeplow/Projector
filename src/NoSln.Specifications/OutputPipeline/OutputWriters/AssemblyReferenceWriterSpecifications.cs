@@ -19,9 +19,9 @@ namespace NoSln.Specifications.OutputPipeline.OutputWriters
             writer = new AssemblyReferenceWriter();
         };
         
-        It should_write_the_assembly_element = () => element.Element("Reference").ShouldNotBeNull();
+        It should_write_the_assembly_element = () => element.MsbuildElement("Reference").ShouldNotBeNull();
 
-        It should_write_the_include_attribute = () => element.Element("Reference").Attribute("Include").Value.ShouldEqual("SomeReference");
+        It should_write_the_include_attribute = () => element.MsbuildElement("Reference").Attribute("Include").Value.ShouldEqual("SomeReference");
     }
 
     [Subject(typeof(AssemblyReferenceWriter))]
@@ -32,6 +32,6 @@ namespace NoSln.Specifications.OutputPipeline.OutputWriters
             part.First().HintPath = "..\\..\\someFolder.dll";
         };
 
-        It should_write_hint_path = () => element.Element("Reference").Element("HintPath").Value.ShouldEqual("..\\..\\someFolder.dll");
+        It should_write_hint_path = () => element.MsbuildElement("Reference").MsbuildElement("HintPath").Value.ShouldEqual("..\\..\\someFolder.dll");
     }
 }

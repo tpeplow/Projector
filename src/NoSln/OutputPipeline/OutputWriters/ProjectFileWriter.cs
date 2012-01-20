@@ -9,7 +9,7 @@ namespace NoSln.OutputPipeline.OutputWriters
     {
         protected override IEnumerable<XElement> GetItems(IEnumerable<ProjectFile> part)
         {
-            return part.Select(x => new XElement("Compile", new XAttribute("Include", x.RelativePath)));
+            return part.Select(x => CreateElement("Compile", new XAttribute("Include", x.RelativePath)));
         }
     }
 }

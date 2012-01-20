@@ -20,8 +20,8 @@ namespace NoSln.Specifications.OutputPipeline.OutputWriters
             };
         };
         
-        It should_write_the_compile_element = () => element.Element("Compile").ShouldNotBeNull();
+        It should_write_the_compile_element = () => element.MsbuildElement("Compile").ShouldNotBeNull();
 
-        It should_write_include_attribute = () => element.Element("Compile").Attribute("Include").Value.ShouldEqual("afile.cs");
+        It should_write_include_attribute = () => element.MsbuildElement("Compile").Attribute("Include").Value.ShouldEqual("afile.cs");
     }
 }

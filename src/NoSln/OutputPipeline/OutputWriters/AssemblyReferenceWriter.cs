@@ -9,14 +9,14 @@ namespace NoSln.OutputPipeline.OutputWriters
     {
         protected override IEnumerable<XElement> GetItems(IEnumerable<AssemblyReference> part)
         {
-            return part.Select(x => new XElement("Reference", GetChildren(x)));
+            return part.Select(x => CreateElement("Reference", GetChildren(x)));
         }
 
-        static IEnumerable<object> GetChildren(AssemblyReference assemblyReference)
+        IEnumerable<object> GetChildren(AssemblyReference assemblyReference)
         {
             yield return new XAttribute("Include", assemblyReference.Name);
             if (!string.IsNullOrEmpty(assemblyReference.HintPath))
-                yield return new XElement("HintPath", new XText(assemblyReference.HintPath));
+                yield return CreateElement("HintPath", new XText(assemblyReference.HintPath));
         }
     }
 }

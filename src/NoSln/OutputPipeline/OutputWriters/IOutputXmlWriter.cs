@@ -16,6 +16,11 @@ namespace NoSln.OutputPipeline.OutputWriters
     {
         public abstract void Write(TPartyType part, XDocument xml);
 
+        protected XElement CreateElement(string localName, params object[] content)
+        {
+            return new XElement(Msbuild.DefualtNamespace + localName, content);
+        }
+
         void IOutputXmlWriter.Write(object part, XDocument xml)
         {
             Write((TPartyType) part, xml);
