@@ -20,7 +20,7 @@ namespace NoSln.Specifications.OutputPipeline
             = () => relativePathGenerator.GeneratePath("c:\\test\\another project\\", "c:\\test\\a project\\someproj.csproj").ShouldEqual("..\\a project\\someproj.csproj");
 
         It should_create_correct_path_where_relative_path_is_below_parent 
-            = () => relativePathGenerator.GeneratePath("c:\\test\\a sub folder\\", "c:\\test").ShouldEqual("..\\..\\test");
+            = () => relativePathGenerator.GeneratePath("c:\\test\\a sub folder\\", "c:\\test\\").ShouldEqual("..\\");
         
         It should_create_correct_path_when_relative_too_branches_off_from_the_parent 
             = () => relativePathGenerator.GeneratePath("c:\\test\\some project\\", "c:\\test\\assemblies\\something.dll").ShouldEqual("..\\assemblies\\something.dll");

@@ -37,7 +37,7 @@ namespace NoSln.Specifications.OutputPipeline.Steps
 
         It should_map_the_project_name = () => mappedProject.Name.ShouldEqual("ProjectA");
 
-        It should_map_the_project_path = () => mappedProject.Path.ShouldEqual("c:\\ProjectA\\path");
+        It should_map_the_project_path_and_ensure_path_is_to_folder = () => mappedProject.Path.ShouldEqual("c:\\ProjectA\\path\\");
 
         It should_map_namespace = () => mappedProject.Namespace.ShouldEqual("ProjectA.namespace");
 

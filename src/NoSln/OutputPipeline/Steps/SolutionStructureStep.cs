@@ -14,7 +14,7 @@ namespace NoSln.OutputPipeline.Steps
                 solution.AddProject(new Project
                 {
                     Name = codeDirectory.Project.Name,
-                    Path = codeDirectory.Path,
+                    Path = codeDirectory.Path + "\\",
                     Guid = codeDirectory.Project.Guid,
                     Namespace = codeDirectory.Project.Namespace,
                     OutputType = codeDirectory.Project.OutputType,
