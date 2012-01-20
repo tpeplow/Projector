@@ -12,7 +12,10 @@ namespace NoSln.Model.Output
             projects = new Dictionary<string, Project>();
             Projects = projects.Values;
         }
+
         public IEnumerable<Project> Projects { get; private set; }
+
+        public string SolutionPath { get; set; }
 
         public Project GetProject(string assemblyName)
         {

@@ -54,6 +54,7 @@
     <Compile Include="IO\TestFile.cs" />
     <Compile Include="Model\TestEntityFactory.cs" />
     <Compile Include="OutputPipeline\OutputWriters\AssemblyReferenceWriterSpecifications.cs" />
+    <Compile Include="OutputPipeline\OutputWriters\ProjectReferenceWriterSpecifications.cs" />
     <Compile Include="OutputPipeline\OutputWriters\ProjectWriterSpecifications.cs" />
     <Compile Include="OutputPipeline\OutputWriters\when_writing_msbuild_elements.cs" />
     <Compile Include="OutputPipeline\RelativePathGeneratorSpecifications.cs" />

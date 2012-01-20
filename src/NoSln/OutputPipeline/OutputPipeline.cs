@@ -16,7 +16,7 @@ namespace NoSln.OutputPipeline
         readonly List<IOutputPipelineStep> steps = new List<IOutputPipelineStep>(); 
         public OutputPipeline()
         {
-            steps.Add(new SolutionStructureStep());
+            steps.Add(new SolutionStructureStep(new RelativePathGenerator()));
             steps.Add(new ReferenceStep());
             steps.Add(new AddFilesPiplineStep(new FileInclusionHierarchyBuilder(new WildcardMatcher()), new RelativePathGenerator()));
             steps.Add(new MsBuildTemplateTranslatorStep());
@@ -24,7 +24,7 @@ namespace NoSln.OutputPipeline
 
         public void Execute(CodeDirectory solutionCodeDirectory)
         {
-            var solution = new Solution();
+            var solution = new Solution { SolutionPath = solutionCodeDirectory.Path };
             steps.Each(x => x.Execute(solution, solutionCodeDirectory));
         }
     }

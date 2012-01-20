@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Linq;
+using Auto.Moq;
 using Machine.Specifications;
 using NoSln.Model;
 using NoSln.Model.Output;
+using NoSln.OutputPipeline;
 using NoSln.OutputPipeline.Steps;
 using NoSln.Specifications.Model;
 
@@ -19,8 +21,12 @@ namespace NoSln.Specifications.OutputPipeline.Steps
         Establish context = () => 
                                 {
                                     codeDirectory = CreateDirectoryStructure();
-                                    solution = new Solution();
-                                    solutionStructureStep = new SolutionStructureStep();
+                                    solution = new Solution { SolutionPath = "c:\\path"};
+                                    var autoMockedStep = new AutoMoq<SolutionStructureStep>();
+                                    autoMockedStep.GetMock<IRelativePathGenerator>()
+                                                  .Setup(x => x.GeneratePath(solution.SolutionPath, "ProjectA\\path"))
+                                                  .Returns(() => "relative path");
+                                    solutionStructureStep = autoMockedStep.Object;
                                 };
 
         Because of = () =>
@@ -46,6 +52,8 @@ namespace NoSln.Specifications.OutputPipeline.Steps
         It should_map_guid = () => mappedProject.Guid.ShouldNotEqual(Guid.Empty);
 
         It should_map_solution_extenstion = () => mappedProject.Extension.ShouldEqual(".csproj");
+
+        It should_set_relative_path = () => mappedProject.SolutionRelativePath.ShouldEqual("relative path");
         
         static CodeDirectory CreateDirectoryStructure()
         {
