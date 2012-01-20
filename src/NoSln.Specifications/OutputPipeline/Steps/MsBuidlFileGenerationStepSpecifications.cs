@@ -8,7 +8,7 @@ using Moq;
 using NoSln.IO;
 using NoSln.Model;
 using NoSln.Model.Output;
-using NoSln.OutputPipeline.OutputGenerator;
+using NoSln.OutputPipeline.OutputWriters;
 using NoSln.OutputPipeline.Steps;
 using NoSln.Specifications.Model;
 using It = Machine.Specifications.It;

@@ -55,9 +55,12 @@
     <Compile Include="Model\Output\ProjectReference.cs" />
     <Compile Include="Model\Output\ProjectTemplate.cs" />
     <Compile Include="Model\Output\Solution.cs" />
+    <Compile Include="OutputPipeline\OutputWriters\AssemblyReferenceWriter.cs" />
+    <Compile Include="OutputPipeline\OutputWriters\ItemGroupWriter.cs" />
+    <Compile Include="OutputPipeline\OutputWriters\ProjectWriter.cs" />
     <Compile Include="OutputPipeline\OutputPipeline.cs" />
-    <Compile Include="OutputPipeline\OutputGenerator\IOutputXmlWriter.cs" />
-    <Compile Include="OutputPipeline\OutputGenerator\IOutputWriterResolver.cs" />
+    <Compile Include="OutputPipeline\OutputWriters\IOutputXmlWriter.cs" />
+    <Compile Include="OutputPipeline\OutputWriters\IOutputWriterResolver.cs" />
     <Compile Include="OutputPipeline\Steps\AddFilesPiplineStep.cs" />
     <Compile Include="OutputPipeline\FileInclusionHierarchy.cs" />
     <Compile Include="OutputPipeline\FileInclusionHierarchyBuilder.cs" />

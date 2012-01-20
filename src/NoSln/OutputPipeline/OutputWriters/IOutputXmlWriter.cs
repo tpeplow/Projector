@@ -1,7 +1,6 @@
-﻿using System.Text;
-using System.Xml.Linq;
+﻿using System.Xml.Linq;
 
-namespace NoSln.OutputPipeline.OutputGenerator
+namespace NoSln.OutputPipeline.OutputWriters
 {
     public interface IOutputXmlWriter
     {
@@ -10,12 +9,12 @@ namespace NoSln.OutputPipeline.OutputGenerator
 
     public interface IOutputXmlWriter<in TPartType> : IOutputXmlWriter
     {
-        void Write(TPartType partType, XDocument xml);
+        void Write(TPartType part, XDocument xml);
     }
 
     public abstract class OutputXmlWriter<TPartyType> : IOutputXmlWriter<TPartyType>
     {
-        public abstract void Write(TPartyType partType, XDocument xml);
+        public abstract void Write(TPartyType part, XDocument xml);
 
         void IOutputXmlWriter.Write(object part, XDocument xml)
         {

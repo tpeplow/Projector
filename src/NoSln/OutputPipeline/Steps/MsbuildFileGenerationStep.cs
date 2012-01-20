@@ -4,7 +4,7 @@ using System.Xml.Linq;
 using NoSln.IO;
 using NoSln.Model;
 using NoSln.Model.Output;
-using NoSln.OutputPipeline.OutputGenerator;
+using NoSln.OutputPipeline.OutputWriters;
 
 namespace NoSln.OutputPipeline.Steps
 {

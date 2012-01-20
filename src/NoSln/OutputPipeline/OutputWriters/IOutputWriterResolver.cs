@@ -1,4 +1,4 @@
-namespace NoSln.OutputPipeline.OutputGenerator
+namespace NoSln.OutputPipeline.OutputWriters
 {
     public interface IOutputWriterResolver
     {
