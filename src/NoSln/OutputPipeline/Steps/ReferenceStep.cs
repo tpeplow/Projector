@@ -6,6 +6,13 @@ namespace NoSln.OutputPipeline.Steps
 {
     public class ReferenceStep : IOutputPipelineStep
     {
+        readonly IRelativePathGenerator relativePathGenerator;
+
+        public ReferenceStep(IRelativePathGenerator relativePathGenerator)
+        {
+            this.relativePathGenerator = relativePathGenerator;
+        }
+
         public void Execute(Solution solution, CodeDirectory codeDirectory)
         {
             foreach (var reference in codeDirectory.References)
@@ -14,7 +21,11 @@ namespace NoSln.OutputPipeline.Steps
                 var referencedProject = solution.FindProject(reference.Name);
                 if (referencedProject != null)
                 {
-                    project.AddReference(new ProjectReference { Project = referencedProject });
+                    project.AddReference(new ProjectReference
+                    {
+                        Project = referencedProject, 
+                        RelativePathToProject = relativePathGenerator.GeneratePath(project.Path, referencedProject.GeneratedProjectFilePath)
+                    });
                 }
                 else
                 {

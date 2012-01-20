@@ -36,7 +36,8 @@ namespace NoSln.Specifications.OutputPipeline.Steps
                 AssemblyName = "ass",
                 Path = "c:\\project",
                 Extension = ".ext",
-                ProjectTemplate = new ProjectTemplate {Xml = XDocument.Parse("<root />")}
+                ProjectTemplate = new ProjectTemplate {Xml = XDocument.Parse("<root />")},
+                GeneratedProjectFilePath = "c:\\project\\proj.ext"
             };
             solution.AddProject(project);
             StubWriter<Project>("<n_1 />");

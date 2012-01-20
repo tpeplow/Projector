@@ -32,7 +32,7 @@ namespace NoSln.Parser
                            Namespace = GetValue(values, "Namespace"),
                            Guid = Guid.Parse(GetValue(values, "ProjectGuid", ifNull: guidGenerator.Generate().ToString())),
                            AssemblyName = GetValue(values, "AssemblyName", ifNull: projectName),
-                           Extenstion = GetValue(values, "Extension", ifNull: ".csproj")
+                           Extension = GetValue(values, "Extension", ifNull: ".csproj")
                        };
         }
 

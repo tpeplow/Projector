@@ -14,7 +14,7 @@ namespace NoSln.Specifications.Model
 
         public static CodeDirectory AddProject(this CodeDirectory codeDirectory, string projectName, params string[] references)
         {
-            var projectDirectory = new CodeDirectory(projectName, projectName + "\\path")
+            var projectDirectory = new CodeDirectory(projectName, "c:\\" + projectName + "\\path")
                                        {
                                            Project = new ProjectInfo
                                                          {
@@ -23,7 +23,7 @@ namespace NoSln.Specifications.Model
                                                              Namespace = projectName + ".namespace",
                                                              Guid = Guid.NewGuid(),
                                                              AssemblyName = projectName,
-                                                             Extenstion = ".csproj"
+                                                             Extension = ".csproj"
                                                          }
                                        };
             foreach (var reference in references)

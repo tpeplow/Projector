@@ -11,7 +11,7 @@ namespace NoSln.OutputPipeline.OutputWriters
         {
             return part.Select(x => 
                 new XElement("ProjectReference", 
-                            new XAttribute("Include", x.Project.SolutionRelativePath),
+                            new XAttribute("Include", x.RelativePathToProject),
                             new XElement("Project", new XText(x.Project.Guid.ToString("B"))),
                             new XElement("Name", new XText(x.Project.AssemblyName))));
         }

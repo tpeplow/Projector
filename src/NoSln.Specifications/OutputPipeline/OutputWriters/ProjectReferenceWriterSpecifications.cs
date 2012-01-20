@@ -22,10 +22,10 @@ namespace NoSln.Specifications.OutputPipeline.OutputWriters
                     Project = new Project
                     {
                         Guid = projectGuid,
-                        AssemblyName = "AssemblyName",
-                        SolutionRelativePath = "..\\aproj.csproj"
-                    }
-}
+                        AssemblyName = "AssemblyName"
+                    },
+                    RelativePathToProject = "..\\aproj.csproj"
+                }
             };
         };
 

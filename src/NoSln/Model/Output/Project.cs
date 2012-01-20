@@ -38,7 +38,7 @@ namespace NoSln.Model.Output
 
         public string Extension { get; set; }
 
-        public string SolutionRelativePath { get; set; }
+        public string GeneratedProjectFilePath { get; set; }
 
         public void AddReference(AssemblyReference assemblyReference)
         {

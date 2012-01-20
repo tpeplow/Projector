@@ -29,7 +29,7 @@ namespace NoSln.OutputPipeline.Steps
                 WriteOutputForPart(project.ProjectReferences, document);
                 WriteOutputForPart(project.Files, document);
 
-                fileSystem.WriteFile(Path.Combine(project.Path, project.Name + project.Extension), document.ToString());
+                fileSystem.WriteFile(project.GeneratedProjectFilePath, document.ToString());
             }
         }
 

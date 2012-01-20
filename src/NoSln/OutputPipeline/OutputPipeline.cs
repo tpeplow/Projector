@@ -16,8 +16,8 @@ namespace NoSln.OutputPipeline
         readonly List<IOutputPipelineStep> steps = new List<IOutputPipelineStep>(); 
         public OutputPipeline()
         {
-            steps.Add(new SolutionStructureStep(new RelativePathGenerator()));
-            steps.Add(new ReferenceStep());
+            steps.Add(new SolutionStructureStep());
+            steps.Add(new ReferenceStep(new RelativePathGenerator()));
             steps.Add(new AddFilesPiplineStep(new FileInclusionHierarchyBuilder(new WildcardMatcher()), new RelativePathGenerator()));
             steps.Add(new MsBuildTemplateTranslatorStep());
         }

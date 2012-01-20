@@ -34,7 +34,7 @@ namespace NoSln.Specifications.Parser
 
         It should_set_the_assembly_name = () => projectInfo.AssemblyName.ShouldEqual("Different.AssemblyName");
 
-        It should_set_the_extension = () => projectInfo.Extenstion.ShouldEqual(".ext");
+        It should_set_the_extension = () => projectInfo.Extension.ShouldEqual(".ext");
     }
 
     [Subject(typeof(ProjectParser))]
@@ -61,6 +61,6 @@ namespace NoSln.Specifications.Parser
 
         It should_default_the_assembly_name_to_the_name_of_the_project = () => projectInfo.AssemblyName.ShouldEqual("Project");
 
-        It should_defualt_the_extension_to_csproj = () => projectInfo.Extenstion.ShouldEqual(".csproj");
+        It should_defualt_the_extension_to_csproj = () => projectInfo.Extension.ShouldEqual(".csproj");
     }
 }

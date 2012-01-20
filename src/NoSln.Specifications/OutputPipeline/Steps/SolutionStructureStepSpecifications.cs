@@ -4,7 +4,6 @@ using Auto.Moq;
 using Machine.Specifications;
 using NoSln.Model;
 using NoSln.Model.Output;
-using NoSln.OutputPipeline;
 using NoSln.OutputPipeline.Steps;
 using NoSln.Specifications.Model;
 
@@ -23,9 +22,6 @@ namespace NoSln.Specifications.OutputPipeline.Steps
                                     codeDirectory = CreateDirectoryStructure();
                                     solution = new Solution { SolutionPath = "c:\\path"};
                                     var autoMockedStep = new AutoMoq<SolutionStructureStep>();
-                                    autoMockedStep.GetMock<IRelativePathGenerator>()
-                                                  .Setup(x => x.GeneratePath(solution.SolutionPath, "ProjectA\\path"))
-                                                  .Returns(() => "relative path");
                                     solutionStructureStep = autoMockedStep.Object;
                                 };
 
@@ -41,7 +37,7 @@ namespace NoSln.Specifications.OutputPipeline.Steps
 
         It should_map_the_project_name = () => mappedProject.Name.ShouldEqual("ProjectA");
 
-        It should_map_the_project_path = () => mappedProject.Path.ShouldEqual("ProjectA\\path");
+        It should_map_the_project_path = () => mappedProject.Path.ShouldEqual("c:\\ProjectA\\path");
 
         It should_map_namespace = () => mappedProject.Namespace.ShouldEqual("ProjectA.namespace");
 
@@ -53,8 +49,8 @@ namespace NoSln.Specifications.OutputPipeline.Steps
 
         It should_map_solution_extenstion = () => mappedProject.Extension.ShouldEqual(".csproj");
 
-        It should_set_relative_path = () => mappedProject.SolutionRelativePath.ShouldEqual("relative path");
-        
+        It should_generate_output_file_path = () => mappedProject.GeneratedProjectFilePath.ShouldEqual("c:\\ProjectA\\path\\ProjectA.csproj");
+
         static CodeDirectory CreateDirectoryStructure()
         {
             var codeDirectory = new CodeDirectory("test", ".");
