@@ -77,7 +77,7 @@
     <Compile Include="ShouldExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\NoSln\Projector.csproj">
+    <ProjectReference Include="..\Projector\Projector.csproj">
       <Project>{5F221CC0-0187-4FE4-AB18-5E310CC5F106}</Project>
       <Name>Projector</Name>
     </ProjectReference>
