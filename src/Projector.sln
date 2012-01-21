@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Projector", "Projector.csproj", "{5F221CC0-0187-4FE4-AB18-5E310CC5F106}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Projector", "Projector\Projector.csproj", "{5F221CC0-0187-4FE4-AB18-5E310CC5F106}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Projector.Specifications", "..\Projector.Specifications\Projector.Specifications.csproj", "{7EDF3E80-4FF9-4FA0-82E4-6120EC6DF41D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Projector.Specifications", "Projector.Specifications\Projector.Specifications.csproj", "{7EDF3E80-4FF9-4FA0-82E4-6120EC6DF41D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
