@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Xml.Linq;
 
-namespace NoSln.OutputPipeline.OutputWriters
+namespace Projector.OutputPipeline.OutputWriters
 {
     public abstract class ItemGroupWriter<TPart> : OutputXmlWriter<TPart>
     {

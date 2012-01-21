@@ -1,7 +1,7 @@
 using System.Linq;
-using NoSln.Model;
+using Projector.Model;
 
-namespace NoSln.OutputPipeline
+namespace Projector.OutputPipeline
 {
     public class FileInclusionHierarchy : IFileInclusionHierarchy
     {

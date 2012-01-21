@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
-using NoSln.Collections;
-using NoSln.IO;
-using NoSln.Model;
-using NoSln.Model.Output;
-using NoSln.OutputPipeline.OutputWriters;
-using NoSln.OutputPipeline.Steps;
+using Projector.Collections;
+using Projector.IO;
+using Projector.Model;
+using Projector.Model.Output;
+using Projector.OutputPipeline.OutputWriters;
+using Projector.OutputPipeline.Steps;
 
-namespace NoSln.OutputPipeline
+namespace Projector.OutputPipeline
 {
     public interface IOutputPipeline
     {

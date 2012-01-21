@@ -1,10 +1,9 @@
-﻿using System;
-using System.Xml.Linq;
-using NoSln.Collections;
-using NoSln.Model;
-using NoSln.Model.Output;
+﻿using System.Xml.Linq;
+using Projector.Collections;
+using Projector.Model;
+using Projector.Model.Output;
 
-namespace NoSln.OutputPipeline.Steps
+namespace Projector.OutputPipeline.Steps
 {
     public class MsBuildTemplateTranslatorStep : IOutputPipelineStep
     {

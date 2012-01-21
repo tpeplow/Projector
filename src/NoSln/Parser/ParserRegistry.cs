@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace NoSln.Parser
+namespace Projector.Parser
 {
     public interface IParserRegistry
     {

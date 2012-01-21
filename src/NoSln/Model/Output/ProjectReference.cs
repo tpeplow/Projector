@@ -1,4 +1,4 @@
-namespace NoSln.Model.Output
+namespace Projector.Model.Output
 {
     public class ProjectReference
     {

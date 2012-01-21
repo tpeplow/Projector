@@ -1,6 +1,6 @@
-using NoSln.Model;
+using Projector.Model;
 
-namespace NoSln.OutputPipeline
+namespace Projector.OutputPipeline
 {
     public interface IFileInclusionHierarchy
     {

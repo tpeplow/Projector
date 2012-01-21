@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Linq;
 using Machine.Specifications;
-using NoSln.Model;
-using NoSln.Parser;
+using Projector.Model;
+using Projector.Parser;
 
-namespace NoSln.Specifications.Parser
+namespace Projector.Specifications.Parser
 {
     [Subject(typeof(IgnoreFileParser))]
     public class when_parsing_ignore_file

@@ -2,14 +2,13 @@
 using Auto.Moq;
 using Machine.Specifications;
 using Moq;
-using NoSln.IO;
-using NoSln.Model;
-using NoSln.Parser;
-using NoSln.Specifications.IO;
+using Projector.IO;
+using Projector.Model;
+using Projector.Parser;
+using Projector.Specifications.IO;
 using It = Machine.Specifications.It;
-using Arg = Moq.It;
 
-namespace NoSln.Specifications.Parser
+namespace Projector.Specifications.Parser
 {
     [Subject(typeof(SolutionBuilder))]
     public class when_building_a_solution
@@ -57,7 +56,7 @@ namespace NoSln.Specifications.Parser
         It should_add_all_files = () => solution.Files.Any(x => x.FileName == "AClass.cs").ShouldBeTrue();
 
         It should_parse_files_with_a_matching_parser = () => 
-            parser.Verify(x => x.Parse(Arg.Is<string>(s => s == "stuff to parse"), Arg.Is<CodeDirectory>(f => true)));
+            parser.Verify(x => x.Parse(Moq.It.Is<string>(s => s == "stuff to parse"), Moq.It.Is<CodeDirectory>(f => true)));
 
         It should_not_add_parsed_files_to_the_code_directory = () => solution.Files.Any(x => x.FileName == "stuff.topare").ShouldBeFalse();
 

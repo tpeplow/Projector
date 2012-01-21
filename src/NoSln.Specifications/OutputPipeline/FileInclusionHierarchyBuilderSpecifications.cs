@@ -1,10 +1,10 @@
 ﻿using Auto.Moq;
 using Machine.Specifications;
-using NoSln.Model;
-using NoSln.OutputPipeline;
-using NoSln.Specifications.Model;
+using Projector.Model;
+using Projector.OutputPipeline;
+using Projector.Specifications.Model;
 
-namespace NoSln.Specifications.OutputPipeline
+namespace Projector.Specifications.OutputPipeline
 {
     [Subject(typeof(FileInclusionHierarchyBuilder))]
     public class when_building_inclusion_policy_hierarchy

@@ -1,13 +1,13 @@
 ﻿using System.Linq;
 using Auto.Moq;
 using Machine.Specifications;
-using NoSln.Model;
-using NoSln.Model.Output;
-using NoSln.OutputPipeline;
-using NoSln.OutputPipeline.Steps;
-using NoSln.Specifications.Model;
+using Projector.Model;
+using Projector.Model.Output;
+using Projector.OutputPipeline;
+using Projector.OutputPipeline.Steps;
+using Projector.Specifications.Model;
 
-namespace NoSln.Specifications.OutputPipeline.Steps
+namespace Projector.Specifications.OutputPipeline.Steps
 {
     [Subject(typeof(ReferenceStep))]
     public class when_building_references

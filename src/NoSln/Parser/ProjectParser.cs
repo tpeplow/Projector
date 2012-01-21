@@ -2,9 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
-using NoSln.Model;
+using Projector.Model;
 
-namespace NoSln.Parser
+namespace Projector.Parser
 {
     public class ProjectParser : IFileParser
     {

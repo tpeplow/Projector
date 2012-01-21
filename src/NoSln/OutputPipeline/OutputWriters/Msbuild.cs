@@ -1,6 +1,6 @@
 ﻿using System.Xml.Linq;
 
-namespace NoSln.OutputPipeline.OutputWriters
+namespace Projector.OutputPipeline.OutputWriters
 {
     public static class Msbuild
     {

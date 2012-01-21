@@ -1,7 +1,7 @@
 ﻿using Machine.Specifications;
-using NoSln.Parser;
+using Projector.Parser;
 
-namespace NoSln.Specifications.Parser
+namespace Projector.Specifications.Parser
 {
     [Subject(typeof(ParserRegistry))]
     public class when_selecting_a_parser_to_use_for_a_file

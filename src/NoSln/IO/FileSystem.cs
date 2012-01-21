@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
-namespace NoSln.IO
+namespace Projector.IO
 {
     public class FileSystem : IFileSystem
     {

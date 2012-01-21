@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
-using NoSln.Model.Output;
+using Projector.Model.Output;
 
-namespace NoSln.OutputPipeline.OutputWriters
+namespace Projector.OutputPipeline.OutputWriters
 {
     public interface IOutputWriterResolver
     {

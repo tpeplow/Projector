@@ -1,7 +1,7 @@
 ﻿using Machine.Specifications;
-using NoSln.OutputPipeline;
+using Projector.OutputPipeline;
 
-namespace NoSln.Specifications.OutputPipeline
+namespace Projector.Specifications.OutputPipeline
 {
     [Subject(typeof(WildcardMatcher))]
     public class when_matching_a_wildcard_with_a_filepath

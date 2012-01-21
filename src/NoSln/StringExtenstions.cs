@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace NoSln
+namespace Projector
 {
     public static class StringExtenstions
     {

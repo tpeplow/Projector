@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace NoSln
+namespace Projector
 {
     public interface IGuidGenerator
     {

@@ -1,9 +1,9 @@
 ﻿using Machine.Specifications;
-using NoSln.Model;
-using NoSln.Parser;
-using NoSln.Specifications.Model;
+using Projector.Model;
+using Projector.Parser;
+using Projector.Specifications.Model;
 
-namespace NoSln.Specifications.Parser
+namespace Projector.Specifications.Parser
 {
     [Subject(typeof(ProjectTemplateParser))]
     public class when_parsing_a_template

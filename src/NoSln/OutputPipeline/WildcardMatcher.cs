@@ -1,6 +1,6 @@
 using System.Text.RegularExpressions;
 
-namespace NoSln.OutputPipeline
+namespace Projector.OutputPipeline
 {
     public interface IWildcardMatcher
     {

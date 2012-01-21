@@ -1,9 +1,9 @@
 ﻿using System;
 using Machine.Specifications;
-using NoSln.Model.Output;
-using NoSln.OutputPipeline.OutputWriters;
+using Projector.Model.Output;
+using Projector.OutputPipeline.OutputWriters;
 
-namespace NoSln.Specifications.OutputPipeline.OutputWriters
+namespace Projector.Specifications.OutputPipeline.OutputWriters
 {
     [Subject(typeof(ProjectWriter))]
     public class when_writing_the_project_information : when_writing_msbuild_elements<Project>

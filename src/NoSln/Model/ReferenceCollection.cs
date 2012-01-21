@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-namespace NoSln.Model
+namespace Projector.Model
 {
     public class ReferenceCollection : IEnumerable<ReferenceInformation>
     {

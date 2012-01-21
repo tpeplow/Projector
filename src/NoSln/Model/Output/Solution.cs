@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace NoSln.Model.Output
+namespace Projector.Model.Output
 {
     public class Solution
     {

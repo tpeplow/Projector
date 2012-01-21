@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using NoSln.IO;
+using Projector.IO;
 
-namespace NoSln.Specifications.IO
+namespace Projector.Specifications.IO
 {
     public class TestDirectory : IDirectory
     {

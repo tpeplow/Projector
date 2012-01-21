@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace NoSln.IO
+namespace Projector.IO
 {
     public interface IFileSystem
     {

@@ -1,6 +1,6 @@
 using System.Xml.Linq;
 
-namespace NoSln.Model.Output
+namespace Projector.Model.Output
 {
     public class ProjectTemplate
     {

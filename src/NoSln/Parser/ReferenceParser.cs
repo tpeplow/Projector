@@ -1,11 +1,10 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
-using NoSln.Collections;
-using NoSln.Model;
+using Projector.Collections;
+using Projector.Model;
 
-namespace NoSln.Parser
+namespace Projector.Parser
 {
     public class ReferenceParser : IFileParser
     {

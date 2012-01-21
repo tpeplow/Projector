@@ -1,7 +1,7 @@
 ﻿using System.Xml.Linq;
-using NoSln.Model.Output;
+using Projector.Model.Output;
 
-namespace NoSln.OutputPipeline.OutputWriters
+namespace Projector.OutputPipeline.OutputWriters
 {
     public class ProjectWriter : OutputXmlWriter<Project>
     {

@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using Machine.Specifications;
-using NoSln.Model.Output;
-using NoSln.OutputPipeline.OutputWriters;
+using Projector.Model.Output;
+using Projector.OutputPipeline.OutputWriters;
 
-namespace NoSln.Specifications.OutputPipeline.OutputWriters
+namespace Projector.Specifications.OutputPipeline.OutputWriters
 {
     [Subject(typeof(ProjectReferenceWriter))]
     public class when_writing_project_references : when_writing_item_group<IEnumerable<ProjectReference>>

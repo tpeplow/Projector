@@ -1,8 +1,8 @@
 using System;
-using NoSln.Collections;
-using NoSln.Model;
+using Projector.Collections;
+using Projector.Model;
 
-namespace NoSln.OutputPipeline
+namespace Projector.OutputPipeline
 {
     public interface IFileInclusionHierarchyBuilder
     {

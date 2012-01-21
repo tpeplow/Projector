@@ -1,7 +1,7 @@
-﻿using NoSln.IO;
-using NoSln.Parser;
+﻿using Projector.IO;
+using Projector.Parser;
 
-namespace NoSln
+namespace Projector
 {
     class Program
     {

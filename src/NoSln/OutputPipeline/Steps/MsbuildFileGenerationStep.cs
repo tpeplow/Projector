@@ -1,12 +1,10 @@
-﻿using System.IO;
-using System.Text;
-using System.Xml.Linq;
-using NoSln.IO;
-using NoSln.Model;
-using NoSln.Model.Output;
-using NoSln.OutputPipeline.OutputWriters;
+﻿using System.Xml.Linq;
+using Projector.IO;
+using Projector.Model;
+using Projector.Model.Output;
+using Projector.OutputPipeline.OutputWriters;
 
-namespace NoSln.OutputPipeline.Steps
+namespace Projector.OutputPipeline.Steps
 {
     public class MsBuildFileGenerationStep : IOutputPipelineStep
     {

@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace NoSln.Model
+namespace Projector.Model
 {
     public class FileInclusionPolicy
     {

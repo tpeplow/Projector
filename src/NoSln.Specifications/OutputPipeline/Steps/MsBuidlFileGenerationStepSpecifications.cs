@@ -1,20 +1,18 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Xml.Linq;
 using Auto.Moq;
 using Machine.Specifications;
 using Moq;
-using NoSln.IO;
-using NoSln.Model;
-using NoSln.Model.Output;
-using NoSln.OutputPipeline.OutputWriters;
-using NoSln.OutputPipeline.Steps;
-using NoSln.Specifications.Model;
+using Projector.IO;
+using Projector.Model;
+using Projector.Model.Output;
+using Projector.OutputPipeline.OutputWriters;
+using Projector.OutputPipeline.Steps;
+using Projector.Specifications.Model;
 using It = Machine.Specifications.It;
-using Arg = Moq.It;
 
-namespace NoSln.Specifications.OutputPipeline.Steps
+namespace Projector.Specifications.OutputPipeline.Steps
 {
     [Subject(typeof (MsBuildFileGenerationStep))]
     public class when_generating_an_msbuild_file_for_a_project
@@ -47,7 +45,7 @@ namespace NoSln.Specifications.OutputPipeline.Steps
 
             msbuildFileGenerationStep
                 .GetMock<IFileSystem>()
-                .Setup(x => x.WriteFile(Arg.IsAny<string>(), Arg.IsAny<string>()))
+                .Setup(x => x.WriteFile(Moq.It.IsAny<string>(), Moq.It.IsAny<string>()))
                 .Callback<string, string>((path, contents) =>
                                               {
                                                   writtenProjectFilePath = path;
@@ -66,7 +64,7 @@ namespace NoSln.Specifications.OutputPipeline.Steps
         {
             var writer = new Mock<IOutputXmlWriter<TPart>>();
             writer
-                .Setup(x => x.Write(Arg.IsAny<object>(), Arg.IsAny<XDocument>()))
+                .Setup(x => x.Write(Moq.It.IsAny<object>(), Moq.It.IsAny<XDocument>()))
                 .Callback<object, XDocument>((p, d) => d.Root.Add(XDocument.Parse(content).FirstNode));
             msbuildFileGenerationStep.GetMock<IOutputWriterResolver>().Setup(x => x.Resolve<TPart>()).Returns(() => writer.Object);
         }

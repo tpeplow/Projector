@@ -1,9 +1,9 @@
 using System.Linq;
 using System.Xml.Linq;
 using Machine.Specifications;
-using NoSln.OutputPipeline.OutputWriters;
+using Projector.OutputPipeline.OutputWriters;
 
-namespace NoSln.Specifications.OutputPipeline.OutputWriters
+namespace Projector.Specifications.OutputPipeline.OutputWriters
 {
     [Subject(typeof(IOutputXmlWriter))]
     public abstract class when_writing_msbuild_elements<TPart>

@@ -2,7 +2,7 @@
 using System.Linq;
 using Machine.Specifications;
 
-namespace NoSln.Specifications
+namespace Projector.Specifications
 {
     public static class ShouldExtensions
     {

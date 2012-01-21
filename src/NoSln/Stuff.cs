@@ -1,4 +1,4 @@
-﻿namespace NoSln
+﻿namespace Projector
 {
     public class Stuff
     {

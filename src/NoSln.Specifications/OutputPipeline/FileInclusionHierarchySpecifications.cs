@@ -1,9 +1,9 @@
 ﻿using Auto.Moq;
 using Machine.Specifications;
-using NoSln.OutputPipeline;
-using NoSln.Specifications.Model;
+using Projector.OutputPipeline;
+using Projector.Specifications.Model;
 
-namespace NoSln.Specifications.OutputPipeline
+namespace Projector.Specifications.OutputPipeline
 {
     [Subject(typeof(FileInclusionHierarchy))]
     public class when_matching_a_file_with_excludes

@@ -1,7 +1,7 @@
-﻿using NoSln.Model;
-using NoSln.Model.Output;
+﻿using Projector.Model;
+using Projector.Model.Output;
 
-namespace NoSln.OutputPipeline
+namespace Projector.OutputPipeline
 {
     public interface IOutputPipelineStep
     {

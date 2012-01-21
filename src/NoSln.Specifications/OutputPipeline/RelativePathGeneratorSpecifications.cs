@@ -1,7 +1,7 @@
 ﻿using Machine.Specifications;
-using NoSln.OutputPipeline;
+using Projector.OutputPipeline;
 
-namespace NoSln.Specifications.OutputPipeline
+namespace Projector.Specifications.OutputPipeline
 {
     [Subject(typeof(RelativePathGenerator))]
     public class when_generating_a_relative_path

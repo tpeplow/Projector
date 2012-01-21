@@ -2,15 +2,15 @@
 using Auto.Moq;
 using Machine.Specifications;
 using Moq;
-using NoSln.Model;
-using NoSln.Model.Output;
-using NoSln.OutputPipeline;
-using NoSln.OutputPipeline.Steps;
-using NoSln.Specifications.IO;
-using NoSln.Specifications.Model;
+using Projector.Model;
+using Projector.Model.Output;
+using Projector.OutputPipeline;
+using Projector.OutputPipeline.Steps;
+using Projector.Specifications.IO;
+using Projector.Specifications.Model;
 using It = Machine.Specifications.It;
 
-namespace NoSln.Specifications.OutputPipeline.Steps
+namespace Projector.Specifications.OutputPipeline.Steps
 {
     [Subject(typeof(AddFilesPiplineStep))]
     public class when_adding_a_file

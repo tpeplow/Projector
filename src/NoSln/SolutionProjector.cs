@@ -1,7 +1,7 @@
-﻿using NoSln.OutputPipeline;
-using NoSln.Parser;
+﻿using Projector.OutputPipeline;
+using Projector.Parser;
 
-namespace NoSln
+namespace Projector
 {
     public class SolutionProjector
     {

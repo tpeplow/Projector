@@ -1,5 +1,6 @@
 using System;
-namespace NoSln.Model
+
+namespace Projector.Model
 {
     public class ProjectInfo
     {

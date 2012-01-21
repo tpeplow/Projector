@@ -1,9 +1,9 @@
 ﻿using System.IO;
 using System.Linq;
 using Machine.Specifications;
-using NoSln.IO;
+using Projector.IO;
 
-namespace NoSln.Specifications.IO
+namespace Projector.Specifications.IO
 {
     [Subject(typeof(FileSystem))]
     public class when_reading_from_the_file_system

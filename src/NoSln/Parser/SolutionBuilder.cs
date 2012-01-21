@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
-using NoSln.IO;
-using NoSln.Model;
+using Projector.IO;
+using Projector.Model;
 
-namespace NoSln.Parser
+namespace Projector.Parser
 {
     public interface ISolutionBuilder
     {

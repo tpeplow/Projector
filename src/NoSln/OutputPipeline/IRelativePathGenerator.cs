@@ -1,7 +1,6 @@
 using System;
-using System.IO;
 
-namespace NoSln.OutputPipeline
+namespace Projector.OutputPipeline
 {
     public interface IRelativePathGenerator
     {

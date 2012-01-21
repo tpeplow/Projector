@@ -1,10 +1,10 @@
 ﻿using System;
 using Auto.Moq;
 using Machine.Specifications;
-using NoSln.Model;
-using NoSln.Parser;
+using Projector.Model;
+using Projector.Parser;
 
-namespace NoSln.Specifications.Parser
+namespace Projector.Specifications.Parser
 {
     [Subject(typeof(ProjectParser))]
     public class when_parsing_a_project

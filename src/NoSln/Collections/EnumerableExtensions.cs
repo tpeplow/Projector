@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace NoSln.Collections
+namespace Projector.Collections
 {
     public static class EnumerableExtensions
     {

@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
-using NoSln.IO;
+using Projector.IO;
 
-namespace NoSln.Model
+namespace Projector.Model
 {
     public class CodeDirectory
     {

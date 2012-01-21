@@ -1,4 +1,4 @@
-﻿namespace NoSln.Model
+﻿namespace Projector.Model
 {
     public class CodeFileCollection
     {

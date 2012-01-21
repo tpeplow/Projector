@@ -1,6 +1,6 @@
-using NoSln.Model;
+using Projector.Model;
 
-namespace NoSln.Parser
+namespace Projector.Parser
 {
     public class ProjectTemplateParser : IFileParser
     {

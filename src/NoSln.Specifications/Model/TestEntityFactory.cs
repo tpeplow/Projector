@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using NoSln.Collections;
-using NoSln.Model;
+using Projector.Collections;
+using Projector.Model;
 
-namespace NoSln.Specifications.Model
+namespace Projector.Specifications.Model
 {
     public static class TestEntityFactory
     {

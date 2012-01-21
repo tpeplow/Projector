@@ -1,4 +1,4 @@
-namespace NoSln.IO
+namespace Projector.IO
 {
     public interface IFile
     {
