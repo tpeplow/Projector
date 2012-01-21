@@ -1,0 +1,4 @@
+Name: AnotherApp
+Namespace: NoSln.AnotherApp
+OutputType: Library
+AssemblyName: NoSln.AnotherApp
