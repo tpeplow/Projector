@@ -2,6 +2,7 @@
 using Auto.Moq;
 using Machine.Specifications;
 using Projector.Model;
+using Projector.Model.Validation;
 using Projector.Parser;
 
 namespace Projector.Specifications.Parser
@@ -62,5 +63,21 @@ namespace Projector.Specifications.Parser
         It should_default_the_assembly_name_to_the_name_of_the_project = () => projectInfo.AssemblyName.ShouldEqual("Project");
 
         It should_defualt_the_extension_to_csproj = () => projectInfo.Extension.ShouldEqual(".csproj");
+    }
+
+    [Subject(typeof(ProjectParser))]
+    public class when_parsing_an_invalid_project_file
+    {
+        static AutoMoq<ProjectParser> projectParser;
+        static SolutionValidationException exception;
+
+        Establish context = () => 
+                                {
+                                    projectParser = new AutoMoq<ProjectParser>();
+                                };
+
+        Because of = () => exception = (SolutionValidationException)Catch.Exception(() => projectParser.Object.Parse(""));
+
+        It should_raise_a_validation_error_exception = () => exception.ShouldNotBeNull();
     }
 }

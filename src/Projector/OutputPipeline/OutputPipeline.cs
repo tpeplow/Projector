@@ -22,6 +22,7 @@ namespace Projector.OutputPipeline
             steps.Add(new ReferenceStep(new RelativePathGenerator()));
             steps.Add(new AddFilesPiplineStep(new FileInclusionHierarchyBuilder(new WildcardMatcher()), new RelativePathGenerator()));
             steps.Add(new MsBuildTemplateTranslatorStep());
+            steps.Add(new ValidationStep());
             steps.Add(new MsBuildFileGenerationStep(new OutputWriterResolver(), new FileSystem()));
         }
 

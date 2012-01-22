@@ -55,6 +55,9 @@
     <Compile Include="Model\Output\ProjectReference.cs" />
     <Compile Include="Model\Output\ProjectTemplate.cs" />
     <Compile Include="Model\Output\Solution.cs" />
+    <Compile Include="Model\Validation\SolutionValidationException.cs" />
+    <Compile Include="Model\Validation\SolutionValidationFailureReason.cs" />
+    <Compile Include="Model\Validation\SolutionValidationFailureReasons.cs" />
     <Compile Include="OutputPipeline\OutputWriters\AssemblyReferenceWriter.cs" />
     <Compile Include="OutputPipeline\OutputWriters\ItemGroupWriter.cs" />
     <Compile Include="OutputPipeline\OutputWriters\Msbuild.cs" />
@@ -71,6 +74,7 @@
     <Compile Include="OutputPipeline\IRelativePathGenerator.cs" />
     <Compile Include="OutputPipeline\Steps\MsbuildFileGenerationStep.cs" />
     <Compile Include="OutputPipeline\Steps\MSBuildTemplateTranslatorStep.cs" />
+    <Compile Include="OutputPipeline\Steps\ValidationStep.cs" />
     <Compile Include="OutputPipeline\WildcardMatcher.cs" />
     <Compile Include="OutputPipeline\IOutputPipelineStep.cs" />
     <Compile Include="OutputPipeline\Steps\ReferenceStep.cs" />
