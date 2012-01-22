@@ -40,6 +40,8 @@ namespace Projector.Model.Output
 
         public string GeneratedProjectFilePath { get; set; }
 
+        public Guid ProjectTypeGuid { get; set; }
+
         public void AddReference(AssemblyReference assemblyReference)
         {
             if (assemblyReference == null) throw new ArgumentNullException("assemblyReference");

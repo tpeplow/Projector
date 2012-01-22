@@ -15,5 +15,7 @@ namespace Projector.Model
         public string AssemblyName { get; set; }
 
         public string Extension { get; set; }
+
+        public Guid ProjectTypeGuid { get; set; }
     }
 }

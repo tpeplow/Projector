@@ -23,7 +23,8 @@ namespace Projector.Specifications.Model
                                                              Namespace = projectName + ".namespace",
                                                              Guid = Guid.NewGuid(),
                                                              AssemblyName = projectName,
-                                                             Extension = ".csproj"
+                                                             Extension = ".csproj",
+                                                             ProjectTypeGuid = Guid.NewGuid()
                                                          }
                                        };
             foreach (var reference in references)

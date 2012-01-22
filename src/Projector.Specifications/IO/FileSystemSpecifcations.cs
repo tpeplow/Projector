@@ -20,13 +20,13 @@ namespace Projector.Specifications.IO
                                             File.WriteAllText("temp/child/child.txt", "i'm a child");
                                         };
 
-        Because of = () => result = fileSystem.GetDirectories(".").FirstOrDefault(x => x.Path.EndsWith("temp"));
+        Because of = () => result = fileSystem.GetDirectories(".").FirstOrDefault(x => x.Path.EndsWith("temp\\"));
 
         It should_list_all_directories = () => result.ShouldNotBeNull();
 
         It should_list_directory_names = () => result.Name.ShouldEqual("temp");
 
-        It should_list_sub_directories = () => result.Directories.First().Path.EndsWith("child").ShouldBeTrue();
+        It should_list_sub_directories = () => result.Directories.First().Path.EndsWith("child\\").ShouldBeTrue();
 
         It should_list_files = () => result.Files.First().FilePath.EndsWith("hello.txt");
 

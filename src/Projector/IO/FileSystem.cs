@@ -31,15 +31,14 @@ namespace Projector.IO
         {
             public Directory(string path)
             {
+                Name = System.IO.Path.GetFileName(path);
+                if (!path.EndsWith("\\")) path += "\\";
                 Path = path;
             }
 
             public string Path { get; private set; }
 
-            public string Name
-            {
-                get { return System.IO.Path.GetFileName(Path); }
-            }
+            public string Name { get; private set; }
 
             public IEnumerable<IFile> Files
             {

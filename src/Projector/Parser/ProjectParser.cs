@@ -28,14 +28,15 @@ namespace Projector.Parser
             var failures = new List<SolutionValidationFailureReason>();
             var projectName = GetValue(values, "Name", failures);
             var project = new ProjectInfo
-                       {
-                           Name = projectName,
-                           OutputType = GetValue(values, "OutputType", failures, ifNull: "Library"),
-                           Namespace = GetValue(values, "Namespace", failures),
-                           Guid = Guid.Parse(GetValue(values, "ProjectGuid", failures, ifNull: guidGenerator.Generate().ToString())),
-                           AssemblyName = GetValue(values, "AssemblyName", failures, ifNull: projectName),
-                           Extension = GetValue(values, "Extension", failures, ifNull: ".csproj")
-                       };
+            {
+                Name = projectName,
+                OutputType = GetValue(values, "OutputType", failures, ifNull: "Library"),
+                Namespace = GetValue(values, "Namespace", failures),
+                Guid = Guid.Parse(GetValue(values, "ProjectGuid", failures, ifNull: guidGenerator.Generate().ToString())),
+                AssemblyName = GetValue(values, "AssemblyName", failures, ifNull: projectName),
+                Extension = GetValue(values, "Extension", failures, ifNull: ".csproj"),
+                ProjectTypeGuid = Guid.Parse(GetValue(values, "ProjectTypeGuid", failures, ifNull: "FAE04EC0-301F-11D3-BF4B-00C04F79EFBC"))
+            };
 
             if (failures.Any()) throw new SolutionValidationException(failures);
 

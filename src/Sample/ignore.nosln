@@ -1,6 +1,6 @@
 bin\
 obj\
-_ReSharper.NoSln\
+_ReSharper
 *.sln
 *.csproj
 *.suo

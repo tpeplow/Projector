@@ -74,6 +74,7 @@
     <Compile Include="OutputPipeline\IRelativePathGenerator.cs" />
     <Compile Include="OutputPipeline\Steps\MsbuildFileGenerationStep.cs" />
     <Compile Include="OutputPipeline\Steps\MSBuildTemplateTranslatorStep.cs" />
+    <Compile Include="OutputPipeline\Steps\SolutionGenerationStep.cs" />
     <Compile Include="OutputPipeline\Steps\ValidationStep.cs" />
     <Compile Include="OutputPipeline\WildcardMatcher.cs" />
     <Compile Include="OutputPipeline\IOutputPipelineStep.cs" />

@@ -37,7 +37,7 @@ namespace Projector.Specifications.OutputPipeline.Steps
 
         It should_map_the_project_name = () => mappedProject.Name.ShouldEqual("ProjectA");
 
-        It should_map_the_project_path_and_ensure_path_is_to_folder = () => mappedProject.Path.ShouldEqual("c:\\ProjectA\\path\\");
+        It should_map_the_project_path = () => mappedProject.Path.ShouldEqual("c:\\ProjectA\\path");
 
         It should_map_namespace = () => mappedProject.Namespace.ShouldEqual("ProjectA.namespace");
 
@@ -48,6 +48,8 @@ namespace Projector.Specifications.OutputPipeline.Steps
         It should_map_guid = () => mappedProject.Guid.ShouldNotEqual(Guid.Empty);
 
         It should_map_solution_extenstion = () => mappedProject.Extension.ShouldEqual(".csproj");
+
+        It should_map_the_project_type_guid = () => mappedProject.ProjectTypeGuid.ShouldNotEqual(Guid.Empty);
 
         It should_generate_output_file_path = () => mappedProject.GeneratedProjectFilePath.ShouldEqual("c:\\ProjectA\\path\\ProjectA.csproj");
 

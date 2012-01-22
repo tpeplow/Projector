@@ -24,6 +24,7 @@ namespace Projector.OutputPipeline
             steps.Add(new MsBuildTemplateTranslatorStep());
             steps.Add(new ValidationStep());
             steps.Add(new MsBuildFileGenerationStep(new OutputWriterResolver(), new FileSystem()));
+            steps.Add(new SolutionGenerationStep(new FileSystem(), new RelativePathGenerator()));
         }
 
         public void Execute(CodeDirectory solutionCodeDirectory)

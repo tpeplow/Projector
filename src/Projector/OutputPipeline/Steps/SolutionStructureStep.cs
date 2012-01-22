@@ -14,13 +14,14 @@ namespace Projector.OutputPipeline.Steps
                 solution.AddProject(new Project
                 {
                     Name = codeDirectory.Project.Name,
-                    Path = codeDirectory.Path + "\\",
+                    Path = codeDirectory.Path,
                     Guid = codeDirectory.Project.Guid,
                     Namespace = codeDirectory.Project.Namespace,
                     OutputType = codeDirectory.Project.OutputType,
                     AssemblyName = codeDirectory.Project.AssemblyName,
                     Extension = codeDirectory.Project.Extension,
-                    GeneratedProjectFilePath = Path.Combine(codeDirectory.Path, codeDirectory.Project.Name + codeDirectory.Project.Extension)
+                    GeneratedProjectFilePath = Path.Combine(codeDirectory.Path, codeDirectory.Project.Name + codeDirectory.Project.Extension),
+                    ProjectTypeGuid = codeDirectory.Project.ProjectTypeGuid
                 });
             }
 
