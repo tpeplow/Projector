@@ -100,7 +100,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SolutionProjector.cs" />
     <Compile Include="StringExtenstions.cs" />
-    <Compile Include="Stuff.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
