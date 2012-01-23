@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace Projector
 {
-    public static class StringExtenstions
+    public static class StringExtensions
     {
         public static IEnumerable<string> GetLines(this string s)
         {
@@ -17,6 +17,11 @@ namespace Projector
                 .Where(x => !string.IsNullOrWhiteSpace(x))
                 .Select(x => x.Trim())
                 .Where(x => !x.StartsWith("#"));
+        }
+
+        public static TEnum ToEnum<TEnum>(this string value)
+        {
+            return (TEnum)Enum.Parse(typeof (TEnum), value);
         }
     }
 }
