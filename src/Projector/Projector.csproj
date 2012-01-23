@@ -73,8 +73,10 @@
     <Compile Include="OutputPipeline\Steps\AddFilesPiplineStep.cs" />
     <Compile Include="OutputPipeline\FileInclusionHierarchy.cs" />
     <Compile Include="OutputPipeline\FileInclusionHierarchyBuilder.cs" />
-    <Compile Include="OutputPipeline\IFileInclusionHierarchy.cs" />
-    <Compile Include="OutputPipeline\IRelativePathGenerator.cs" />
+    <Compile Include="OutputPipeline\RelativePathGenerator.cs" />
+    <Compile Include="OutputPipeline\Steps\FileTypePiplineStep.cs" />
+    <Compile Include="OutputPipeline\FileTypeHierarchy.cs" />
+    <Compile Include="OutputPipeline\IFileTypeHierarchyBuilder.cs" />
     <Compile Include="OutputPipeline\Steps\MsbuildFileGenerationStep.cs" />
     <Compile Include="OutputPipeline\Steps\MSBuildTemplateTranslatorStep.cs" />
     <Compile Include="OutputPipeline\Steps\SolutionGenerationStep.cs" />

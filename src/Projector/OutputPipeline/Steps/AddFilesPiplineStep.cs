@@ -36,15 +36,13 @@ namespace Projector.OutputPipeline.Steps
 
         void AddIncludedFiles(CodeDirectory currentDirectory, IFileInclusionHierarchy fileInclusionHierarchy, Project currentProject)
         {
-            if (currentProject != null)
+            if (currentProject == null) return;
+            foreach (var file in currentDirectory.Files.Where(x => fileInclusionHierarchy.ShouldInclude(x.FilePath)))
             {
-                foreach (var file in currentDirectory.Files.Where(x => fileInclusionHierarchy.ShouldInclude(x.FilePath)))
+                currentProject.AddFile(new ProjectFile
                 {
-                    currentProject.AddFile(new ProjectFile
-                                               {
-                                                   RelativePath = relativePathGenerator.GeneratePath(currentProject.Path, file.FilePath)
-                                               });
-                }
+                    RelativePath = relativePathGenerator.GeneratePath(currentProject.Path, file.FilePath)
+                });
             }
         }
 
