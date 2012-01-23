@@ -21,5 +21,7 @@ namespace Projector.Specifications.Parser
         It should_select_a_ignore_file_parser_for_ignore_dot_nosln_files = () => parserRegistry.GetParserForFile("ignore.nosln").ShouldBeOfType<IgnoreFileParser>();
 
         It should_select_the_project_template_parser_for_project_templates = () => parserRegistry.GetParserForFile("template.nosln").ShouldBeOfType<ProjectTemplateParser>();
+
+        It should_select_the_file_type_parser_for_file_type_files = () => parserRegistry.GetParserForFile("filetypes.nosln").ShouldBeOfType<FileTypeParser>();
     }
 }

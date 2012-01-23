@@ -15,7 +15,8 @@ namespace Projector.Parser
             { "proj.nosln", new ProjectParser(new GuidGenerator()) },
             { "references.nosln", new ReferenceParser() },
             { "ignore.nosln", new IgnoreFileParser() },
-            { "template.nosln", new ProjectTemplateParser() }
+            { "template.nosln", new ProjectTemplateParser() },
+            { "filetypes.nosln", new FileTypeParser() }
         };
 
         public IFileParser GetParserForFile(string fileName)

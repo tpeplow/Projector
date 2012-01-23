@@ -29,4 +29,21 @@ namespace Projector.Specifications.Parser
         It should_set_build_action_to_content = () => codeDirectory.FileTypes.Last().BuildAction.ShouldEqual(BuildAction.Content);
         It should_set_the_file_name_wildcard = () => codeDirectory.FileTypes.Select(x => x.FileNameWildcard).ShouldContain("*.cs", "*.html");
     }
+
+    [Subject(typeof(FileTypeParser))]
+    public class when_file_is_dependent_on_another_file
+    {
+        static FileTypeParser fileTypeParser;
+        static CodeDirectory codeDirectory;
+
+        Establish context = () =>
+                                {
+                                    codeDirectory = TestEntityFactory.CreateCodeDirectory("test");
+                                    fileTypeParser = new FileTypeParser();
+                                };
+
+        Because of = () => fileTypeParser.Parse("global.asmx.cs: BuildAction = Compile; DependentUpon = global.asmx;", codeDirectory);
+
+        It should_set_dependent_file = () => codeDirectory.FileTypes.First().DependentUpon.ShouldEqual("global.asmx");
+    }
 }

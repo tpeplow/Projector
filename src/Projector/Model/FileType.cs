@@ -4,5 +4,6 @@ namespace Projector.Model
     {
         public string FileNameWildcard { get; set; }
         public BuildAction BuildAction { get; set; }
+        public string DependentUpon { get; set; }
     }
 }
