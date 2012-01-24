@@ -12,7 +12,7 @@ namespace Projector.Specifications.Parser
         static ReferenceParser referenceParser;
         static ReferenceCollection referenceCollection;
         static CodeDirectory codeDirectory;
-        static int expectedReferences = 4;
+        static int expectedReferences = 5;
 
         Establish context = () => 
                                 {
@@ -28,7 +28,8 @@ namespace Projector.Specifications.Parser
                                  + "System.IO" + Environment.NewLine
                                  + " # Ignored" + Environment.NewLine // ignored
                                  + " ShouldBeTrimmed " + Environment.NewLine
-                                 + "AReference ..\\Libs\\Some framework\\AReference.dll", codeDirectory);
+                                 + "AReference ..\\Libs\\Some framework\\AReference.dll" + Environment.NewLine
+                                 + "BReference ..\\libs\\SomethingVersioned.1.0\\SomethingVersioned.1.0.dll", codeDirectory);
                              referenceCollection = codeDirectory.References;
                          };
 
@@ -43,5 +44,7 @@ namespace Projector.Specifications.Parser
         It should_should_trim_whitespace = () => referenceCollection.Contains("ShouldBeTrimmed").ShouldBeTrue();
 
         It should_include_hint_path_when_given = () => referenceCollection["AReference"].HintPath.ShouldEqual("..\\Libs\\Some framework\\AReference.dll");
+
+        It should_include_hint_paths_with_numbers = () => referenceCollection["BReference"].HintPath.ShouldEqual("..\\libs\\SomethingVersioned.1.0\\SomethingVersioned.1.0.dll");
     }
 }

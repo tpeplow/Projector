@@ -8,7 +8,7 @@ namespace Projector.Parser
 {
     public class ReferenceParser : IFileParser
     {
-        private static readonly Regex ReferenceLineExpression = new Regex(@"([a-z\._]+)(?: ([a-z\.\\ ]+)){0,1}", RegexOptions.IgnoreCase);
+        private static readonly Regex ReferenceLineExpression = new Regex(@"([a-z\._]+)(?: ([a-z\.\\ 0-9]+)){0,1}", RegexOptions.IgnoreCase);
 
         public void Parse(string file, CodeDirectory codeDirectory)
         {
