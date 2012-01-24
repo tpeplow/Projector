@@ -19,17 +19,19 @@ namespace Projector.OutputPipeline.Steps
 
             foreach (var file in solution.Projects.SelectMany(x => x.Files))
             {
-                var fileType = fileTypeHierarchy.GetFileType(file.RelativePath);
-                if (fileType == null)
-                {
-                    file.BuildAction = BuildAction.Compile;
-                }
-                else
-                {
-                    file.BuildAction = fileType.BuildAction;
-                    file.DependentUpon = fileType.DependentUpon;
-                }
+                SetFileType(file, fileTypeHierarchy);
             }
+        }
+
+        static void SetFileType(ProjectFile file, IFileTypeHierarchy fileTypeHierarchy)
+        {
+            var fileType = fileTypeHierarchy.GetFileType(file.RelativePath);
+            file.BuildAction = BuildAction.Compile;
+            
+            if (fileType == null) return;
+            
+            file.BuildAction = fileType.BuildAction;
+            file.DependentUpon = fileType.DependentUpon;
         }
     }
 }

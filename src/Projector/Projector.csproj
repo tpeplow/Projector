@@ -49,6 +49,7 @@
   <ItemGroup>
     <Compile Include="Collections\DictionaryExtensions.cs" />
     <Compile Include="Collections\EnumerableExtensions.cs" />
+    <Compile Include="IO\FilePathDictionary.cs" />
     <Compile Include="Model\BuildAction.cs" />
     <Compile Include="Model\CodeFileCollection.cs" />
     <Compile Include="Model\FileType.cs" />
