@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 
 namespace Projector.IO
@@ -9,9 +10,41 @@ namespace Projector.IO
         
         public void Add(string path, TItem item)
         {
-            path = path.Replace(Path.AltDirectorySeparatorChar, Path.DirectorySeparatorChar);
-            var pathSegments = path.Split(Path.DirectorySeparatorChar);
+            var pathSegments = ToSegments(path);
             items.Add(pathSegments, item);
+        }
+
+        public TItem FindClosest(string path)
+        {
+            var pathSegments = ToSegments(path);
+            for (var i = items.Count - 1; i >= 0; i--)
+            {
+                if (IsSubPath(items.Keys[i], pathSegments))
+                {
+                    return items.Values[i];
+                }
+            }
+            return default(TItem);
+        }
+
+        static bool IsSubPath(IList<string> subPath, IList<string> fullPath)
+        {
+            if (subPath.Count > fullPath.Count) return false;
+            for (var i = subPath.Count - 1; i >=0; i--)
+            {
+                if (fullPath[i] != subPath[i])
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        static string[] ToSegments(string path)
+        {
+            path = path.Replace(Path.AltDirectorySeparatorChar, Path.DirectorySeparatorChar);
+            var pathSegments = path.Split(new [] { Path.DirectorySeparatorChar }, StringSplitOptions.RemoveEmptyEntries);
+            return pathSegments;
         }
 
         private class PathComparer : IComparer<string[]>

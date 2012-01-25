@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IO\FilePathDictionarySpecifications.cs" />
     <Compile Include="IO\FilePathDirectorySpecifications.cs" />
     <Compile Include="IO\FileSystemSpecifcations.cs" />
     <Compile Include="IO\TestDirectory.cs" />
