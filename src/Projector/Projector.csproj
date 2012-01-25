@@ -80,6 +80,7 @@
     <Compile Include="OutputPipeline\Steps\HintPathGeneratorStep.cs" />
     <Compile Include="OutputPipeline\Steps\MsbuildFileGenerationStep.cs" />
     <Compile Include="OutputPipeline\Steps\MSBuildTemplateTranslatorStep.cs" />
+    <Compile Include="OutputPipeline\Steps\RelativeReferencePathStep.cs" />
     <Compile Include="OutputPipeline\Steps\SolutionGenerationStep.cs" />
     <Compile Include="OutputPipeline\Steps\ValidationStep.cs" />
     <Compile Include="OutputPipeline\WildcardMatcher.cs" />

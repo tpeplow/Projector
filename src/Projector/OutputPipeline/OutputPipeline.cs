@@ -21,6 +21,7 @@ namespace Projector.OutputPipeline
             steps.Add(new SolutionStructureStep());
             steps.Add(new ReferenceStep(new RelativePathGenerator()));
             steps.Add(new HintPathGeneratorStep());
+            steps.Add(new RelativeReferencePathStep(new RelativePathGenerator()));
             steps.Add(new AddFilesPiplineStep(new FileInclusionHierarchyBuilder(new WildcardMatcher()), new RelativePathGenerator()));
             steps.Add(new MsBuildTemplateTranslatorStep());
             steps.Add(new ValidationStep());

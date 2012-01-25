@@ -4,8 +4,6 @@ using Projector.Model.Output;
 
 namespace Projector.OutputPipeline.Steps
 {
-    using System.IO;
-
     public class ReferenceStep : IOutputPipelineStep
     {
         readonly IRelativePathGenerator relativePathGenerator;
@@ -33,9 +31,7 @@ namespace Projector.OutputPipeline.Steps
                 {
                     var assemblyReference = new AssemblyReference {Name = reference.Name, HintPath = reference.HintPath};
 
-                    if (!string.IsNullOrEmpty(assemblyReference.HintPath))
-                        if (Path.IsPathRooted(assemblyReference.HintPath))
-                            assemblyReference.HintPath = relativePathGenerator.GeneratePath(project.Path, assemblyReference.HintPath);
+                    assemblyReference.HintPath = assemblyReference.HintPath;
 
                     project.AddReference(assemblyReference);
                 }
