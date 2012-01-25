@@ -1,18 +1,17 @@
-﻿namespace Projector.Specifications.OutputPipeline.Steps
-{
-    using Auto.Moq;
-    using Machine.Specifications;
-    using Projector.Model;
-    using Projector.Model.Output;
-    using Projector.OutputPipeline;
-    using Projector.OutputPipeline.Steps;
-    using Projector.Specifications.IO;
-    using Projector.Specifications.Model;
+﻿using Projector.OutputPipeline.Conventions;
+using Auto.Moq;
+using Machine.Specifications;
+using Projector.Model;
+using Projector.Model.Output;
+using Projector.Specifications.IO;
+using Projector.Specifications.Model;
 
-    [Subject(typeof(HintPathGeneratorStep))]
-    public class When_missing_hint_paths
+namespace Projector.Specifications.OutputPipeline.Conventions
+{
+    [Subject(typeof(LibHintPathGeneratorStep))]
+    public class when_missing_hint_paths
     {
-        protected static AutoMoq<HintPathGeneratorStep> hintPathGeneratorStep;
+        protected static AutoMoq<LibHintPathGeneratorStep> hintPathGeneratorStep;
         protected static CodeDirectory codeDirectory;
         static Solution solution;
         protected static AssemblyReference assemblyReference;
@@ -28,14 +27,14 @@
 
             codeDirectory = TestEntityFactory.CreateCodeDirectory("test");
 
-            hintPathGeneratorStep = new AutoMoq<HintPathGeneratorStep>();
+            hintPathGeneratorStep = new AutoMoq<LibHintPathGeneratorStep>();
         };
 
         Because of = () => hintPathGeneratorStep.Object.Execute(solution, codeDirectory);
     }
 
-    [Subject(typeof(HintPathGeneratorStep))]
-    public class When_there_is_a_lib_folder : When_missing_hint_paths
+    [Subject(typeof(LibHintPathGeneratorStep))]
+    public class when_there_is_a_lib_folder : when_missing_hint_paths
     {
         Establish context = () =>
         {
@@ -47,8 +46,8 @@
         private It should_update_hint_path_based_on_lib_folder = () => assemblyReference.HintPath.ShouldEqual(@"c:\test\Lib\AReference.dll");
     }
 
-    [Subject(typeof(HintPathGeneratorStep))]
-    public class When_no_lib_folder : When_missing_hint_paths
+    [Subject(typeof(LibHintPathGeneratorStep))]
+    public class when_no_lib_folder : when_missing_hint_paths
     {
         private It should_not_set_hint_paths = () => assemblyReference.HintPath.ShouldBeNull();
     }

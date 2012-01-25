@@ -1,11 +1,12 @@
-namespace Projector.OutputPipeline.Steps
-{
-    using System;
-    using System.Linq;
-    using Projector.Model;
-    using Projector.Model.Output;
+using System;
+using System.Linq;
+using Projector.Model;
+using Projector.Model.Output;
+using Projector.OutputPipeline.Steps;
 
-    public class HintPathGeneratorStep : IOutputPipelineStep
+namespace Projector.OutputPipeline.Conventions
+{
+    public class LibHintPathGeneratorStep : IOutputPipelineStep, IOutputConvention
     {
         public void Execute(Solution solution, CodeDirectory codeDirectory)
         {
@@ -38,6 +39,11 @@ namespace Projector.OutputPipeline.Steps
             }
 
             return string.Empty;
+        }
+
+        public void UpdateSteps(OutputPipelineStepCollection steps)
+        {
+            steps.InsertAfter<ReferenceStep>(this);
         }
     }
 }

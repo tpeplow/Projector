@@ -1,4 +1,5 @@
 ﻿using Projector.IO;
+using Projector.OutputPipeline;
 using Projector.Parser;
 
 namespace Projector
@@ -9,7 +10,9 @@ namespace Projector
         {
             var path = args[0];
 
-            var solutionProject = new SolutionProjector(new SolutionBuilder(new FileSystem(), new ParserRegistry()), new OutputPipeline.OutputPipeline());
+            var solutionProject = new SolutionProjector(
+                new SolutionBuilder(new FileSystem(), new ParserRegistry()), 
+                new OutputPipeline.OutputPipeline(new OutputPipelineStepsBuilder()));
 
             solutionProject.ProjectFiles(path);
         }

@@ -53,18 +53,4 @@ namespace Projector.Specifications.OutputPipeline.Steps
 
         It should_set_the_project_reference_path_relative_to_the_current_project = () => solution.GetProject("ProjectB").ProjectReferences.First().RelativePathToProject.ShouldEqual("relative path to project");
     }
-
-    [Subject(typeof(ReferenceStep))]
-    public class When_hint_path_is_absolute : When_building_references
-    {
-        Establish context = () =>
-        {
-            var project = codeDirectory.AddProject("ProjectA");
-            project.References.Add(new ReferenceInformation("External", @"c:\Lib\AnyLib\External.dll"));
-
-            mock.GetMock<IRelativePathGenerator>().Setup(x => x.GeneratePath("c:\\ProjectA", @"c:\Lib\AnyLib\External.dll")).Returns("relative path to assembly");
-        };
-
-        It should_set_the_reference_hint_path_relative_to_project = () => solution.GetProject("ProjectA").AssemblyReferences.First().HintPath.ShouldEqual("relative path to assembly");
-    }
 }

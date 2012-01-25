@@ -65,9 +65,10 @@
     <Compile Include="OutputPipeline\FileInclusionHierarchyBuilderSpecifications.cs" />
     <Compile Include="OutputPipeline\FileInclusionHierarchySpecifications.cs" />
     <Compile Include="OutputPipeline\Steps\FileTypePiplineStepSpecifications.cs" />
-    <Compile Include="OutputPipeline\Steps\HintPathGeneratorStepSpecifications.cs" />
+    <Compile Include="OutputPipeline\Conventions\HintPathGeneratorStepSpecifications.cs" />
     <Compile Include="OutputPipeline\Steps\MsBuidlFileGenerationStepSpecifications.cs" />
     <Compile Include="OutputPipeline\Steps\MsBuildTemplateTranslatorStepSpecifications.cs" />
+    <Compile Include="OutputPipeline\Steps\RelativeReferencePathStepSpecifications.cs" />
     <Compile Include="OutputPipeline\Steps\SolutionGenerationStep.cs" />
     <Compile Include="OutputPipeline\Steps\ValidationStepSpecifications.cs" />
     <Compile Include="OutputPipeline\WildcardMatchingSpecifications.cs" />
