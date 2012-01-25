@@ -61,6 +61,11 @@
     <Compile Include="Model\Validation\SolutionValidationException.cs" />
     <Compile Include="Model\Validation\SolutionValidationFailureReason.cs" />
     <Compile Include="Model\Validation\SolutionValidationFailureReasons.cs" />
+    <Compile Include="OutputPipeline\Conventions\DefaultConventions.cs" />
+    <Compile Include="OutputPipeline\Steps\DefaultPipelineSteps.cs" />
+    <Compile Include="OutputPipeline\IOutputConvention.cs" />
+    <Compile Include="OutputPipeline\OutputPipelineStepCollection.cs" />
+    <Compile Include="OutputPipeline\OutputPipelineStepsBuilder.cs" />
     <Compile Include="OutputPipeline\OutputWriters\AssemblyReferenceWriter.cs" />
     <Compile Include="OutputPipeline\OutputWriters\ItemGroupWriter.cs" />
     <Compile Include="OutputPipeline\OutputWriters\Msbuild.cs" />
@@ -77,7 +82,7 @@
     <Compile Include="OutputPipeline\Steps\FileTypePiplineStep.cs" />
     <Compile Include="OutputPipeline\FileTypeHierarchy.cs" />
     <Compile Include="OutputPipeline\IFileTypeHierarchyBuilder.cs" />
-    <Compile Include="OutputPipeline\Steps\HintPathGeneratorStep.cs" />
+    <Compile Include="OutputPipeline\Conventions\LibHintPathGeneratorStep.cs" />
     <Compile Include="OutputPipeline\Steps\MsbuildFileGenerationStep.cs" />
     <Compile Include="OutputPipeline\Steps\MSBuildTemplateTranslatorStep.cs" />
     <Compile Include="OutputPipeline\Steps\RelativeReferencePathStep.cs" />
