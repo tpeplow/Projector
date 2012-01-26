@@ -5,7 +5,7 @@ using Projector.Model.Output;
 
 namespace Projector.OutputPipeline.OutputWriters
 {
-    public class ProjectFileWriter : ItemGroupWriter<IEnumerable<ProjectFile>>
+    public class FileWriter : ItemGroupWriter<IEnumerable<ProjectFile>>
     {
         protected override IEnumerable<XElement> GetItems(IEnumerable<ProjectFile> part)
         {

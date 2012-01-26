@@ -6,12 +6,12 @@ using Projector.OutputPipeline.OutputWriters;
 
 namespace Projector.Specifications.OutputPipeline.OutputWriters
 {
-    [Subject(typeof(ProjectFileWriter))]
+    [Subject(typeof(FileWriter))]
     public class when_writing_a_compile_project_file : when_writing_item_group<IEnumerable<ProjectFile>>
     {
         Establish context = () => 
         {
-            writer = new ProjectFileWriter();
+            writer = new FileWriter();
             part = new[]
             {
                 new ProjectFile
@@ -26,12 +26,12 @@ namespace Projector.Specifications.OutputPipeline.OutputWriters
         It should_write_include_attribute = () => element.MsbuildElement("Compile").Attribute("Include").Value.ShouldEqual("afile.cs");
     }
 
-    [Subject(typeof(ProjectFileWriter))]
+    [Subject(typeof(FileWriter))]
     public class when_writing_a_content_project_file : when_writing_item_group<IEnumerable<ProjectFile>>
     {
         Establish context = () =>
         {
-            writer = new ProjectFileWriter();
+            writer = new FileWriter();
             part = new[]
             {
                 new ProjectFile
@@ -47,12 +47,12 @@ namespace Projector.Specifications.OutputPipeline.OutputWriters
         It should_write_include_attribute = () => element.MsbuildElement("Content").Attribute("Include").Value.ShouldEqual("afile.cs");
     }
 
-    [Subject(typeof(ProjectFileWriter))]
+    [Subject(typeof(FileWriter))]
     public class when_writing_a_project_file_that_has_dependent : when_writing_item_group<IEnumerable<ProjectFile>>
     {
         Establish context = () =>
         {
-            writer = new ProjectFileWriter();
+            writer = new FileWriter();
             part = new[]
             {
                 new ProjectFile

@@ -16,7 +16,7 @@ namespace Projector.OutputPipeline.OutputWriters
             {typeof(Project), new ProjectWriter()},
             {typeof(IEnumerable<AssemblyReference>), new AssemblyReferenceWriter()},
             {typeof(IEnumerable<ProjectReference>), new ProjectReferenceWriter()},
-            {typeof(IEnumerable<ProjectFile>), new ProjectFileWriter()},
+            {typeof(IEnumerable<ProjectFile>), new FileWriter()},
         };
 
         public IOutputXmlWriter Resolve<TPartType>()

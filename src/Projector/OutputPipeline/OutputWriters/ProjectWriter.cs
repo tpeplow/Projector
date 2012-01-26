@@ -22,7 +22,7 @@ namespace Projector.OutputPipeline.OutputWriters
                     CreateElement("ProductVersion", new XText("8.0.30703")),
                     CreateElement("TargetFrameworkVersion", new XText("v4.0")),
                     CreateElement("FileAlignment", new XText("512")));
-            xml.Root.Add(propertyGroup);
+            xml.Root.AddFirst(propertyGroup);
         }
     }
 }

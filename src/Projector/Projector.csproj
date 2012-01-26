@@ -70,7 +70,7 @@
     <Compile Include="OutputPipeline\OutputWriters\AssemblyReferenceWriter.cs" />
     <Compile Include="OutputPipeline\OutputWriters\ItemGroupWriter.cs" />
     <Compile Include="OutputPipeline\OutputWriters\Msbuild.cs" />
-    <Compile Include="OutputPipeline\OutputWriters\ProjectFileWriter.cs" />
+    <Compile Include="OutputPipeline\OutputWriters\FileWriter.cs" />
     <Compile Include="OutputPipeline\OutputWriters\ProjectReferenceWriter.cs" />
     <Compile Include="OutputPipeline\OutputWriters\ProjectWriter.cs" />
     <Compile Include="OutputPipeline\OutputPipeline.cs" />
