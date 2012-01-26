@@ -11,6 +11,7 @@ System.Core
 System.Data.DataSetExtensions
 System.Xml.Linq
 System.Web
+System.Web.Mvc
 System.Web.Extensions
 System.Web.Abstractions
 System.Web.Routing
@@ -18,3 +19,4 @@ System.Xml
 System.Configuration
 System.Web.Services
 System.EnterpriseServices
+Microsoft.CSharp
