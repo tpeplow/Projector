@@ -25,7 +25,7 @@ namespace Projector.OutputPipeline.Steps
 
         static void SetFileType(ProjectFile file, IFileTypeHierarchy fileTypeHierarchy)
         {
-            var fileType = fileTypeHierarchy.GetFileType(file.RelativePath);
+            var fileType = fileTypeHierarchy.GetFileType(file.FullPath);
             file.BuildAction = BuildAction.Compile;
             
             if (fileType == null) return;

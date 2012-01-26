@@ -41,6 +41,7 @@ namespace Projector.OutputPipeline.Steps
             {
                 currentProject.AddFile(new ProjectFile
                 {
+                    FullPath = file.FilePath,
                     RelativePath = relativePathGenerator.GeneratePath(currentProject.Path, file.FilePath)
                 });
             }

@@ -13,6 +13,7 @@ namespace Projector.OutputPipeline.Steps
                 new ReferenceStep(new RelativePathGenerator()),
                 new RelativeReferencePathStep(new RelativePathGenerator()),
                 new AddFilesPiplineStep(new FileInclusionHierarchyBuilder(new WildcardMatcher()), new RelativePathGenerator()),
+                new FileTypePiplineStep(new FileTypeHierarchyBuilder(new WildcardMatcher())),
                 new MsBuildTemplateTranslatorStep(), 
                 new ValidationStep(),
                 new MsBuildFileGenerationStep(new OutputWriterResolver(), new FileSystem()),

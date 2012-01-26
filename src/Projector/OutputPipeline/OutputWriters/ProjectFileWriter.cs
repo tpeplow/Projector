@@ -9,7 +9,19 @@ namespace Projector.OutputPipeline.OutputWriters
     {
         protected override IEnumerable<XElement> GetItems(IEnumerable<ProjectFile> part)
         {
-            return part.Select(x => CreateElement("Compile", new XAttribute("Include", x.RelativePath)));
+            return part.Select(CreateFileElement);
+        }
+
+        XElement CreateFileElement(ProjectFile file)
+        {
+            var element = CreateElement(file.BuildAction.ToString(), new XAttribute("Include", file.RelativePath));
+
+            if (!string.IsNullOrEmpty(file.DependentUpon))
+            {
+                element.Add(CreateElement("DependentUpon", new XText(file.DependentUpon)));
+            }
+
+            return element;
         }
     }
 }

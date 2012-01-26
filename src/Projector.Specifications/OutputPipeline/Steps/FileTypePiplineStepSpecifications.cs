@@ -45,7 +45,7 @@ namespace Projector.Specifications.OutputPipeline.Steps
         {
             solution = new Solution();
             var project = new Project {AssemblyName = "name"};
-            file = new ProjectFile { RelativePath = "relativePath"};
+            file = new ProjectFile { FullPath = "full path"};
             project.AddFile(file);
             solution.AddProject(project);
         }
@@ -53,7 +53,7 @@ namespace Projector.Specifications.OutputPipeline.Steps
         static void SetupFileType()
         {
             var fileTypeHierarchy = new Mock<IFileTypeHierarchy>();
-            fileTypeHierarchy.Setup(x => x.GetFileType("relativePath")).Returns(() => fileType);
+            fileTypeHierarchy.Setup(x => x.GetFileType("full path")).Returns(() => fileType);
             fileTypePiplineStep.GetMock<IFileTypeHierarchyBuilder>()
                 .Setup(x => x.Generate(codeDirectory))
                 .Returns(() => fileTypeHierarchy.Object);

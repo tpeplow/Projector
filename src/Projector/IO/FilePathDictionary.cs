@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 namespace Projector.IO
 {
@@ -16,15 +17,19 @@ namespace Projector.IO
 
         public TItem FindClosest(string path)
         {
+            return FindAllInPath(path).FirstOrDefault();
+        }
+
+        public IEnumerable<TItem> FindAllInPath(string path)
+        {
             var pathSegments = ToSegments(path);
             for (var i = items.Count - 1; i >= 0; i--)
             {
                 if (IsSubPath(items.Keys[i], pathSegments))
                 {
-                    return items.Values[i];
+                    yield return items.Values[i];
                 }
             }
-            return default(TItem);
         }
 
         static bool IsSubPath(IList<string> subPath, IList<string> fullPath)

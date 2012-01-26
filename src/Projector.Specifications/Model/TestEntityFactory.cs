@@ -9,7 +9,7 @@ namespace Projector.Specifications.Model
     {
         public static CodeDirectory CreateCodeDirectory(string name)
         {
-            return new CodeDirectory(name, ".");
+            return new CodeDirectory(name, "c:\\" + name + "\\path");
         }
 
         public static CodeDirectory AddProject(this CodeDirectory codeDirectory, string projectName, params string[] references)

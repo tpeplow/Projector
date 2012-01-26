@@ -71,5 +71,7 @@ namespace Projector.Specifications.OutputPipeline.Steps
         It should_add_files_in_sub_directory_of_a_project = () => solutionProject.Files.Select(x => x.RelativePath).ShouldContain("file in sub dir");
 
         It should_not_add_files_which_are_excluded = () => solutionProject.Files.Select(x => x.RelativePath).ShouldNotContain("ignored file");
+
+        It should_set_full_path = () => solutionProject.Files.Select(x => x.FullPath).ShouldContain("file in project");
     }
 }

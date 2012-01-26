@@ -82,7 +82,7 @@
     <Compile Include="OutputPipeline\RelativePathGenerator.cs" />
     <Compile Include="OutputPipeline\Steps\FileTypePiplineStep.cs" />
     <Compile Include="OutputPipeline\FileTypeHierarchy.cs" />
-    <Compile Include="OutputPipeline\IFileTypeHierarchyBuilder.cs" />
+    <Compile Include="OutputPipeline\FileTypeHierarchyBuilder.cs" />
     <Compile Include="OutputPipeline\Conventions\LibHintPathGeneratorStep.cs" />
     <Compile Include="OutputPipeline\Steps\MsbuildFileGenerationStep.cs" />
     <Compile Include="OutputPipeline\Steps\MSBuildTemplateTranslatorStep.cs" />
