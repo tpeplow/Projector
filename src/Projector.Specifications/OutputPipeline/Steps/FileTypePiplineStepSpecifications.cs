@@ -13,6 +13,7 @@ namespace Projector.Specifications.OutputPipeline.Steps
     [Subject(typeof(FileTypePiplineStep))]
     public class when_there_are_no_file_types_specified : when_adding_file_types
     {
+        Establish with_no_file_types = () => fileType = null;
         It should_default_build_action_to_compile = () => file.BuildAction.ShouldEqual(BuildAction.Compile);
     }
 
