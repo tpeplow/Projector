@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using Projector.Collections;
-using Projector.OutputPipeline.Conventions;
+using Projector.Conventions;
 using Projector.OutputPipeline.Steps;
 
 namespace Projector.OutputPipeline
@@ -15,7 +15,7 @@ namespace Projector.OutputPipeline
          public IEnumerable<IOutputPipelineStep> BuildSteps()
          {
              var steps = DefaultPipelineSteps.Create();
-             DefaultConventions.Create().Each(x => x.UpdateSteps(steps));
+             DefaultConventions.CreateOutputConventions().Each(x => x.UpdateSteps(steps));
              return steps;
          }
     }

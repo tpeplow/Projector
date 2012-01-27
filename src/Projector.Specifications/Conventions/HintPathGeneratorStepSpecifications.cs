@@ -1,12 +1,12 @@
-﻿using Projector.OutputPipeline.Conventions;
-using Auto.Moq;
+﻿using Auto.Moq;
 using Machine.Specifications;
+using Projector.Conventions;
 using Projector.Model;
 using Projector.Model.Output;
 using Projector.Specifications.IO;
 using Projector.Specifications.Model;
 
-namespace Projector.Specifications.OutputPipeline.Conventions
+namespace Projector.Specifications.Conventions
 {
     [Subject(typeof(LibHintPathGeneratorStep))]
     public class when_missing_hint_paths

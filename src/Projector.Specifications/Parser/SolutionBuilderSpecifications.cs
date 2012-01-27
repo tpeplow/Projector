@@ -13,6 +13,7 @@ namespace Projector.Specifications.Parser
     [Subject(typeof(SolutionBuilder))]
     public class when_building_a_solution
     {
+        static TestDirectory testDirectory;
         static CodeDirectory solution;
         static AutoMoq<SolutionBuilder> solutionBuilder;
         static Mock<IFileParser> parser;
@@ -20,34 +21,14 @@ namespace Projector.Specifications.Parser
         Establish context = () => 
         {
             solutionBuilder = new AutoMoq<SolutionBuilder>();
-            solutionBuilder.GetMock<IFileSystem>()
-                .Setup(x => x.GetDirectory("projectPath"))
-                .Returns(new TestDirectory
-                                {
-                                    Name = "Some Project",
-                                    Path = "c:\\some project",
-                                    Directories = new []
-                                                    {
-                                                        new TestDirectory
-                                                            {
-                                                                Name = "sub directory",
-                                                                Path = "c:\\some project\\sub directory",
-                                                                Files = new [] { new TestFile("SomeClass.cs") }
-                                                            }
-                                                    },
-                                    Files = new []
-                                                {
-                                                    new TestFile("stuff.toparse") { Contents = "stuff to parse"}, 
-                                                    new TestFile("AClass.cs")
-                                                }
-                                });
+            testDirectory = CreateTestDrectory();
             parser = new Mock<IFileParser>();
             solutionBuilder.GetMock<IParserRegistry>()
                 .Setup(x => x.GetParserForFile("stuff.toparse"))
                 .Returns(() => parser.Object);
         };
 
-        Because of = () => solution = solutionBuilder.Object.BuildFromPath("projectPath");
+        Because of = () => solution = solutionBuilder.Object.BuildFromDirectory(testDirectory);
 
         It should_set_directory_path = () => solution.Path.ShouldEqual("c:\\some project");
 
@@ -63,5 +44,28 @@ namespace Projector.Specifications.Parser
         It should_recurse_all_sub_directories = () => solution.Directories.First().Name.ShouldEqual("sub directory");
 
         It should_include_files_from_sub_directories = () => solution.Directories.First().Files.Any(x => x.FileName == "SomeClass.cs").ShouldBeTrue();
+
+        static TestDirectory CreateTestDrectory()
+        {
+            return new TestDirectory
+                       {
+                           Name = "Some Project",
+                           Path = "c:\\some project",
+                           Directories = new[]
+                                             {
+                                                 new TestDirectory
+                                                     {
+                                                         Name = "sub directory",
+                                                         Path = "c:\\some project\\sub directory",
+                                                         Files = new[] {new TestFile("SomeClass.cs")}
+                                                     }
+                                             },
+                           Files = new[]
+                                       {
+                                           new TestFile("stuff.toparse") {Contents = "stuff to parse"},
+                                           new TestFile("AClass.cs")
+                                       }
+                       };
+        }
     }
 }

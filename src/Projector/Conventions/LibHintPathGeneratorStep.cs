@@ -2,9 +2,10 @@ using System;
 using System.Linq;
 using Projector.Model;
 using Projector.Model.Output;
+using Projector.OutputPipeline;
 using Projector.OutputPipeline.Steps;
 
-namespace Projector.OutputPipeline.Conventions
+namespace Projector.Conventions
 {
     public class LibHintPathGeneratorStep : IOutputPipelineStep, IOutputConvention
     {

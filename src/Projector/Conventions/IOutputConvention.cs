@@ -1,4 +1,6 @@
-﻿namespace Projector.OutputPipeline
+﻿using Projector.OutputPipeline;
+
+namespace Projector.Conventions
 {
     public interface IOutputConvention
     {

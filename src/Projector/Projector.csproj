@@ -49,6 +49,8 @@
   <ItemGroup>
     <Compile Include="Collections\DictionaryExtensions.cs" />
     <Compile Include="Collections\EnumerableExtensions.cs" />
+    <Compile Include="Conventions\IModifyFileSystemConvention.cs" />
+    <Compile Include="Conventions\SuggestedStructure\GitIgnoreGenerator.cs" />
     <Compile Include="IO\FilePathDictionary.cs" />
     <Compile Include="Model\BuildAction.cs" />
     <Compile Include="Model\CodeFileCollection.cs" />
@@ -62,9 +64,11 @@
     <Compile Include="Model\Validation\SolutionValidationException.cs" />
     <Compile Include="Model\Validation\SolutionValidationFailureReason.cs" />
     <Compile Include="Model\Validation\SolutionValidationFailureReasons.cs" />
-    <Compile Include="OutputPipeline\Conventions\DefaultConventions.cs" />
+    <Compile Include="Conventions\DefaultConventions.cs" />
+    <Compile Include="Conventions\SuggestedStructure\ProjectInfoByConventionStep.cs" />
+    <Compile Include="Conventions\SuggestedStructure\SuggestedStructureConvention.cs" />
     <Compile Include="OutputPipeline\Steps\DefaultPipelineSteps.cs" />
-    <Compile Include="OutputPipeline\IOutputConvention.cs" />
+    <Compile Include="Conventions\IOutputConvention.cs" />
     <Compile Include="OutputPipeline\OutputPipelineStepCollection.cs" />
     <Compile Include="OutputPipeline\OutputPipelineStepsBuilder.cs" />
     <Compile Include="OutputPipeline\OutputWriters\AssemblyReferenceWriter.cs" />
@@ -83,7 +87,7 @@
     <Compile Include="OutputPipeline\Steps\FileTypePiplineStep.cs" />
     <Compile Include="OutputPipeline\FileTypeHierarchy.cs" />
     <Compile Include="OutputPipeline\FileTypeHierarchyBuilder.cs" />
-    <Compile Include="OutputPipeline\Conventions\LibHintPathGeneratorStep.cs" />
+    <Compile Include="Conventions\LibHintPathGeneratorStep.cs" />
     <Compile Include="OutputPipeline\Steps\MsbuildFileGenerationStep.cs" />
     <Compile Include="OutputPipeline\Steps\MSBuildTemplateTranslatorStep.cs" />
     <Compile Include="OutputPipeline\Steps\RelativeReferencePathStep.cs" />

@@ -7,25 +7,21 @@ namespace Projector.Parser
 {
     public interface ISolutionBuilder
     {
-        CodeDirectory BuildFromPath(string filePath);
+        CodeDirectory BuildFromDirectory(IDirectory filePath);
     }
 
     public class SolutionBuilder : ISolutionBuilder
     {
-        readonly IFileSystem fileSystem;
         readonly IParserRegistry parserRegistry;
 
-        public SolutionBuilder(IFileSystem fileSystem, IParserRegistry parserRegistry)
+        public SolutionBuilder(IParserRegistry parserRegistry)
         {
-            if (fileSystem == null) throw new ArgumentNullException("fileSystem");
             if (parserRegistry == null) throw new ArgumentNullException("parserRegistry");
-            this.fileSystem = fileSystem;
             this.parserRegistry = parserRegistry;
         }
 
-        public CodeDirectory BuildFromPath(string filePath)
+        public CodeDirectory BuildFromDirectory(IDirectory directory)
         {
-            var directory = fileSystem.GetDirectory(filePath);
             var codeDirectory = new CodeDirectory(directory.Name, directory.Path);
 
             BuildFromDirectory(directory, codeDirectory);
