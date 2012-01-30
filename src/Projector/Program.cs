@@ -1,11 +1,13 @@
-﻿using Projector.Conventions;
+﻿using System;
+using Projector.Conventions;
 using Projector.IO;
+using Projector.Model.Validation;
 using Projector.OutputPipeline;
 using Projector.Parser;
 
 namespace Projector
 {
-    class Program
+    static class Program
     {
         static void Main(string[] args)
         {
@@ -17,7 +19,18 @@ namespace Projector
                 new SolutionBuilder(new ParserRegistry()), 
                 new OutputPipeline.OutputPipeline(new OutputPipelineStepsBuilder()));
 
-            solutionProject.ProjectFiles(path);
+            try
+            {
+                solutionProject.ProjectFiles(path);
+            }
+            catch (SolutionValidationException validationException)
+            {
+                Console.WriteLine("Project structure failed validaiton with the following reasons:");
+                foreach (var failureReason in validationException.FailureReasons)
+                {
+                    Console.WriteLine(failureReason.Message);
+                }
+            }
         }
     }
 }

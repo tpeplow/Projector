@@ -49,8 +49,13 @@
   <ItemGroup>
     <Compile Include="Collections\DictionaryExtensions.cs" />
     <Compile Include="Collections\EnumerableExtensions.cs" />
+    <Compile Include="Conventions\CreateFileIfNotExists.cs" />
+    <Compile Include="Conventions\IConventionRegistrar.cs" />
     <Compile Include="Conventions\IModifyFileSystemConvention.cs" />
+    <Compile Include="Conventions\SuggestedStructure\FileTypeGenerator.cs" />
     <Compile Include="Conventions\SuggestedStructure\GitIgnoreGenerator.cs" />
+    <Compile Include="Conventions\SuggestedStructure\ProjectFileIgnoreGenerator.cs" />
+    <Compile Include="Conventions\SuggestedStructure\SuggestedStructureConventionRegistrar.cs" />
     <Compile Include="IO\FilePathDictionary.cs" />
     <Compile Include="IO\ResourceProvider.cs" />
     <Compile Include="Model\BuildAction.cs" />
@@ -126,6 +131,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Conventions\SuggestedStructure\Resources\GitIgnore.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Conventions\SuggestedStructure\Resources\Ignore.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Conventions\SuggestedStructure\Resources\FileTypes.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

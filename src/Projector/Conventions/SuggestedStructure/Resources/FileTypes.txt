@@ -1,0 +1,9 @@
+﻿*.js: BuildAction = Content;
+web.debug.config: BuildAction = Content; DependentUpon = Web.Config;
+web.release.config: BuildAction = Content; DependentUpon = Web.Config;
+*.css: BuildAction = Content;
+*.config: BuildAction = Content;
+*.cshtml: BuildAction = Content;
+global.asax.cs: BuildAction = Compile; DependentUpon = global.asax;
+*.asax.cs: BuildAction = Compile;
+*.asax: BuildAction = Content;

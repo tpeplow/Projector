@@ -1,26 +1,28 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Projector.Conventions.SuggestedStructure;
-using Projector.IO;
 
 namespace Projector.Conventions
 {
     public static class DefaultConventions
     {
+        static readonly IEnumerable<IConventionRegistrar> ConventionRegistrars; 
+        static DefaultConventions()
+        {
+            ConventionRegistrars = new IConventionRegistrar[]
+            {
+                new SuggestedStructureConventionRegistrar(), 
+            };
+        }
+
         public static IEnumerable<IOutputConvention> CreateOutputConventions()
         {
-            return new IOutputConvention[]
-            {
-                new SuggestedStructureConvention(), 
-                new LibHintPathGeneratorStep()
-            };
+            return ConventionRegistrars.SelectMany(x => x.OutputConventions);
         }
 
         public static IEnumerable<IModifyFileSystemConvention> CreateFileSystemConventions()
         {
-            return new IModifyFileSystemConvention[]
-            {
-                new GitIgnoreGenerator(new FileSystem(), new ResourceProvider())
-            };
+            return ConventionRegistrars.SelectMany(x => x.ModifyFileSystemConventions);
         }
     }
 }

@@ -1,0 +1,8 @@
+﻿bin\
+obj\
+packages\
+_ReSharper
+*.sln
+*.csproj
+*.suo
+*.gitignore
