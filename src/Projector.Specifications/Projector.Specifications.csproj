@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Conventions\SuggestedStructure\GitIgnoreGeneratorSpecifications.cs" />
+    <Compile Include="Conventions\SuggestedStructure\OutputTypeNamingConventionSpecifications.cs" />
     <Compile Include="IO\FilePathDictionarySpecifications.cs" />
     <Compile Include="IO\FileSystemSpecifcations.cs" />
     <Compile Include="IO\ResourceProviderSpecifications.cs" />

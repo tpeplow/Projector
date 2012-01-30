@@ -23,5 +23,10 @@ namespace Projector
         {
             return (TEnum)Enum.Parse(typeof (TEnum), value);
         }
+
+        public static bool ContainsIgnoreCase(this string lookIn, params string[] forAny)
+        {
+            return forAny.Any(x => lookIn.IndexOf(x, StringComparison.InvariantCultureIgnoreCase) >= 0);
+        }
     }
 }

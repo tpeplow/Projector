@@ -55,7 +55,10 @@
     <Compile Include="Conventions\LibHintPathGenerator\LibHintPathConventionRegistrar.cs" />
     <Compile Include="Conventions\SuggestedStructure\FileTypeGenerator.cs" />
     <Compile Include="Conventions\SuggestedStructure\GitIgnoreGenerator.cs" />
+    <Compile Include="Conventions\SuggestedStructure\ProjectType.cs" />
+    <Compile Include="Conventions\SuggestedStructure\ProjectTypeNamingConvention.cs" />
     <Compile Include="Conventions\SuggestedStructure\ProjectFileIgnoreGenerator.cs" />
+    <Compile Include="Conventions\SuggestedStructure\ProjectTypes.cs" />
     <Compile Include="Conventions\SuggestedStructure\SuggestedStructureConventionRegistrar.cs" />
     <Compile Include="IO\FilePathDictionary.cs" />
     <Compile Include="IO\ResourceProvider.cs" />
@@ -124,6 +127,7 @@
     <Compile Include="Parser\SolutionBuilder.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reflection\ReflectionExtentions.cs" />
     <Compile Include="SolutionProjector.cs" />
     <Compile Include="StringExtensions.cs" />
   </ItemGroup>
