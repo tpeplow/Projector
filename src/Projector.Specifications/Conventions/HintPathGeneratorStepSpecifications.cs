@@ -1,6 +1,7 @@
 ﻿using Auto.Moq;
 using Machine.Specifications;
 using Projector.Conventions;
+using Projector.Conventions.LibHintPathGenerator;
 using Projector.Model;
 using Projector.Model.Output;
 using Projector.Specifications.IO;

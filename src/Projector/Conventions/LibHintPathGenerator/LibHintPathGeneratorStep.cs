@@ -5,7 +5,7 @@ using Projector.Model.Output;
 using Projector.OutputPipeline;
 using Projector.OutputPipeline.Steps;
 
-namespace Projector.Conventions
+namespace Projector.Conventions.LibHintPathGenerator
 {
     public class LibHintPathGeneratorStep : IOutputPipelineStep, IOutputConvention
     {
@@ -24,7 +24,7 @@ namespace Projector.Conventions
             }
         }
 
-        private string FindFile(CodeDirectory directory, string referenceName)
+        private static string FindFile(CodeDirectory directory, string referenceName)
         {
             var file = directory.Files.FirstOrDefault(x => x.FileName.StartsWith(referenceName, StringComparison.InvariantCultureIgnoreCase));
 

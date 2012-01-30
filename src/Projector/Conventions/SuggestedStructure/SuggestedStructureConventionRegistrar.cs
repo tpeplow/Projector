@@ -7,25 +7,16 @@ namespace Projector.Conventions.SuggestedStructure
     {
         public IEnumerable<IOutputConvention> OutputConventions
         {
-            get 
-            { 
-                return new[]
-                {
-                    new SuggestedStructureConvention(),
-                }; 
-            }
+            get { yield return new SuggestedStructureConvention(); }
         }
 
         public IEnumerable<IModifyFileSystemConvention> ModifyFileSystemConventions
         {
             get
             {
-                return new IModifyFileSystemConvention[]
-                {
-                    new GitIgnoreGenerator(new FileSystem(), new ResourceProvider()),
-                    new ProjectFileIgnoreGenerator(new FileSystem(), new ResourceProvider()), 
-                    new FileTypeGenerator(new FileSystem(), new ResourceProvider()), 
-                };
+                yield return new GitIgnoreGenerator(new FileSystem(), new ResourceProvider());
+                yield return new ProjectFileIgnoreGenerator(new FileSystem(), new ResourceProvider());
+                yield return new FileTypeGenerator(new FileSystem(), new ResourceProvider());
             }
         }
     }

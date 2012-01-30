@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Projector.Conventions.LibHintPathGenerator;
 using Projector.Conventions.SuggestedStructure;
 
 namespace Projector.Conventions
@@ -11,7 +12,8 @@ namespace Projector.Conventions
         {
             ConventionRegistrars = new IConventionRegistrar[]
             {
-                new SuggestedStructureConventionRegistrar(), 
+                new SuggestedStructureConventionRegistrar(),
+                new LibHintPathConventionRegistrar(),  
             };
         }
 

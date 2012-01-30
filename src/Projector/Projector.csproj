@@ -52,6 +52,7 @@
     <Compile Include="Conventions\CreateFileIfNotExists.cs" />
     <Compile Include="Conventions\IConventionRegistrar.cs" />
     <Compile Include="Conventions\IModifyFileSystemConvention.cs" />
+    <Compile Include="Conventions\LibHintPathGenerator\LibHintPathConventionRegistrar.cs" />
     <Compile Include="Conventions\SuggestedStructure\FileTypeGenerator.cs" />
     <Compile Include="Conventions\SuggestedStructure\GitIgnoreGenerator.cs" />
     <Compile Include="Conventions\SuggestedStructure\ProjectFileIgnoreGenerator.cs" />
@@ -93,7 +94,7 @@
     <Compile Include="OutputPipeline\Steps\FileTypePiplineStep.cs" />
     <Compile Include="OutputPipeline\FileTypeHierarchy.cs" />
     <Compile Include="OutputPipeline\FileTypeHierarchyBuilder.cs" />
-    <Compile Include="Conventions\LibHintPathGeneratorStep.cs" />
+    <Compile Include="Conventions\LibHintPathGenerator\LibHintPathGeneratorStep.cs" />
     <Compile Include="OutputPipeline\Steps\MsbuildFileGenerationStep.cs" />
     <Compile Include="OutputPipeline\Steps\MSBuildTemplateTranslatorStep.cs" />
     <Compile Include="OutputPipeline\Steps\RelativeReferencePathStep.cs" />
