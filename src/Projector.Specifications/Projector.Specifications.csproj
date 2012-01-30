@@ -49,8 +49,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Conventions\SuggestedStructure\GitIgnoreGeneratorSpecifications.cs" />
     <Compile Include="IO\FilePathDictionarySpecifications.cs" />
     <Compile Include="IO\FileSystemSpecifcations.cs" />
+    <Compile Include="IO\ResourceProviderSpecifications.cs" />
     <Compile Include="IO\TestDirectory.cs" />
     <Compile Include="IO\TestFile.cs" />
     <Compile Include="Model\TestEntityFactory.cs" />
@@ -90,7 +92,9 @@
       <Name>Projector</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="IO\TestResource.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

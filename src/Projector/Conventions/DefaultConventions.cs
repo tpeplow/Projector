@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Projector.Conventions.SuggestedStructure;
+using Projector.IO;
 
 namespace Projector.Conventions
 {
@@ -18,7 +19,7 @@ namespace Projector.Conventions
         {
             return new IModifyFileSystemConvention[]
             {
-                new GitIgnoreGenerator()
+                new GitIgnoreGenerator(new FileSystem(), new ResourceProvider())
             };
         }
     }

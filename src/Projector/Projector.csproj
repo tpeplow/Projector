@@ -52,6 +52,7 @@
     <Compile Include="Conventions\IModifyFileSystemConvention.cs" />
     <Compile Include="Conventions\SuggestedStructure\GitIgnoreGenerator.cs" />
     <Compile Include="IO\FilePathDictionary.cs" />
+    <Compile Include="IO\ResourceProvider.cs" />
     <Compile Include="Model\BuildAction.cs" />
     <Compile Include="Model\CodeFileCollection.cs" />
     <Compile Include="Model\FileType.cs" />
@@ -123,7 +124,9 @@
   <ItemGroup>
     <None Include="app.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Conventions\SuggestedStructure\Resources\GitIgnore.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

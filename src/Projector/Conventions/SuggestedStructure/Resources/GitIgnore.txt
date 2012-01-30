@@ -1,0 +1,6 @@
+﻿\bin
+\obj
+\_ReSharper*
+*.user
+notes.txt
+*.suo
