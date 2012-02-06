@@ -55,6 +55,7 @@
     <Compile Include="Conventions\LibHintPathGenerator\LibHintPathConventionRegistrar.cs" />
     <Compile Include="Conventions\SuggestedStructure\FileTypeGenerator.cs" />
     <Compile Include="Conventions\SuggestedStructure\GitIgnoreGenerator.cs" />
+    <Compile Include="Conventions\SuggestedStructure\TemplateFolderGenerator.cs" />
     <Compile Include="Conventions\SuggestedStructure\ProjectType.cs" />
     <Compile Include="Conventions\SuggestedStructure\ProjectTypeNamingConvention.cs" />
     <Compile Include="Conventions\SuggestedStructure\ProjectFileIgnoreGenerator.cs" />
@@ -142,6 +143,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Conventions\SuggestedStructure\Resources\FileTypes.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Conventions\SuggestedStructure\Resources\DefaultTemplate.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Conventions\SuggestedStructure\Resources\ProjectTemplate.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -12,13 +12,13 @@ namespace Projector.Specifications.IO
         static IDirectory result;
 
         Establish context = () =>
-                                        {
-                                            fileSystem = new FileSystem();
-                                            Directory.CreateDirectory("temp");
-                                            File.WriteAllText("temp/hello.txt", "hello world");
-                                            Directory.CreateDirectory("temp/child");
-                                            File.WriteAllText("temp/child/child.txt", "i'm a child");
-                                        };
+        {
+            fileSystem = new FileSystem();
+            Directory.CreateDirectory("temp");
+            File.WriteAllText("temp/hello.txt", "hello world");
+            Directory.CreateDirectory("temp/child");
+            File.WriteAllText("temp/child/child.txt", "i'm a child");
+        };
 
         Because of = () => result = fileSystem.GetDirectories(".").FirstOrDefault(x => x.Path.EndsWith("temp\\"));
 
@@ -43,16 +43,39 @@ namespace Projector.Specifications.IO
     public class when_writing_a_file_to_the_file_system
     {
         static FileSystem fileSystem;
-        Establish context = () =>
-                                {
-                                    Directory.CreateDirectory("temp");
-                                    fileSystem = new FileSystem();
-                                };
+        static IDirectory directory;
 
-        Because of = () => fileSystem.WriteFile("temp/some file.txt", "hello world");
+        Establish context = () =>
+        {
+            Directory.CreateDirectory("temp");
+            fileSystem = new FileSystem();
+            directory = fileSystem.GetDirectory("temp");
+        };
+
+        Because of = () => directory.WriteFile("some file.txt", "hello world");
 
         It should_write_the_file_to_the_correct_path =
             () => File.ReadAllText("temp/some file.txt").ShouldEqual("hello world");
+
+        Cleanup remove_files = () => Directory.Delete("temp", true);
+    }
+
+    [Subject(typeof(FileSystem))]
+    public class when_writing_a_directory_to_the_file_system
+    {
+        static FileSystem fileSystem;
+        static IDirectory directory;
+
+        Establish context = () =>
+        {
+            Directory.CreateDirectory("temp");
+            fileSystem = new FileSystem();
+            directory = fileSystem.GetDirectory("temp");
+        };
+
+        Because of = () => directory.CreateChildDirectory("child");
+
+        It should_write_the_file_to_the_correct_path = () => Directory.Exists("temp/child").ShouldBeTrue();
 
         Cleanup remove_files = () => Directory.Delete("temp", true);
     }

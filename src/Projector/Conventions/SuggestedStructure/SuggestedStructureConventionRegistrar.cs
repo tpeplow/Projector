@@ -14,9 +14,11 @@ namespace Projector.Conventions.SuggestedStructure
         {
             get
             {
-                yield return new GitIgnoreGenerator(new FileSystem(), new ResourceProvider());
-                yield return new ProjectFileIgnoreGenerator(new FileSystem(), new ResourceProvider());
-                yield return new FileTypeGenerator(new FileSystem(), new ResourceProvider());
+                var resourceProvider = new ResourceProvider();
+                yield return new GitIgnoreGenerator(resourceProvider);
+                yield return new ProjectFileIgnoreGenerator(resourceProvider);
+                yield return new FileTypeGenerator(resourceProvider);
+                yield return new TemplateFolderGenerator(resourceProvider);
             }
         }
     }

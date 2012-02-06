@@ -18,5 +18,18 @@ namespace Projector.Specifications.IO
         public IEnumerable<IFile> Files { get; set; }
 
         public IEnumerable<IDirectory> Directories { get; set; }
+        
+        public IDirectory CreateChildDirectory(string name)
+        {
+            var directory = new TestDirectory {Name = name};
+            var subDirectories =new List<IDirectory>(Directories ?? new IDirectory[0]) {directory};
+            Directories = subDirectories;
+            return directory;
+        }
+
+        public void WriteFile(string name, string contents)
+        {
+            Files = new List<IFile>(Files ?? new IFile[0]) { new TestFile(name) { Contents = contents }};
+        }
     }
 }

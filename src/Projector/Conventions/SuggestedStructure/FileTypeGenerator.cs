@@ -5,8 +5,8 @@ namespace Projector.Conventions.SuggestedStructure
 {
     public class FileTypeGenerator : CreateFileIfNotExists<FileTypeGenerator>
     {
-        public FileTypeGenerator(IFileSystem fileSystem, IResourceProvider resourceProvider) 
-            : base(fileSystem, resourceProvider, ParserRegistry.FileTypesFileName, "Resources.FileTypes.txt")
+        public FileTypeGenerator(IResourceProvider resourceProvider) 
+            : base(resourceProvider, ParserRegistry.FileTypesFileName, "Resources.FileTypes.txt")
         {
         }
     }

@@ -6,14 +6,12 @@ namespace Projector.Conventions
 {
     public class CreateFileIfNotExists<TResourceRelativeTo> : IModifyFileSystemConvention
     {
-        readonly IFileSystem fileSystem;
         readonly IResourceProvider resourceProvider;
         readonly string fileName;
         readonly string resourceName;
 
-        public CreateFileIfNotExists(IFileSystem fileSystem, IResourceProvider resourceProvider, string fileName, string resourceName)
+        protected CreateFileIfNotExists(IResourceProvider resourceProvider, string fileName, string resourceName)
         {
-            this.fileSystem = fileSystem;
             this.resourceProvider = resourceProvider;
             this.fileName = fileName;
             this.resourceName = resourceName;
@@ -26,7 +24,7 @@ namespace Projector.Conventions
                 return;
             }
 
-            fileSystem.WriteFile(Path.Combine(directory.Path, fileName), resourceProvider.ReadResource<TResourceRelativeTo>(resourceName));
+            directory.WriteFile(fileName, resourceProvider.ReadResource<TResourceRelativeTo>(resourceName));
         }
     }
 }

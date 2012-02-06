@@ -8,5 +8,6 @@ namespace Projector.IO
         IEnumerable<IDirectory> GetDirectories(string path);
         IDirectory GetDirectory(string path);
         void WriteFile(string path, string contents);
+        void CreateDirectory(string path);
     }
 }

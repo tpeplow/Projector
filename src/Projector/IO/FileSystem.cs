@@ -27,6 +27,11 @@ namespace Projector.IO
             System.IO.File.WriteAllText(path, contents);
         }
 
+        public void CreateDirectory(string path)
+        {
+            System.IO.Directory.CreateDirectory(path);
+        }
+
         private class Directory : IDirectory
         {
             public Directory(string path)
@@ -48,6 +53,19 @@ namespace Projector.IO
             public IEnumerable<IDirectory> Directories
             {
                 get { return new FileSystem().GetDirectories(Path); }
+            }
+
+            public IDirectory CreateChildDirectory(string name)
+            {
+                var newPath = System.IO.Path.Combine(Path, name);
+                var fileSystem = new FileSystem();
+                fileSystem.CreateDirectory(newPath);
+                return fileSystem.GetDirectory(newPath);
+            }
+
+            public void WriteFile(string name, string contents)
+            {
+                new FileSystem().WriteFile(System.IO.Path.Combine(Path, name), contents);
             }
         }
 
