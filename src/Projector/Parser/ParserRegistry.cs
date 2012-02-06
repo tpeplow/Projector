@@ -10,13 +10,19 @@ namespace Projector.Parser
 
     public class ParserRegistry : IParserRegistry
     {
+        public const string ProjectFileName = "proj.nosln";
+        public const string ReferencesFileName = "references.nosln";
+        public const string IgnoreFileName = "ignore.nosln";
+        public const string TemplateFileName = "template.nosln";
+        public const string FileTypesFileName = "filetypes.nosln";
+
         static readonly Dictionary<string, IFileParser> Parsers = new Dictionary<string, IFileParser>(StringComparer.InvariantCultureIgnoreCase)
         {
-            { "proj.nosln", new ProjectParser(new GuidGenerator()) },
-            { "references.nosln", new ReferenceParser() },
-            { "ignore.nosln", new IgnoreFileParser() },
-            { "template.nosln", new ProjectTemplateParser() },
-            { "filetypes.nosln", new FileTypeParser() }
+            { ProjectFileName, new ProjectParser(new GuidGenerator()) },
+            { ReferencesFileName, new ReferenceParser() },
+            { IgnoreFileName, new IgnoreFileParser() },
+            { TemplateFileName, new ProjectTemplateParser() },
+            { FileTypesFileName, new FileTypeParser() }
         };
 
         public IFileParser GetParserForFile(string fileName)

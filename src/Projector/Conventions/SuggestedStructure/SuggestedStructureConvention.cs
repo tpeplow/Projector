@@ -7,7 +7,7 @@ namespace Projector.Conventions.SuggestedStructure
     {
         public void UpdateSteps(OutputPipelineStepCollection steps)
         {
-            steps.InsertBefore<SolutionStructureStep>(new ProjectInfoByConventionStep());
+            steps.InsertBefore<SolutionStructureStep>(new ProjectInfoByConventionStep(new ProjectTypeNamingConvention()));
         }
     }
 }
