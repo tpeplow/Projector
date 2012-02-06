@@ -55,6 +55,7 @@
     <Compile Include="Conventions\LibHintPathGenerator\LibHintPathConventionRegistrar.cs" />
     <Compile Include="Conventions\SuggestedStructure\FileTypeGenerator.cs" />
     <Compile Include="Conventions\SuggestedStructure\GitIgnoreGenerator.cs" />
+    <Compile Include="Conventions\SuggestedStructure\ProjectTemplateSelectorStep.cs" />
     <Compile Include="Conventions\SuggestedStructure\TemplateFolderGenerator.cs" />
     <Compile Include="Conventions\SuggestedStructure\ProjectType.cs" />
     <Compile Include="Conventions\SuggestedStructure\ProjectTypeNamingConvention.cs" />

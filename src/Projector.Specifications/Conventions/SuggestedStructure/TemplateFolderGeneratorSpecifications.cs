@@ -29,7 +29,7 @@ namespace Projector.Specifications.Conventions.SuggestedStructure
 
         Establish context = () =>
         {
-            templateDir = new TestDirectory { Name = "_templates"};
+            templateDir = new TestDirectory { Name = "_templates" };
             directory.Directories = new IDirectory[]
             {
                 templateDir

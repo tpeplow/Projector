@@ -8,6 +8,6 @@ namespace Projector.Conventions.SuggestedStructure
         public abstract string Name { get; }
         public abstract IEnumerable<string> NamingConventions { get; }
 
-        public virtual string TemplateName { get { return "Resources\\DefaultTemplate.txt"; } }
+        public virtual string TemplateName { get { return "Resources.ProjectTemplate.txt"; } }
     }
 }

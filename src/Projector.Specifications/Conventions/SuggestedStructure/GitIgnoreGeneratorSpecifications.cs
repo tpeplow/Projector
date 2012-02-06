@@ -1,4 +1,5 @@
-﻿using Auto.Moq;
+﻿using System.Linq;
+using Auto.Moq;
 using Machine.Specifications;
 using Moq;
 using Projector.Conventions.SuggestedStructure;
@@ -14,10 +15,10 @@ namespace Projector.Specifications.Conventions.SuggestedStructure
         protected static AutoMoq<GitIgnoreGenerator> gitIgnoreGenerator;
         protected static TestDirectory directory;
 
-        Establish context = () => 
+        Establish context = () =>
                                 {
                                     gitIgnoreGenerator = new AutoMoq<GitIgnoreGenerator>();
-                                    directory = new TestDirectory {Path = "c:\\"};
+                                    directory = new TestDirectory { Path = "c:\\" };
                                     gitIgnoreGenerator.GetMock<IResourceProvider>().Setup(x => x.ReadResource<GitIgnoreGenerator>("Resources.GitIgnore.txt")).Returns("GitIgnore");
                                 };
 
@@ -27,14 +28,14 @@ namespace Projector.Specifications.Conventions.SuggestedStructure
     [Subject(typeof(GitIgnoreGenerator))]
     public class when_there_is_no_git_ignore_file_in_the_foot_folder : when_generatoring_git_ignore
     {
-        It should_create_a_git_ignore_file = () => gitIgnoreGenerator.GetMock<IFileSystem>().Verify(x => x.WriteFile("c:\\.gitignore", "GitIgnore"));
+        It should_create_a_git_ignore_file = () => directory.Files.First(x => x.FileName == ".gitignore").Contents.ShouldEqual("GitIgnore");
     }
 
     [Subject(typeof(GitIgnoreGenerator))]
     public class when_there_a_git_ignore_file_in_the_foot_folder : when_generatoring_git_ignore
     {
-        Establish context = () => directory.Files = new[] {new TestFile(".gitignore")};
+        Establish context = () => directory.Files = new[] { new TestFile(".gitignore") { Contents = "unchanged" } };
 
-        It should_create_a_git_ignore_file = () => gitIgnoreGenerator.GetMock<IFileSystem>().Verify(x => x.WriteFile("c:\\.gitignore", "GitIgnore"), Times.Never());
+        It should_create_a_git_ignore_file = () => directory.Files.First().Contents.ShouldEqual("unchanged");
     }
 }
