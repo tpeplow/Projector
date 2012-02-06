@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using Auto.Moq;
 using Machine.Specifications;
 using Projector.Collections;
@@ -21,7 +22,7 @@ namespace Projector.Specifications.Conventions.SuggestedStructure
 
         Establish context = () =>
         {
-            projectInfoByConventionStep = new AutoMoq<ProjectInfoByConventionStep>();
+            projectInfoByConventionStep = new AutoMoq<ProjectInfoByConventionStep>(new GuidGenerator());
             codeDirectory = TestEntityFactory.CreateCodeDirectory("project");
             solution = new Solution();
         };
@@ -50,6 +51,17 @@ namespace Projector.Specifications.Conventions.SuggestedStructure
         It should_use_folder_name_for_namespace = () => solution.Projects.Select(x => x.Namespace).ShouldContainOnly(expectedProjects);
 
         It should_set_the_output_type_by_convention = () => solution.Projects.First(x => x.Name == "Project1").OutputType.ShouldEqual(new ProjectTypes.Exe().OutputType);
+
+        It should_set_the_guid = () => solution.Projects.Select(x => x.Guid).First().ShouldNotEqual(Guid.Empty);
+
+        It should_set_extension_to_csproj = () => solution.Projects.Select(x => x.Extension).Distinct().ShouldContainOnly(".csproj");
+
+        It should_set_project_type_guid = () => solution.Projects.Select(x => x.ProjectTypeGuid).Distinct().ShouldContainOnly(new ProjectTypes.Exe().ProjectTypeGuid);
+
+        It should_set_the_path = () => solution.Projects.First().Path.ShouldNotBeNull();
+
+        It should_set_the_generated_output_path = () => solution.Projects.First().GeneratedProjectFilePath.ShouldNotBeNull();
+
     }
 
     [Subject(typeof(ProjectInfoByConventionStep))]

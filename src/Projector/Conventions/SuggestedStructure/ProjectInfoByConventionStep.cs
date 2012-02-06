@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Linq;
 using Projector.Model;
 using Projector.Model.Output;
@@ -10,10 +11,12 @@ namespace Projector.Conventions.SuggestedStructure
     public class ProjectInfoByConventionStep : IOutputPipelineStep
     {
         readonly IProjectTypeNamingConvention projectTypeNamingConvention;
+        readonly IGuidGenerator guidGenerator;
 
-        public ProjectInfoByConventionStep(IProjectTypeNamingConvention projectTypeNamingConvention)
+        public ProjectInfoByConventionStep(IProjectTypeNamingConvention projectTypeNamingConvention, IGuidGenerator guidGenerator)
         {
             this.projectTypeNamingConvention = projectTypeNamingConvention;
+            this.guidGenerator = guidGenerator;
         }
 
         public void Execute(Solution solution, CodeDirectory codeDirectory)
@@ -31,7 +34,12 @@ namespace Projector.Conventions.SuggestedStructure
                     AssemblyName = projectFolder.Name,
                     Name = projectFolder.Name,
                     Namespace = projectFolder.Name,
-                    OutputType = projectType.OutputType
+                    OutputType = projectType.OutputType,
+                    Guid = guidGenerator.Generate(),
+                    Extension = ".csproj",
+                    ProjectTypeGuid = projectType.ProjectTypeGuid,
+                    Path = projectFolder.Path,
+                    GeneratedProjectFilePath = Path.Combine(projectFolder.Path, projectFolder.Name + ".csproj")
                 });
             }
         }

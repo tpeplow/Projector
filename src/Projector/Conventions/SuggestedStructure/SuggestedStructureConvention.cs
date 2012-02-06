@@ -8,7 +8,7 @@ namespace Projector.Conventions.SuggestedStructure
         public void UpdateSteps(OutputPipelineStepCollection steps)
         {
             var projectTypeNamingConvention = new ProjectTypeNamingConvention();
-            steps.InsertBefore<SolutionStructureStep>(new ProjectInfoByConventionStep(projectTypeNamingConvention));
+            steps.InsertBefore<SolutionStructureStep>(new ProjectInfoByConventionStep(projectTypeNamingConvention, new GuidGenerator()));
             steps.InsertAfter<MsBuildTemplateTranslatorStep>(new ProjectTemplateSelectorStep(projectTypeNamingConvention));
         }
     }
