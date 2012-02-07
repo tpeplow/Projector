@@ -10,8 +10,8 @@ namespace Projector.Specifications.Parser
     [Subject(typeof(FileTypeParser))]
     public class when_parsing_file_types
     {
+        static IFileParser fileTypeParser;
         static CodeDirectory codeDirectory;
-        static FileTypeParser fileTypeParser;
 
         Establish context = () =>
         {
@@ -33,7 +33,7 @@ namespace Projector.Specifications.Parser
     [Subject(typeof(FileTypeParser))]
     public class when_file_is_dependent_on_another_file
     {
-        static FileTypeParser fileTypeParser;
+        static IFileParser fileTypeParser;
         static CodeDirectory codeDirectory;
 
         Establish context = () =>

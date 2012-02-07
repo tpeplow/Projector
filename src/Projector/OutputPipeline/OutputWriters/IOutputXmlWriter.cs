@@ -18,7 +18,7 @@ namespace Projector.OutputPipeline.OutputWriters
 
         protected XElement CreateElement(string localName, params object[] content)
         {
-            return new XElement(Msbuild.DefualtNamespace + localName, content);
+            return new XElement(Msbuild.DefaultNamespace + localName, content);
         }
 
         void IOutputXmlWriter.Write(object part, XDocument xml)

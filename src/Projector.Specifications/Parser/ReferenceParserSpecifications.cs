@@ -9,7 +9,7 @@ namespace Projector.Specifications.Parser
     [Subject(typeof(ReferenceParser))]
     public class when_parsing_references
     {
-        static ReferenceParser referenceParser;
+        static IFileParser referenceParser;
         static ReferenceCollection referenceCollection;
         static CodeDirectory codeDirectory;
         static int expectedReferences = 5;

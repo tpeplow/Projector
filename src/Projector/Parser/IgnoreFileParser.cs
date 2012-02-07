@@ -3,9 +3,9 @@ using Projector.Model;
 
 namespace Projector.Parser
 {
-    public class IgnoreFileParser : IFileParser
+    public class IgnoreFileParser : FileParser<FileInclusionPolicy>
     {
-        public FileInclusionPolicy Parse(string ignoreFile)
+        public override FileInclusionPolicy Parse(string ignoreFile)
         {
             return Parse(ignoreFile.GetLines());
         }
@@ -24,9 +24,9 @@ namespace Projector.Parser
             return fileInclusionPolicy;
         }
 
-        void IFileParser.Parse(string file, CodeDirectory codeDirectory)
+        protected override void UpdateCodeDirectory(FileInclusionPolicy parsedFile, CodeDirectory codeDirectory)
         {
-            codeDirectory.FileInclusionPolicy = Parse(file);
+            codeDirectory.FileInclusionPolicy = parsedFile;
         }
     }
 }

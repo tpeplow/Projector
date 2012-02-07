@@ -7,7 +7,7 @@ using Projector.Model.Validation;
 
 namespace Projector.Parser
 {
-    public class ProjectParser : IFileParser
+    public class ProjectParser : FileParser<ProjectInfo>
     {
         static readonly Regex ProjectRegex = new Regex(@"([a-z]+):\s*(.+)", RegexOptions.IgnoreCase);
         readonly IGuidGenerator guidGenerator;
@@ -18,7 +18,7 @@ namespace Projector.Parser
             this.guidGenerator = guidGenerator;
         }
 
-        public ProjectInfo Parse(string projectFile)
+        public override ProjectInfo Parse(string projectFile)
         {
             var values = ProjectRegex.Matches(projectFile)
                 .Cast<Match>()
@@ -53,9 +53,9 @@ namespace Projector.Parser
             return value ?? ifNull;
         }
 
-        void IFileParser.Parse(string file, CodeDirectory codeDirectory)
+        protected override void UpdateCodeDirectory(ProjectInfo parsedFile, CodeDirectory codeDirectory)
         {
-            codeDirectory.Project = Parse(file);
+            codeDirectory.Project = parsedFile;
         }
     }
 }

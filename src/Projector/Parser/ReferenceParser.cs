@@ -6,19 +6,18 @@ using Projector.Model;
 
 namespace Projector.Parser
 {
-    public class ReferenceParser : IFileParser
+    public class ReferenceParser : FileParser<ReferenceCollection>
     {
         private static readonly Regex ReferenceLineExpression = new Regex(@"([a-z\._]+)(?: ([a-z\.\\ 0-9]+)){0,1}", RegexOptions.IgnoreCase);
 
-        public void Parse(string file, CodeDirectory codeDirectory)
+        public override ReferenceCollection Parse(string file)
         {
-            var references = Parse(file);
-            references.Each(codeDirectory.References.Add);
+            return new ReferenceCollection(Parse(file.GetLines()));
         }
 
-        IEnumerable<ReferenceInformation> Parse(string file)
+        protected override void UpdateCodeDirectory(ReferenceCollection parsedFile, CodeDirectory codeDirectory)
         {
-            return Parse(file.GetLines());
+            parsedFile.Each(codeDirectory.References.Add);
         }
 
         IEnumerable<ReferenceInformation> Parse(IEnumerable<string> lines)
