@@ -1,5 +1,4 @@
 ﻿using System;
-using System.IO;
 using System.Linq;
 using Projector.Model;
 using Projector.Model.Output;
@@ -29,7 +28,7 @@ namespace Projector.Conventions.SuggestedStructure
                 if (projectFolder.Files.Any(x => x.FileName.Equals(ParserRegistry.ProjectFileName, StringComparison.InvariantCultureIgnoreCase)))
                     continue;
                 var projectType = projectTypeNamingConvention.GetProjectType(projectFolder.Name);
-                solution.AddProject(new Project
+                projectFolder.Project = (new ProjectInfo
                 {
                     AssemblyName = projectFolder.Name,
                     Name = projectFolder.Name,
@@ -38,8 +37,6 @@ namespace Projector.Conventions.SuggestedStructure
                     Guid = guidGenerator.Generate(),
                     Extension = ".csproj",
                     ProjectTypeGuid = projectType.ProjectTypeGuid,
-                    Path = projectFolder.Path,
-                    GeneratedProjectFilePath = Path.Combine(projectFolder.Path, projectFolder.Name + ".csproj")
                 });
             }
         }
