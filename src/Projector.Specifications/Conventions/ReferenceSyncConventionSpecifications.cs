@@ -15,6 +15,7 @@ namespace Projector.Specifications.Conventions
     public class when_there_is_currently_no_references_file : when_there_are_references
     {
         It should_create_references_file = () => ProjectDirectory.Files.Select(x => x.FileName).ShouldContain(ParserRegistry.ReferencesFileName);
+        It should_write_file_contents = () => ProjectDirectory.Files.First(x => x.FileName == ParserRegistry.ReferencesFileName).Contents.ShouldEqual("the file");
         It should_contain_all_references = () => UpdatedReferences.Count().ShouldEqual(3);
         It should_map_reference_names = () => UpdatedReferences.Select(x => x.Name).ShouldContainOnly("Auto.Moq", "System", "Projector");
         It should_map_hint_paths = () => UpdatedReferences.Select(x => x.HintPath).Where(x => x != null).ShouldContainOnly(@"..\..\lib\Auto.Moq.dll");
@@ -73,7 +74,7 @@ namespace Projector.Specifications.Conventions
         {
             Directory = new TestDirectory();
             referenceSyncConvention = new AutoMoq<ReferenceSyncConvention>();
-            referenceSyncConvention.GetMock<IFileParser<ReferenceCollection>>().Setup(x => x.Parse(Arg.IsAny<string>())).Returns(CurrentReferences);
+            referenceSyncConvention.GetMock<IFileParser<ReferenceCollection>>().Setup(x => x.Parse(Arg.IsAny<string>())).Returns(() => CurrentReferences);
             referenceSyncConvention.GetMock<IProjectorSerializer<ReferenceCollection>>()
                 .Setup(x => x.Serialize(Arg.IsAny<ReferenceCollection>()))
                 .Returns("the file")
