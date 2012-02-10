@@ -150,9 +150,6 @@
     <EmbeddedResource Include="Conventions\SuggestedStructure\Resources\FileTypes.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Conventions\SuggestedStructure\Resources\DefaultTemplate.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="Conventions\SuggestedStructure\Resources\ProjectTemplate.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

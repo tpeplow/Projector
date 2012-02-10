@@ -11,6 +11,11 @@ namespace Projector
     {
         static void Main(string[] args)
         {
+            if (args.Length == 0)
+            {
+                Console.WriteLine("Please specify the path to the root of your project");
+                return;
+            }
             var path = args[0];
 
             var solutionProject = new SolutionProjector(
